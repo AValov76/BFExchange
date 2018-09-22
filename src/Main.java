@@ -1,3 +1,4 @@
+import javafx.stage.Modality;
 import ru.kstovoservice.test.Test;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -10,29 +11,30 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    @Override
-    public void start(final Stage primaryStage) {
+    public void start (final Stage primaryStage) {
 
         Button button = new Button();
-        button.setText("Open a New Window");
+        button.setText("О программе");
 
         button.setOnAction(new EventHandler<ActionEvent>() {
 
-            @Override
-            public void handle(ActionEvent event) {
+            public void handle (ActionEvent event) {
 
-                Label secondLabel = new Label("I'm a Label on new Window");
+                Label label = new Label("(c) ООО \"Кстовоторгсервис\". Версия 1.0. \n Тел. +7 (83145) 9-06-98 \n г.Кстово, 2018");
 
                 StackPane secondaryLayout = new StackPane();
-                secondaryLayout.getChildren().add(secondLabel);
+                secondaryLayout.getChildren().add(label);
 
                 Scene secondScene = new Scene(secondaryLayout, 230, 100);
 
                 // New window (Stage)
                 Stage newWindow = new Stage();
-                newWindow.setTitle("Second Stage");
+                newWindow.setTitle("О программе");
                 newWindow.setScene(secondScene);
-
+                newWindow.initModality(Modality.APPLICATION_MODAL);
+                newWindow.setResizable(false);
+                newWindow.setWidth(300);
+                newWindow.setMaxHeight(80);
                 // Set position of second window, related to primary window.
                 newWindow.setX(primaryStage.getX() + 200);
                 newWindow.setY(primaryStage.getY() + 100);
