@@ -25,7 +25,7 @@ public class Main extends Application {
                 StackPane secondaryLayout = new StackPane();
                 secondaryLayout.getChildren().add(label);
 
-                Scene secondScene = new Scene(secondaryLayout, 230, 190);
+                Scene secondScene = new Scene(secondaryLayout, 230, 130);
 
                 // New window (Stage)
                 Stage newWindow = new Stage();
