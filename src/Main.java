@@ -13,8 +13,8 @@ public class Main extends Application {
 
     public void start (final Stage primaryStage) {
 
-        Button button = new Button();
-        button.setText("О программе");
+        Button button = new Button("О программе");
+        //button.setText("О программе");
 
         button.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -25,7 +25,7 @@ public class Main extends Application {
                 StackPane secondaryLayout = new StackPane();
                 secondaryLayout.getChildren().add(label);
 
-                Scene secondScene = new Scene(secondaryLayout, 230, 190);
+                Scene secondScene = new Scene(secondaryLayout, 230, 130);
 
                 // New window (Stage)
                 Stage newWindow = new Stage();
