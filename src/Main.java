@@ -29,7 +29,7 @@ public class Main extends Application {
 
                 // New window (Stage)
                 Stage newWindow = new Stage();
-                newWindow.setTitle("О программе");
+                newWindow.setTitle("О программ2809е");
                 newWindow.setScene(secondScene);
                 newWindow.initModality(Modality.APPLICATION_MODAL);
                 newWindow.setResizable(false);
