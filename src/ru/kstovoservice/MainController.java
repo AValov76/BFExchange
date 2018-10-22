@@ -28,15 +28,14 @@ interface Test {
 
 //ссылка на этот класс идёт в fxml файле MainScence.fxml
 
-public class Controller implements Initializable {
+public class MainController implements Initializable {
     @FXML
-    //некоторые элементы меню (тут нужно явное именование объекта, например, closeMenu, так мы при инициализации можно определить его Event Handling (обработчик прерываний)
+    //некоторые элементы меню (при инициализации можно определить его Event Handling, что и сделано ниже
     public VBox mainMenu;
     public MenuItem aboutMenu;
     public MenuItem closeMenu;
     public Button testButton;
     public ListView posList;
-    public Button TestButton1;
     public MenuItem delString;
     public MenuItem setString;
     public MenuItem editString;
@@ -108,15 +107,23 @@ public class Controller implements Initializable {
         //posList.setItems(items);
     }
 
-    public void editStringAction (ActionEvent event)  throws Exception {
+    public void editStringAction (ActionEvent event)  throws Exception { // пришлось дописать "throws Exception" так как иначе не работало
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("ShopSetupScene.fxml"));
-        //stage.setScene(new Scene(root, 600, 400));
-        stage.setTitle("Редактирование записи о магазине...");
+        stage.setScene(new Scene(root, 600, 400));
+        stage.setTitle("Редактирование настройки кассы...");
+        stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
     }
 
-    public void aboutMenuAction (ActionEvent event) {
+    public void aboutMenuAction (ActionEvent event) throws Exception {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("ShopSetupScene.fxml")); // базовый класс для всех узлов у которых есть потомки на сцене
+        stage.setScene(new Scene(root,300,100));
+        stage.setTitle("О программе...");
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+
         Label label = new Label("(c) ООО \"Кстовоторгсервис\". Версия 1.0. \n Тел. +7 (83145) 9-06-98 \n г.Кстово, 2018");
         StackPane secondaryLayout = new StackPane();
         secondaryLayout.getChildren().add(label);

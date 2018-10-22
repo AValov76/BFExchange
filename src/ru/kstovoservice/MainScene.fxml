@@ -8,15 +8,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="mainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400" minWidth="570.0" prefHeight="400.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kstovoservice.Controller">
+<VBox fx:id="mainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400" minWidth="570.0" prefHeight="400.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kstovoservice.MainController">
       <MenuBar prefHeight="25.0" prefWidth="576.0">
           <Menu mnemonicParsing="false" text="Файл">
               <MenuItem fx:id="closeMenu" mnemonicParsing="false" text="Выход" />
           </Menu>
           <Menu mnemonicParsing="false" text="Редактирование">
-         <MenuItem fx:id="setString" mnemonicParsing="false" onAction="#addStringAction" text="Добавить магазин" />
-         <MenuItem fx:id="editString" mnemonicParsing="false" onAction="#editStringAction" text="Редактирорвать запись" />
-              <MenuItem fx:id="delString" mnemonicParsing="false" onAction="#delStringAction" text="Удалить выделенные строки" />
+         <MenuItem fx:id="setString" mnemonicParsing="false" onAction="#addStringAction" text="Добавить новую кассу" />
+         <MenuItem fx:id="editString" mnemonicParsing="false" onAction="#editStringAction" text="Редактирорвать текущую кассу" />
+              <MenuItem fx:id="delString" mnemonicParsing="false" onAction="#delStringAction" text="Удалить текущую кассу" />
           </Menu>
           <Menu mnemonicParsing="false" text="Помощь">
               <MenuItem fx:id="aboutMenu" mnemonicParsing="false" onAction="#aboutMenuAction" text="О программе..." />
