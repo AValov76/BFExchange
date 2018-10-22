@@ -109,10 +109,10 @@ public class Controller implements Initializable {
     }
 
     public void editStringAction (ActionEvent event)  throws Exception {
-        System.out.println("Редактирование записи о магазине");
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("ru/kstovoservice/ShopSetupScene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ShopSetupScene.fxml"));
         //stage.setScene(new Scene(root, 600, 400));
+        stage.setTitle("Редактирование записи о магазине...");
         stage.show();
     }
 
