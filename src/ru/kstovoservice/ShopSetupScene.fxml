@@ -8,24 +8,5 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="mainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400" minWidth="570.0" prefHeight="400.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kstovoservice.ShopController">
-    <MenuBar prefHeight="25.0" prefWidth="576.0">
-        <Menu mnemonicParsing="false" text="Файл">
-            <MenuItem fx:id="closeMenu" mnemonicParsing="false" text="Выход" />
-        </Menu>
-        <Menu mnemonicParsing="false" text="Редактирование">
-            <MenuItem fx:id="setString" mnemonicParsing="false" onAction="#addStringAction" text="Добавить магазин" />
-            <MenuItem fx:id="editString" mnemonicParsing="false" onAction="#editStringAction" text="Редактирорвать запись" />
-            <MenuItem fx:id="delString" mnemonicParsing="false" onAction="#delStringAction" text="Удалить выделенные строки" />
-        </Menu>
-        <Menu mnemonicParsing="false" text="Помощь">
-            <MenuItem fx:id="aboutMenu" mnemonicParsing="false" onAction="#aboutMenuAction" text="О программе..." />
-        </Menu>
-    </MenuBar>
-    <AnchorPane prefHeight="371.0" prefWidth="570.0">
-        <children>
-            <ListView fx:id="posList" editable="true" layoutX="12.0" layoutY="13.0" prefHeight="314.0" prefWidth="549.0" />
-            <Button fx:id="testButton" layoutX="12.0" layoutY="337.0" mnemonicParsing="false" onAction="#testButtonAction" text="Button" />
-            <Button fx:id="testButton1" layoutX="70.0" layoutY="337.0" mnemonicParsing="false" onAction="#testButtonAction1" text="test" />
-        </children></AnchorPane>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400" minWidth="570.0" prefHeight="400.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kstovoservice.ShopController">
 </VBox>
