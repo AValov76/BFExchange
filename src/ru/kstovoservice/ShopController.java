@@ -7,7 +7,7 @@ import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-//ссылка на этот класс идёт в fxml файле ShopSetupScene.fxml
+//ссылка на этот класс идёт в fxml файле Shop.fxml
 
 public class ShopController implements Initializable {
     @FXML

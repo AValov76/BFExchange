@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="80.0" prefWidth="462.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kstovoservice.AboutController">
+   <children>
+      <Label layoutX="9.0" layoutY="3.0" lineSpacing="1.0" prefHeight="74.0" prefWidth="445.0" text="(c) ООО &quot;Кстовоторгсервис&quot;. Версия 1.0.  Тел. +7 (83145) 9-06-98 г.Кстово, 2018&quot;" />
+   </children>
+</AnchorPane>

@@ -109,37 +109,21 @@ public class MainController implements Initializable {
 
     public void editStringAction (ActionEvent event)  throws Exception { // пришлось дописать "throws Exception" так как иначе не работало
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("ShopSetupScene.fxml"));
-        stage.setScene(new Scene(root, 600, 400));
-        stage.setTitle("Редактирование настройки кассы...");
+        Parent root = FXMLLoader.load(getClass().getResource("Shop.fxml"));
+        stage.setScene(new Scene(root, 560, 311));
+        stage.setTitle("Редактирование настройки обмена текущей кассы");
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
     }
 
     public void aboutMenuAction (ActionEvent event) throws Exception {
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("ShopSetupScene.fxml")); // базовый класс для всех узлов у которых есть потомки на сцене
-        stage.setScene(new Scene(root,300,100));
+        Parent root = FXMLLoader.load(getClass().getResource("About.fxml")); // базовый класс для всех узлов у которых есть потомки на сцене
+        stage.setScene(new Scene(root,500,100));
         stage.setTitle("О программе...");
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
 
-        Label label = new Label("(c) ООО \"Кстовоторгсервис\". Версия 1.0. \n Тел. +7 (83145) 9-06-98 \n г.Кстово, 2018");
-        StackPane secondaryLayout = new StackPane();
-        secondaryLayout.getChildren().add(label);
-        Scene aboutScene = new Scene(secondaryLayout, 330, 230);
-        // New window (Stage)
-        Stage aboutWindow = new Stage();
-        aboutWindow.setTitle("О программе");
-        aboutWindow.setScene(aboutScene);
-        aboutWindow.initModality(Modality.APPLICATION_MODAL);
-        aboutWindow.setResizable(false);
-        aboutWindow.setWidth(300);
-        aboutWindow.setMaxHeight(80);
-        // Set position of second window, related to primary window.
-        //aboutWindow.setX(primaryStage.getLayoutX() + 200);
-        //aboutWindow.setY(mainVBox.getLayoutY() + 100);
-        aboutWindow.show();
     }
 
 
