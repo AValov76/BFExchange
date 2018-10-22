@@ -1,4 +1,4 @@
-package ru.kstovotorgservice;
+package ru.kstovoservice;
 
 interface DataModel {
     // Сохранение данных по магазинам в файл

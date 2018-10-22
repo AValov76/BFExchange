@@ -1,34 +1,27 @@
-package ru.kstovotorgservice;
+package ru.kstovoservice;
 
+import javafx.fxml.FXML;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.ComboBoxListCell;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+//ссылка на этот класс идёт в fxml файле ShopSetupScene.fxml
 
-// для тестирования какого-то извращения создал этот интерфейс
-interface Test {
-    void te ();
-}
-
-
-//ссылка на этот класс идёт в fxml файле MainScence.fxml
-
-public class Controller implements Initializable {
+public class ShopController implements Initializable {
     @FXML
-    //некоторые элементы меню (тут нужено явное именование объекта, например, closeMenu, так мы при инициализации можно определить его Event Handling (обработчик прерываний)
+    //некоторые элементы меню (тут нужно явное именование объекта, например, closeMenu, так мы при инициализации можно определить его Event Handling (обработчик прерываний)
     public VBox mainMenu;
     public MenuItem aboutMenu;
     public MenuItem closeMenu;
@@ -87,8 +80,8 @@ public class Controller implements Initializable {
     }
 
     public void testButtonAction (ActionEvent event) {
-      ObservableList items = posList.getItems();
-      System.out.println(items);
+        ObservableList items = posList.getItems();
+        System.out.println(items);
 
     }
 

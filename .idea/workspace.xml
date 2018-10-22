@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ru/kstovotorgservice/ShopSetupScene.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ru/kstovotorgservice/ShopController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BFExchange/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BFExchange/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ru/kstovotorgservice/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovotorgservice/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ru/kstovotorgservice/MainScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovotorgservice/MainScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/kstovotorgservice/ShopSetupScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovotorgservice/ShopSetupScene.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,73 +65,76 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/kstovotorgservice/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+            <state relative-caret-position="414">
+              <caret line="117" column="5" lean-forward="true" selection-start-line="117" selection-start-column="5" selection-end-line="117" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="class#Test#0" />
-                <element signature="e#1500#1508#0" expanded="true" />
+                <element signature="method#initialize#0;class#Controller#0" />
+                <element signature="e#1583#1591#0" expanded="true" />
                 <element signature="method#testButtonAction1#0;class#Controller#0" />
                 <element signature="method#testButtonAction#0;class#Controller#0" />
                 <element signature="method#delStringAction#0;class#Controller#0" />
                 <element signature="method#addStringAction#0;class#Controller#0" />
-                <element signature="method#aboutMenuAction#0;class#Controller#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ObservableList.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/javafx-src.zip!/javafx/collections/ObservableList.java">
+      <file leaf-file-name="FXMLLoader.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
+            <state relative-caret-position="339">
+              <caret line="3206" selection-start-line="3206" selection-end-line="3206" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/kstovotorgservice/Model.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+            <state relative-caret-position="300">
+              <caret line="12" column="52" lean-forward="true" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="57" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShopController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ru/kstovotorgservice/ShopController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="575">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShopSetupScene.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ru/kstovotorgservice/ShopSetupScene.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="16" column="79" selection-start-line="16" selection-start-column="79" selection-end-line="16" selection-end-column="79" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="MainScene.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/kstovotorgservice/MainScene.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="16" column="75" selection-start-line="16" selection-start-column="75" selection-end-line="16" selection-end-column="75" />
-            </state>
-          </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="425">
+              <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShopSetupScene.fxml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ru/kstovotorgservice/ShopSetupScene.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="10" column="62" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="62" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
     </leaf>
@@ -140,8 +143,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -174,10 +177,13 @@
         <option value="$PROJECT_DIR$/src/bfe/Main.java" />
         <option value="$PROJECT_DIR$/src/bfe/Controller.java" />
         <option value="$PROJECT_DIR$/src/ru/kstovotorgservice/Model.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/ru/kstovotorgservice/MainScene.fxml" />
-        <option value="$PROJECT_DIR$/src/ru/kstovotorgservice/Controller.java" />
+        <option value="$PROJECT_DIR$/src/ru/kstovotorgservice/ShopSetupController.java" />
+        <option value="$PROJECT_DIR$/src/ru/kstovotorgservice/ShopSetupStage.java" />
         <option value="$PROJECT_DIR$/src/ru/kstovotorgservice/ShopSetupScene.fxml" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/ru/kstovotorgservice/ShopController.java" />
+        <option value="$PROJECT_DIR$/src/ru/kstovotorgservice/Controller.java" />
       </list>
     </option>
   </component>
@@ -199,9 +205,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -219,6 +225,13 @@
               <item name="BFExchange" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="kstovotorgservice" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BFExchange" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BFExchange" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="kstovotorgservice" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
             <path>
               <item name="BFExchange" type="b2602c69:ProjectViewProjectNode" />
@@ -249,6 +262,14 @@
               <item name="jfxrt.jar" type="462c0819:PsiDirectoryNode" />
               <item name="javafx" type="462c0819:PsiDirectoryNode" />
               <item name="collections" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BFExchange" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="jfxrt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="javafx" type="462c0819:PsiDirectoryNode" />
+              <item name="fxml" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BFExchange" type="b2602c69:ProjectViewProjectNode" />
@@ -429,7 +450,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539773126145</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="продолжаем...">
+      <created>1540207994073</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1540207994073</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -446,6 +474,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
@@ -472,7 +501,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Inspection Results" order="15" weight="0.32897604" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Changes" order="8" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -503,16 +532,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ru/kstovotorgservice/Controller.java" />
-    <entry file="file://$PROJECT_DIR$/src/ru/kstovotorgservice/MainScene.fxml" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/javafx-src.zip!/javafx/application/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5550">
-          <caret line="222" column="23" selection-start-line="222" selection-start-column="23" selection-end-line="222" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java" />
     <entry file="file://$PROJECT_DIR$/src/ru/kstovotorgservice/Controller.java" />
     <entry file="file://$PROJECT_DIR$/src/ru/kstovotorgservice/MainScene.fxml" />
     <entry file="file://$PROJECT_DIR$/src/Main.java" />
@@ -609,13 +628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="3095" column="24" selection-start-line="3095" selection-start-column="24" selection-end-line="3095" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/javafx-src.zip!/javafx/event/Event.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -656,6 +668,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
           <caret line="314" column="35" lean-forward="true" selection-start-line="314" selection-start-column="35" selection-end-line="314" selection-end-column="35" />
+          <folding>
+            <element signature="e#10057#10058#0" expanded="true" />
+            <element signature="e#10103#10104#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -766,14 +782,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/kstovotorgservice/MainScene.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="16" column="75" selection-start-line="16" selection-start-column="75" selection-end-line="16" selection-end-column="75" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/javafx-src.zip!/javafx/scene/control/ListView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -792,23 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/kstovotorgservice/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#Test#0" />
-            <element signature="e#1500#1508#0" expanded="true" />
-            <element signature="method#testButtonAction1#0;class#Controller#0" />
-            <element signature="method#testButtonAction#0;class#Controller#0" />
-            <element signature="method#delStringAction#0;class#Controller#0" />
-            <element signature="method#addStringAction#0;class#Controller#0" />
-            <element signature="method#aboutMenuAction#0;class#Controller#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/kstovotorgservice/Model.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
@@ -816,23 +807,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovotorgservice/ShopSetupController.java" />
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovotorgservice/ShopSetupStage.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/javafx-src.zip!/javafx/scene/Scene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="125">
+          <caret line="225" column="7" lean-forward="true" selection-start-line="225" selection-start-column="7" selection-end-line="225" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovotorgservice/MainScene.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovotorgservice/ShopSetupScene.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="16" column="79" selection-start-line="16" selection-start-column="79" selection-end-line="16" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovotorgservice/ShopController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/kstovotorgservice/ShopSetupScene.fxml">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="62" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="62" />
+        <state relative-caret-position="300">
+          <caret line="12" column="52" lean-forward="true" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="3206" selection-start-line="3206" selection-end-line="3206" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovotorgservice/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="117" column="5" lean-forward="true" selection-start-line="117" selection-start-column="5" selection-end-line="117" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#Test#0" />
+            <element signature="method#initialize#0;class#Controller#0" />
+            <element signature="e#1583#1591#0" expanded="true" />
+            <element signature="method#testButtonAction1#0;class#Controller#0" />
+            <element signature="method#testButtonAction#0;class#Controller#0" />
+            <element signature="method#delStringAction#0;class#Controller#0" />
+            <element signature="method#addStringAction#0;class#Controller#0" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

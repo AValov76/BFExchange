@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="mainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400" minWidth="570.0" prefHeight="400.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kstovotorgservice.Controller">
+<VBox fx:id="mainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400" minWidth="570.0" prefHeight="400.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kstovoservice.Controller">
       <MenuBar prefHeight="25.0" prefWidth="576.0">
           <Menu mnemonicParsing="false" text="Файл">
               <MenuItem fx:id="closeMenu" mnemonicParsing="false" text="Выход" />
