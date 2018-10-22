@@ -7,10 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-    Stage window;
     @Override
     public void start (Stage primaryStage) throws Exception {
-        window = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("ru/kstovotorgservice/MainScene.fxml"));
         primaryStage.setTitle("Синхронизатор отчетов");
         primaryStage.setScene(new Scene(root, 600, 400));

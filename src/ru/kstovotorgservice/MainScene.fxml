@@ -14,7 +14,9 @@
               <MenuItem fx:id="closeMenu" mnemonicParsing="false" text="Выход" />
           </Menu>
           <Menu mnemonicParsing="false" text="Редактирование">
-              <MenuItem mnemonicParsing="false" text="Удалить строку" />
+         <MenuItem fx:id="setString" mnemonicParsing="false" onAction="#addStringAction" text="Добавить магазин" />
+         <MenuItem fx:id="editString" mnemonicParsing="false" onAction="#editStringAction" text="Редактирорвать запись" />
+              <MenuItem fx:id="delString" mnemonicParsing="false" onAction="#delStringAction" text="Удалить выделенные строки" />
           </Menu>
           <Menu mnemonicParsing="false" text="Помощь">
               <MenuItem fx:id="aboutMenu" mnemonicParsing="false" onAction="#aboutMenuAction" text="О программе..." />

@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.ComboBoxListCell;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -17,24 +18,52 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-//ссылка на этот класс идёт в fxml файле MainScence.fxml
-interface test {
+// для тестирования какого-то извращения создал этот интерфейс
+interface Test {
+    void te ();
 }
+
+
+//ссылка на этот класс идёт в fxml файле MainScence.fxml
 
 public class Controller implements Initializable {
     @FXML
-    //некоторые элементы меню (тут нужено явное именование объекта, например, closeMenu, так мы при инициализации определяем его Event Handling (обработчик прерываний)
+    //некоторые элементы меню (тут нужено явное именование объекта, например, closeMenu, так мы при инициализации можно определить его Event Handling (обработчик прерываний)
     public VBox mainMenu;
     public MenuItem aboutMenu;
     public MenuItem closeMenu;
     public Button testButton;
     public ListView posList;
     public Button TestButton1;
+    public MenuItem delString;
+    public MenuItem setString;
+    public MenuItem editString;
 
     public void initialize (URL location, ResourceBundle resources) {
-        posList.setPrefWidth(500);
-        posList.setPrefHeight(300);
-        posList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        //poslist init
+        posList.setPrefSize(550, 300);
+        posList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        posList.setEditable(true);
+        ObservableList<String> items = FXCollections.<String>observableArrayList();
+        for (int i = 0; i < 5; i++) {
+            items.add(new Test() {
+                public void te () {
+                }
+            }.toString()); // anonimus inner class
+        }
+        posList.setItems(items);
+        items.addAll("Строка 1", "Строка 2");
+
+        final ObservableList names =
+                FXCollections.observableArrayList();
+        names.addAll(
+                "Adam", "Alex", "Alfred", "Albert",
+                "Brenda", "Connie", "Derek", "Donny",
+                "Lynne", "Myrtle", "Rose", "Rudolph",
+                "Tony", "Trudy", "Williams", "Zach"
+        );
+        posList.setCellFactory(ComboBoxListCell.forListView(names));
+        // postlist init end
 
         // просто еще один способ описывать Event Handling это так называемое Lambda Expression
         closeMenu.setOnAction(event -> {
@@ -42,6 +71,8 @@ public class Controller implements Initializable {
             System.out.println("Close programm...");
             Platform.exit();
         });
+
+
     }
 
     // Action зона
@@ -50,27 +81,40 @@ public class Controller implements Initializable {
         if (posList.getSelectionModel().getSelectedIndex() >= 0) {
             for (Object i :
                     posList.getSelectionModel().getSelectedItems()) {
-                System.out.println((String)i);
+                System.out.println((String) i);
             }
         }
     }
 
     public void testButtonAction (ActionEvent event) {
+      ObservableList items = posList.getItems();
+      System.out.println(items);
 
-        ObservableList<String> items = FXCollections.observableArrayList();
-        for (int i = 0; i < 20; i++) {
-            items.add(new test() {
-            }.toString()); // anonimus inner class
-        }
-        posList.setItems(items);
+    }
 
+    public void delStringAction (ActionEvent event) {
+        ObservableList<String> items = posList.getItems();
+        items.remove(posList.getSelectionModel().getSelectedItem());
+
+    }
+
+    public void addStringAction (ActionEvent event) {
+        ObservableList<String> items = posList.getItems();
+        items.add("Новый магазин...");
+        posList.getSelectionModel().clearSelection();
+        posList.getSelectionModel().selectLast();
+        //posList.setItems(items);
+    }
+
+    public void editStringAction (ActionEvent event) {
+        System.out.println("Редактирование записи о магазине");
     }
 
     public void aboutMenuAction (ActionEvent event) {
         Label label = new Label("(c) ООО \"Кстовоторгсервис\". Версия 1.0. \n Тел. +7 (83145) 9-06-98 \n г.Кстово, 2018");
         StackPane secondaryLayout = new StackPane();
         secondaryLayout.getChildren().add(label);
-        Scene aboutScene = new Scene(secondaryLayout, 230, 130);
+        Scene aboutScene = new Scene(secondaryLayout, 330, 230);
         // New window (Stage)
         Stage aboutWindow = new Stage();
         aboutWindow.setTitle("О программе");
