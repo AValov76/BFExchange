@@ -12,10 +12,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.ComboBoxListCell;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -26,7 +24,7 @@ interface Test {
 }
 
 
-//ссылка на этот класс идёт в fxml файле MainScence.fxml
+//ссылка на этот класс идёт в fxml файле Main.fxml
 
 public class MainController implements Initializable {
     @FXML
@@ -50,7 +48,7 @@ public class MainController implements Initializable {
             items.add(new Test() {
                 public void te () {
                 }
-            }.toString()); // anonimus inner class
+            }.toString()); // anonimus inner class для теста
         }
         posList.setItems(items);
         items.addAll("Строка 1", "Строка 2");
@@ -110,7 +108,7 @@ public class MainController implements Initializable {
     public void editStringAction (ActionEvent event)  throws Exception { // пришлось дописать "throws Exception" так как иначе не работало
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("Shop.fxml"));
-        stage.setScene(new Scene(root, 560, 311));
+        stage.setScene(new Scene(root, 560, 272));
         stage.setTitle("Редактирование настройки обмена текущей кассы");
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();

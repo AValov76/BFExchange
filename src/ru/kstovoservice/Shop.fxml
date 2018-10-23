@@ -8,58 +8,48 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="311.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="272.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kstovoservice.ShopController">
    <children>
-      <Button layoutX="516.0" layoutY="270.0" mnemonicParsing="false" text="OK" />
-      <Button layoutX="451.0" layoutY="270.0" mnemonicParsing="false" text="Отмена" />
-      <Label layoutX="14.0" layoutY="44.0" prefHeight="25.0" prefWidth="105.0" text="Папка обмена:">
+      <Button layoutX="516.0" layoutY="224.0" mnemonicParsing="false" text="OK" />
+      <Button layoutX="451.0" layoutY="224.0" mnemonicParsing="false" text="Отмена" />
+      <Label layoutX="14.0" layoutY="54.0" prefHeight="25.0" prefWidth="105.0" text="Папка обмена:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Separator layoutX="15.0" layoutY="80.0" prefHeight="3.0" prefWidth="537.0" />
-      <Label layoutX="15.0" layoutY="95.0" prefHeight="25.0" prefWidth="105.0" text="Фронт-офис:">
+      <Separator layoutX="15.0" layoutY="91.0" prefHeight="3.0" prefWidth="537.0" />
+      <Label layoutX="15.0" layoutY="102.0" prefHeight="25.0" prefWidth="105.0" text="Фронт-офис:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <ChoiceBox layoutX="120.0" layoutY="95.0" prefWidth="150.0" />
-      <Separator layoutX="15.0" layoutY="130.0" prefHeight="3.0" prefWidth="537.0" />
-      <Label layoutX="15.0" layoutY="143.0" prefHeight="25.0" prefWidth="105.0" text="Файл запроса:">
+      <ChoiceBox fx:id="frontChoiceBox" layoutX="120.0" layoutY="102.0" prefWidth="150.0" />
+      <Separator layoutX="15.0" layoutY="137.0" prefHeight="3.0" prefWidth="537.0" />
+      <Label layoutX="15.0" layoutY="149.0" prefHeight="25.0" prefWidth="105.0" text="Файл-флаг:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="15.0" layoutY="178.0" prefHeight="25.0" prefWidth="105.0" text="Файл-флаг:">
+      <Label layoutX="15.0" layoutY="186.0" prefHeight="25.0" prefWidth="105.0" text="Файл отчета:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="15.0" layoutY="215.0" prefHeight="25.0" prefWidth="105.0" text="Файл отчета:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <TextField layoutX="120.0" layoutY="140.0" prefHeight="30.0" prefWidth="429.0">
+      <TextField fx:id="flag" layoutX="120.0" layoutY="147.0" prefHeight="30.0" prefWidth="429.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="120.0" layoutY="176.0" prefHeight="30.0" prefWidth="429.0">
+      <TextField fx:id="rep" layoutX="120.0" layoutY="184.0" prefHeight="30.0" prefWidth="429.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="120.0" layoutY="213.0" prefHeight="30.0" prefWidth="429.0">
+      <TextField fx:id="dirExchange" layoutX="112.0" layoutY="51.0" prefHeight="30.0" prefWidth="407.0" text="Не определено!!!">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="112.0" layoutY="41.0" prefHeight="30.0" prefWidth="407.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <Button layoutX="521.0" layoutY="44.0" mnemonicParsing="false" prefHeight="3.0" prefWidth="11.0" text="..." />
+      <Button fx:id="buttonDir" layoutX="521.0" layoutY="54.0" mnemonicParsing="false" prefHeight="3.0" prefWidth="11.0" text="..." />
    </children>
 </AnchorPane>
