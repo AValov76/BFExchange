@@ -102,7 +102,6 @@ public class MainController implements Initializable {
         items.add("Новый магазин...");
         posList.getSelectionModel().clearSelection();
         posList.getSelectionModel().selectLast();
-        //posList.setItems(items);
     }
 
     public void editStringAction (ActionEvent event)  throws Exception { // пришлось дописать "throws Exception" так как иначе не работало

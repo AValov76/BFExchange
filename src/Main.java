@@ -10,11 +10,10 @@ public class Main extends Application {
     public void start (Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("ru/kstovoservice/Main.fxml"));
         primaryStage.setTitle("Синхронизатор отчетов");
-        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.setScene(new Scene(root, 550, 440));
         primaryStage.show();
     }
-
-
+    
     public static void main (String[] args) {
         launch(args);
     }
