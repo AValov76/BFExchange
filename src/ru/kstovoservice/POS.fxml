@@ -6,7 +6,7 @@
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity"
             minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="282.0" prefWidth="532.0"
-            xmlns="http://javafx.com/javafx/8.0.121" fx:controller="ru.kstovoservice.ShopController">
+            xmlns="http://javafx.com/javafx/8.0.121" fx:controller="ru.kstovoservice.POSController">
     <children>
         <Label layoutX="5.0" layoutY="13.0" prefHeight="25.0" prefWidth="150.0" text="Наименование кассы:">
             <font>

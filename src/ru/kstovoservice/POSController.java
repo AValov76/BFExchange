@@ -16,9 +16,9 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-//ссылка на этот класс идёт в fxml файле Shop.fxml
+//ссылка на этот класс идёт в fxml файле POS.fxml
 
-public class ShopController implements Initializable {
+public class POSController implements Initializable {
 
     @FXML
     public AnchorPane mainAnchorPane;

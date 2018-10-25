@@ -28,7 +28,7 @@
         </Menu>
     </MenuBar>
       <ListView fx:id="posList" editable="true" prefHeight="299.0" prefWidth="611.0" />
-    <AnchorPane prefHeight="126.0" prefWidth="611.0">
+    <AnchorPane  prefHeight="126.0" prefWidth="611.0">
         <children>
             <Button fx:id="repButton" layoutX="18.0" layoutY="84.0" mnemonicParsing="false" onAction="#repButtonAction" text="Загрузить" />
          <Label layoutX="230.0" layoutY="2.0" prefHeight="25.0" prefWidth="119.0" text="Загрузка отчета">
@@ -45,6 +45,7 @@
          <TextField layoutX="178.0" layoutY="47.0" prefHeight="25.0" prefWidth="174.0" visible="false" />
          <Label fx:id="label1" layoutX="178.0" layoutY="29.0" text="Label" />
          <Label fx:id="label2" layoutX="359.0" layoutY="29.0" text="Label" />
+         <Button fx:id="testButton" layoutX="457.0" layoutY="84.0" mnemonicParsing="false" onAction="#testButtonAction" text="Тест" />
         </children>
     </AnchorPane>
 </VBox>
