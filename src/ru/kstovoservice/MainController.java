@@ -32,11 +32,15 @@ public class MainController implements Initializable {
     public VBox mainMenu;
     public MenuItem aboutMenu;
     public MenuItem closeMenu;
-    public Button testButton;
+    public Button repButton;
     public ListView posList;
+    // меню
     public MenuItem delString;
     public MenuItem setString;
     public MenuItem editString;
+    public Label label1; // c
+    public Label label2; // по
+    public Label labelRep;  // результат обмена
 
     public void initialize (URL location, ResourceBundle resources) {
         //poslist init
@@ -85,9 +89,9 @@ public class MainController implements Initializable {
         }
     }
 
-    public void testButtonAction (ActionEvent event) {
-      ObservableList items = posList.getItems();
-      System.out.println(items);
+    public void repButtonAction (ActionEvent event) {
+        labelRep.setText("Тест кнопки Загрузить");
+        labelRep.setVisible(true);
 
     }
 
