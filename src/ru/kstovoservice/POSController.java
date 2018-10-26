@@ -51,7 +51,6 @@ public class POSController implements Initializable {
             //With the exception of the root node of a scene graph, each node in a scene graph has a single parent and zero or more children
             Stage stage = (Stage) cancelButton.getScene().getWindow();
             stage.close();
-
         });
     }
 

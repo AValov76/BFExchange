@@ -111,6 +111,14 @@ public class MainController implements Initializable {
         stage.setTitle("Редактирование настройки обмена текущей кассы");
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
+/* Гы, работает, но с какими-то ошибками
+        Stage stage = (Stage) mainMenu.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("POS.fxml"));
+        stage.setScene(new Scene(root, 560, 272));
+        stage.setTitle("Редактирование настройки обмена текущей кассы");
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+*/
     }
 
     public void aboutMenuAction (ActionEvent event) throws Exception {
