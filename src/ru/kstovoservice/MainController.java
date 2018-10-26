@@ -34,6 +34,7 @@ public class MainController implements Initializable {
     public MenuItem closeMenu;
     public Button repButton;
     public ListView posList;
+
     // меню
     public MenuItem delString;
     public MenuItem setString;
@@ -79,14 +80,9 @@ public class MainController implements Initializable {
     }
 
     // Action зона
-    public void testButtonAction1 (ActionEvent event) {
+    public void testButtonAction (ActionEvent event) {
         // список выделенного
-        if (posList.getSelectionModel().getSelectedIndex() >= 0) {
-            for (Object i :
-                    posList.getSelectionModel().getSelectedItems()) {
-                System.out.println((String) i);
-            }
-        }
+        Model s = new Model();
     }
 
     public void repButtonAction (ActionEvent event) {
@@ -106,12 +102,11 @@ public class MainController implements Initializable {
         items.add("Новый магазин...");
         posList.getSelectionModel().clearSelection();
         posList.getSelectionModel().selectLast();
-        //posList.setItems(items);
     }
 
     public void editStringAction (ActionEvent event)  throws Exception { // пришлось дописать "throws Exception" так как иначе не работало
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("Shop.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("POS.fxml"));
         stage.setScene(new Scene(root, 560, 272));
         stage.setTitle("Редактирование настройки обмена текущей кассы");
         stage.initModality(Modality.APPLICATION_MODAL);

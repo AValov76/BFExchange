@@ -16,22 +16,21 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-//ссылка на этот класс идёт в fxml файле Shop.fxml
+//ссылка на этот класс идёт в fxml файле POS.fxml
 
-public class ShopController implements Initializable {
+public class POSController implements Initializable {
 
     @FXML
     public AnchorPane mainAnchorPane;
-    public TextField dirExchange;
-    public TextField posName;
-    public TextField rep;
-    public TextField flag;
-    public Button buttonDir;
+    public TextField dirExchange, posName, rep, flag;
+    public Button dirButton, cancelButton,okButton;
+
     public ChoiceBox frontChoiceBox;
 
     public void initialize (URL location, ResourceBundle resources) {
         //Кнопка выбора папки обмена
-        buttonDir.setOnAction(event -> {
+        //cancelButton.setBlendMode();
+        dirButton.setOnAction(event -> {
             final DirectoryChooser directoryChooser = new DirectoryChooser();
             final Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -47,9 +46,13 @@ public class ShopController implements Initializable {
         //выбор типа Фронт-офиса кассы
         frontChoiceBox.setOnAction(event -> {
         });
-        rep.setText("report.rep");
-        flag.setText("report.flg");
+        cancelButton.setOnAction(event -> {
+            System.out.println("Закрываем форму...");
+            //With the exception of the root node of a scene graph, each node in a scene graph has a single parent and zero or more children
+            Stage stage = (Stage) cancelButton.getScene().getWindow();
+            stage.close();
 
+        });
     }
 
 }
