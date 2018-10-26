@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<settings>
+	<device>
+		<id>АТОЛ 11Ф1</id>
+		<port>4</port>
+	</device>
+	<device>
+		<id>АТОЛ 11Ф2</id>
+		<port>6</port>
+	</device>
+</settings>
