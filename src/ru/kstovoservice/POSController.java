@@ -20,6 +20,7 @@ import java.util.ResourceBundle;
 
 public class POSController implements Initializable {
 
+
     @FXML
     public AnchorPane mainAnchorPane;
     public TextField dirExchange, posName, rep, flag;
@@ -39,7 +40,7 @@ public class POSController implements Initializable {
                 dirExchange.setText(file.toString());
             }
         });
-        ObservableList items = FXCollections.observableArrayList();
+        ObservableList<String> items = FXCollections.observableArrayList();
         items.addAll("Атол", "Штрих");
         frontChoiceBox.setItems(items);
         frontChoiceBox.getSelectionModel().selectFirst();

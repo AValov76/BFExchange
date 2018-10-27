@@ -14,6 +14,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.ComboBoxListCell;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
+
+import javax.xml.parsers.ParserConfigurationException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -80,7 +82,7 @@ public class MainController implements Initializable {
     }
 
     // Action зона
-    public void testButtonAction (ActionEvent event) {
+    public void testButtonAction (ActionEvent event) throws ParserConfigurationException {
         // список выделенного
         Model s = new Model();
     }

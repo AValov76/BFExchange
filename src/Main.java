@@ -12,6 +12,7 @@ public class Main extends Application {
         primaryStage.setTitle("Синхронизатор отчетов");
         primaryStage.setScene(new Scene(root, 550, 440));
         primaryStage.show();
+
     }
     
     public static void main (String[] args) {
