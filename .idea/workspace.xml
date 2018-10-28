@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="полная переделка Model">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ru/kstovoservice/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovoservice/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ru/kstovoservice/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovoservice/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ru/kstovoservice/POS.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovoservice/POS.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ru/kstovoservice/POSController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovoservice/POSController.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -67,8 +66,8 @@
       <file leaf-file-name="POSController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/POSController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5">
-              <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+            <state relative-caret-position="545">
+              <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,17 +85,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Model.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1845">
-              <caret line="191" selection-start-line="191" selection-end-line="191" />
+            <state relative-caret-position="220">
+              <caret line="53" column="11" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Model#0;class#Model#0" />
                 <element signature="method#loadmapPOS#0;class#Model#0" />
                 <element signature="method#loadData#0;class#Model#0" />
                 <element signature="method#addPOStoDOC#0;class#Model#0" />
+                <element signature="e#6276#6277#0" expanded="true" />
+                <element signature="e#6316#6317#0" expanded="true" />
+                <element signature="e#6362#6363#0" expanded="true" />
+                <element signature="e#6422#6423#0" expanded="true" />
                 <element signature="method#removePOS#0;class#Model#0" />
                 <element signature="method#initPOS#0;class#Model#0" />
                 <element signature="method#saveDOC#0;class#Model#0" />
@@ -114,15 +117,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-50">
-              <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+            <state relative-caret-position="222">
+              <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#initialize#0;class#MainController#0" />
                 <element signature="method#testButtonAction#0;class#MainController#0" />
                 <element signature="method#repButtonAction#0;class#MainController#0" />
+                <element signature="method#delStringAction#0;class#MainController#0" />
                 <element signature="method#addStringAction#0;class#MainController#0" />
                 <element signature="method#editStringAction#0;class#MainController#0" />
                 <element signature="method#aboutMenuAction#0;class#MainController#0" />
@@ -637,7 +642,14 @@
       <option name="project" value="LOCAL" />
       <updated>1540642758437</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Model &#10;написал методы list">
+      <created>1540746853914</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1540746853914</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -658,13 +670,13 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49570313" weight="0.3278867" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49492186" weight="0.3278867" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.509375" side_tool="true" visible="true" weight="0.3267974" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5097656" side_tool="true" visible="true" weight="0.3267974" />
       <window_info anchor="right" id="Maven Projects" order="4" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.490625" visible="true" weight="0.3267974" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49023438" visible="true" weight="0.3267974" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Capture Tool" order="2" />
@@ -741,7 +753,8 @@
     <MESSAGE value="Кнопка отмена в окне POS" />
     <MESSAGE value="Проверил код с вставкой нового окна внутрь существующей сцены (Stage) потом убрал но код не удалил а оставил" />
     <MESSAGE value="полная переделка Model" />
-    <option name="LAST_COMMIT_MESSAGE" value="полная переделка Model" />
+    <MESSAGE value="Model &#10;написал методы list" />
+    <option name="LAST_COMMIT_MESSAGE" value="Model &#10;написал методы list" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1074,28 +1087,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/javafx-src.zip!/javafx/collections/ObservableList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-50">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#testButtonAction#0;class#MainController#0" />
-            <element signature="method#repButtonAction#0;class#MainController#0" />
-            <element signature="method#addStringAction#0;class#MainController#0" />
-            <element signature="method#editStringAction#0;class#MainController#0" />
-            <element signature="method#aboutMenuAction#0;class#MainController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/POS.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
@@ -1106,27 +1097,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/POSController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5">
-          <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+        <state relative-caret-position="545">
+          <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/javafx-src.zip!/javafx/collections/ObservableList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1845">
-          <caret line="191" selection-start-line="191" selection-end-line="191" />
+        <state relative-caret-position="220">
+          <caret line="53" column="11" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Model#0;class#Model#0" />
             <element signature="method#loadmapPOS#0;class#Model#0" />
             <element signature="method#loadData#0;class#Model#0" />
             <element signature="method#addPOStoDOC#0;class#Model#0" />
+            <element signature="e#6276#6277#0" expanded="true" />
+            <element signature="e#6316#6317#0" expanded="true" />
+            <element signature="e#6362#6363#0" expanded="true" />
+            <element signature="e#6422#6423#0" expanded="true" />
             <element signature="method#removePOS#0;class#Model#0" />
             <element signature="method#initPOS#0;class#Model#0" />
             <element signature="method#saveDOC#0;class#Model#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#initialize#0;class#MainController#0" />
+            <element signature="method#testButtonAction#0;class#MainController#0" />
+            <element signature="method#repButtonAction#0;class#MainController#0" />
+            <element signature="method#delStringAction#0;class#MainController#0" />
+            <element signature="method#addStringAction#0;class#MainController#0" />
+            <element signature="method#editStringAction#0;class#MainController#0" />
+            <element signature="method#aboutMenuAction#0;class#MainController#0" />
           </folding>
         </state>
       </provider>

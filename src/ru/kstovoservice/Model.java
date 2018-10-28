@@ -16,7 +16,6 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,9 +25,11 @@ import java.util.logging.Logger;
 
 interface SetOfPOS {
 
-    int sizeMAP();
+    int sizeMAP ();
 
     void addPOS (String posName, String... data);
+
+    void addNewPOS ();
 
     // Полный список POS как массив String[]
     String[] listPOS ();
@@ -48,9 +49,9 @@ public class Model implements SetOfPOS {
     private static final String FILENAME = "company.xml";
 
     // данные по умолчанию
-    public final static String POSNAME = "Касса №";
-    public final static String[] POSDATANAME = {"pathPOS", "typeofPOS", "repName", "flagName"}; // пока не использовал
-    public final static String[] POSDATA = {"C:\\Obmen", "Атол", "report.rep", "report.flg"};
+    private final static String POSNAME = "Касса №";
+    private final static String[] POSDATANAME = {"pathPOS", "typeofPOS", "repName", "flagName"}; // пока не использовал
+    private final static String[] POSDATA = {"C:\\Obmen", "Атол", "report.rep", "report.flg"};
 
     //структура, в которой лежат данные из файла на диске. используется дважды
     // - при инициализации модели, для прогрузки
@@ -74,7 +75,7 @@ public class Model implements SetOfPOS {
                     .newDocumentBuilder().newDocument();
             company = document.createElement("company");
             document.appendChild(company);
-            mapPOS.put(POSNAME+"1", POSDATA);
+            mapPOS.put(POSNAME + "1", POSDATA);
             addPOStoDOC();
             saveDOC();
         }
@@ -85,7 +86,7 @@ public class Model implements SetOfPOS {
 
 
     // загрузка данных по POS из файла в mapPOS
-    void loadmapPOS () {
+    private void loadmapPOS () {
 
         Node root = document.getDocumentElement(); // корневой узел
         NodeList c = root.getChildNodes(); // список детей корневого узла
@@ -114,7 +115,7 @@ public class Model implements SetOfPOS {
         }
     }
 
-    boolean loadData () {
+    private boolean loadData () {
 
         try {
             document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(System.getProperty("user.dir")
@@ -131,13 +132,7 @@ public class Model implements SetOfPOS {
         return true;
     }
 
-    @Override
-    public int sizeMAP () {
-        return mapPOS.size();
-    }
-
-    // добавляет строки в структуру документа (для сохранения)
-    public void addPOStoDOC () {
+    private void addPOStoDOC () {
 
         for (String pos : mapPOS.keySet()
                 ) {
@@ -166,6 +161,14 @@ public class Model implements SetOfPOS {
         }
     }
 
+    //реализация интерфейса
+
+    @Override
+    public int sizeMAP () {
+        return mapPOS.size();
+    }
+    // добавляет строки в структуру документа (для сохранения)
+
     @Override
     public String[] listPOS () {
         return mapPOS.keySet().toArray(new String[0]); // оно получает String и возвращает его же
@@ -173,7 +176,12 @@ public class Model implements SetOfPOS {
 
     @Override
     public void addPOS (String posName, String... data) {
-        mapPOS.put(posName,data);
+        mapPOS.put(posName, data);
+    }
+
+    @Override
+    public void addNewPOS () {
+        addPOS(POSNAME + (sizeMAP() + 1), POSDATA);
     }
 
     @Override

@@ -26,7 +26,7 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
 
 
-    private Model data;
+    private SetOfPOS data; //переменная для
 
     @FXML
     //некоторые элементы меню (при инициализации можно определить его Event Handling, что и сделано ниже
@@ -45,10 +45,6 @@ public class MainController implements Initializable {
     public Label labelRep;  // результат обмена
 
     public void initialize (URL location, ResourceBundle resources) {
-        //poslist init
-        posList.setPrefSize(550, 300);
-        posList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        posList.setEditable(true);
 
         // просто еще один способ описывать Event Handling это так называемое Lambda Expression
         closeMenu.setOnAction(event -> {
@@ -61,7 +57,7 @@ public class MainController implements Initializable {
         try {
             data = new Model();
            // System.out.println(data.listPOS()[0]);
-            listInit();
+            posListInitialization();
 
         } catch (ParserConfigurationException ex) {
             ex.printStackTrace(System.out);
@@ -70,9 +66,12 @@ public class MainController implements Initializable {
         } catch (IOException ex) {
             ex.printStackTrace(System.out);
         }
+        posList.setPrefSize(550, 300);
+        posList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        posList.setEditable(true);
     }
 
-    private void listInit () {
+    private void posListInitialization () {
         ObservableList<String> items = FXCollections.observableArrayList();
         items.addAll(data.listPOS());
         posList.setItems(items.sorted());
@@ -98,8 +97,8 @@ public class MainController implements Initializable {
     }
 
     public void addStringAction (ActionEvent event) {
-        data.addPOS(Model.POSNAME+(data.sizeMAP()+1),Model.POSDATA);
-        listInit();
+        data.addNewPOS();
+        posListInitialization();
         //System.out.println(data.listPOS()[1]);
         posList.getSelectionModel().clearSelection();
         posList.getSelectionModel().selectLast();

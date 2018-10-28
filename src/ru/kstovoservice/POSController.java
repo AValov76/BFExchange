@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 
 public class POSController implements Initializable {
 
-
+    String[] pos = new String[5];
     @FXML
     public AnchorPane mainAnchorPane;
     public TextField dirExchange, posName, rep, flag;
