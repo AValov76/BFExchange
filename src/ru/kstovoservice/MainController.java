@@ -81,8 +81,8 @@ public class MainController implements Initializable {
     }
     // Action зона
     public void testButtonAction (ActionEvent event) throws ParserConfigurationException, IOException, SAXException {
-        // список выделенного
-        Model s = new Model();
+        data.addNewPOS();
+        posListInitialization();
     }
 
     public void repButtonAction (ActionEvent event) {

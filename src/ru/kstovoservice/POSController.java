@@ -56,8 +56,7 @@ public class POSController implements Initializable {
         ObservableList<String> items = FXCollections.observableArrayList();
         items.addAll("Атол", "Штрих");
         frontChoiceBox.setItems(items);
-        System.out.println(kv[2]);
-        if (kv[2] == "Атол") {
+        if (kv[2].equals("Атол")) {
             frontChoiceBox.getSelectionModel().selectFirst();
         } else {
            frontChoiceBox.getSelectionModel().selectLast();

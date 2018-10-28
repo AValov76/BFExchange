@@ -15,8 +15,10 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -62,7 +64,8 @@ public class Model implements SetOfPOS {
     // по сути нахер не надо пока - сделано про запас, под конторы типа АВС с 2 организациями
     private Element company;
     // по сути контейнер для данных из xml - файла. некий посредник между файлом и моделью
-    private Map<String, String[]> mapPOS = new HashMap();
+    private Map<String, String[]> mapPOS = new TreeMap<>();
+    private Collection<String> s = new ArrayList();
 
     // инициализация модели
     public Model () throws ParserConfigurationException, IOException, SAXException {
@@ -78,7 +81,7 @@ public class Model implements SetOfPOS {
                     .newDocumentBuilder().newDocument();
             company = document.createElement("company");
             document.appendChild(company);
-            mapPOS.put(POSNAME + "1", POSDATA);
+            addPOS(POSNAME + "1", POSDATA);
             addPOStoDOC();
             saveDOC();
         }
@@ -93,12 +96,12 @@ public class Model implements SetOfPOS {
 
         Node root = document.getDocumentElement(); // корневой узел
         NodeList c = root.getChildNodes(); // список детей корневого узла
-        String key = new String();
-        String[] data = new String[4];
-
+        String k = new String();
+        String[] v = new String[4];
         for (int i = 0; i < c.getLength(); i++) {
             Node pos = c.item(i); // один из детей из списка с - списка компаний
-            key = pos.getAttributes().item(0).getTextContent();
+            k = pos.getAttributes().item(0).getTextContent();
+            s.add(k);
             //System.out.println(pos.getAttributes().item(0).getTextContent() + " 1");
             // Если нода не текст, то это книга - заходим внутрь
 
@@ -107,14 +110,24 @@ public class Model implements SetOfPOS {
                 Node posProp = posData.item(j);
                 //System.out.println(posProp+" 3");
                 // Если нода не текст, то это один из параметров книги - печатаем
-                System.out.println(posProp.getNodeName() + ":" + posProp.getChildNodes().item(0).getTextContent() + " 3");
-                data[j] = posProp.getChildNodes().item(0).getTextContent();
+                //System.out.println(posProp.getNodeName() + ":" + posProp.getChildNodes().item(0).getTextContent() + " 3");
+                v[j] = posProp.getChildNodes().item(0).getTextContent();
+                s.add(v[j]);
             }
-            mapPOS.put(key, data);
+            //addPOS(k, v);
             //System.out.println(mapPOS.get(key)[5]);
         }
-        mapPOS.put("Вася", POSDATA);
+
+        for (int i = 0; i < s.size() / 5; i++) {
+            k=(String)s.toArray()[i*5];
+            for (int j = 0; j < 4; j++) {
+                v[j]=(String)s.toArray()[5*i+j];
+            }
+            addPOS(k,v);
+
+        }
         print();
+        System.out.println(s);
     }
 
     void print () {
@@ -190,8 +203,18 @@ public class Model implements SetOfPOS {
     }
 
     @Override
-    public void addPOS (String posName, String... data) {
-        mapPOS.put(posName, data);
+    public void addPOS (String k, String[] v) {
+/*
+        String sss = new String();
+        for (String s:v
+             ) {
+            sss+=s+" ";
+        }
+        System.out.println(k+":"+sss);
+*/
+        //mapPOS.put(k+"1", v);
+        mapPOS.put(k, v);
+
     }
 
     @Override
