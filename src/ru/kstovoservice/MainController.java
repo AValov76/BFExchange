@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -76,7 +77,7 @@ public class MainController implements Initializable {
         items.addAll(data.listPOS());
         posList.setItems(items.sorted());
         posList.getSelectionModel().selectLast();
-        System.out.println(posList.getSelectionModel().getSelectedItem().getClass());
+
     }
     // Action зона
     public void testButtonAction (ActionEvent event) throws ParserConfigurationException, IOException, SAXException {
@@ -106,12 +107,17 @@ public class MainController implements Initializable {
 
     public void editStringAction (ActionEvent event) throws Exception { // пришлось дописать "throws Exception" так как иначе не работало
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("POS.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("POS.fxml"));
+        Parent root = loader.load();
+        //Parent root = FXMLLoader.load(getClass().getResource("POS.fxml"));
+        POSController posController = loader.getController(); //получаем контроллер для второй формы
+        String s = (String)posList.getSelectionModel().getSelectedItem();
+        //System.out.println(s);
+        posController.initKV(data.getKV(s)); // передаем необходимые параметры
         stage.setScene(new Scene(root, 560, 272));
         stage.setTitle("Редактирование настройки обмена текущей кассы");
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
-        //tage.getScene().getWindow()
 /* Гы, работает, но с какими-то ошибками
         Stage stage = (Stage) mainMenu.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("POS.fxml"));

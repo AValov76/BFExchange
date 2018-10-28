@@ -31,6 +31,8 @@ interface SetOfPOS {
 
     void addNewPOS ();
 
+    String[] getKV (String k);
+
     // Полный список POS как массив String[]
     String[] listPOS ();
 
@@ -39,6 +41,7 @@ interface SetOfPOS {
     void initPOS (Map setPOS);
 
     boolean existPOS (String pos);
+
 }
 
 // ну а это конкретная реализация модели, файловый вариант
@@ -98,20 +101,32 @@ public class Model implements SetOfPOS {
             key = pos.getAttributes().item(0).getTextContent();
             //System.out.println(pos.getAttributes().item(0).getTextContent() + " 1");
             // Если нода не текст, то это книга - заходим внутрь
-            if (pos.getNodeType() != Node.TEXT_NODE) {
-                NodeList posData = pos.getChildNodes();
-                for (int j = 0; j < posData.getLength(); j++) {
-                    Node posProp = posData.item(j);
-                    //System.out.println(posProp+" 3");
-                    // Если нода не текст, то это один из параметров книги - печатаем
-                    if (posProp.getNodeType() != Node.TEXT_NODE) {
-                        //System.out.println(posProp.getNodeName() + ":" + posProp.getChildNodes().item(0).getTextContent() + " 3");
-                        data[j] = posProp.getChildNodes().item(0).getTextContent();
-                    }
-                }
+
+            NodeList posData = pos.getChildNodes();
+            for (int j = 0; j < posData.getLength(); j++) {
+                Node posProp = posData.item(j);
+                //System.out.println(posProp+" 3");
+                // Если нода не текст, то это один из параметров книги - печатаем
+                System.out.println(posProp.getNodeName() + ":" + posProp.getChildNodes().item(0).getTextContent() + " 3");
+                data[j] = posProp.getChildNodes().item(0).getTextContent();
             }
             mapPOS.put(key, data);
             //System.out.println(mapPOS.get(key)[5]);
+        }
+        mapPOS.put("Вася", POSDATA);
+        print();
+    }
+
+    void print () {
+        for (String s : mapPOS.keySet()
+                ) {
+            System.out.print("Key " + s + ": [");
+            for (String v : mapPOS.get(s)
+                    ) {
+                System.out.print(v + ",");
+            }
+            System.out.print("]");
+            System.out.println();
         }
     }
 
@@ -182,6 +197,18 @@ public class Model implements SetOfPOS {
     @Override
     public void addNewPOS () {
         addPOS(POSNAME + (sizeMAP() + 1), POSDATA);
+    }
+
+    @Override
+    public String[] getKV (String k) {
+        String[] kv = new String[5];
+        kv[0] = k;
+        int i = 1;
+        for (String s : mapPOS.get(k)
+                ) {
+            kv[i++] = s;
+        }
+        return kv;
     }
 
     @Override

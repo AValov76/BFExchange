@@ -19,13 +19,14 @@ import java.util.ResourceBundle;
 //ссылка на этот класс идёт в fxml файле POS.fxml
 
 public class POSController implements Initializable {
+    String[] kv = new String[5]; //данные POS
 
-    String[] pos = new String[5];
     @FXML
     public AnchorPane mainAnchorPane;
-    public TextField dirExchange, posName, rep, flag;
-    public Button dirButton, cancelButton,okButton;
+    public TextField dirExchange, posName, flag, rep;
+    public Button dirButton, cancelButton, okButton;
     public ChoiceBox frontChoiceBox;
+
     public void initialize (URL location, ResourceBundle resources) {
         //Кнопка выбора папки обмена
         dirButton.setOnAction(event -> {
@@ -37,7 +38,7 @@ public class POSController implements Initializable {
                 dirExchange.setText(file.toString());
             }
         });
-        initPOS();
+        //initPOS();
         //выбор типа Фронт-офиса кассы
         frontChoiceBox.setOnAction(event -> {
         });
@@ -49,10 +50,24 @@ public class POSController implements Initializable {
         });
     }
 
-    private void initPOS(){
+    private void initPOS () {
+        posName.setText(kv[0]);
+        dirExchange.setText(kv[1]);
         ObservableList<String> items = FXCollections.observableArrayList();
         items.addAll("Атол", "Штрих");
         frontChoiceBox.setItems(items);
-        frontChoiceBox.getSelectionModel().selectFirst();
+        System.out.println(kv[2]);
+        if (kv[2] == "Атол") {
+            frontChoiceBox.getSelectionModel().selectFirst();
+        } else {
+           frontChoiceBox.getSelectionModel().selectLast();
+        }
+        rep.setText(kv[3]);
+        flag.setText(kv[4]);
     }
+    public void initKV(String[] kv){
+        this.kv=kv;
+        initPOS();
+    }
+
 }
