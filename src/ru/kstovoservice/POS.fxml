@@ -28,7 +28,7 @@
                 <Font size="14.0" />
             </font>
         </Label>
-        <ChoiceBox fx:id="frontChoiceBox" layoutX="158.0" layoutY="118.0" prefWidth="150.0" />
+        <ChoiceBox fx:id="frontChoiceBox" layoutX="159.0" layoutY="118.0" prefWidth="150.0" />
         <Separator layoutX="15.0" layoutY="153.0" prefHeight="3.0" prefWidth="510.0" />
         <Label layoutX="4.0" layoutY="202.0" prefHeight="25.0" prefWidth="150.0" text="Наименование отчета:">
             <font>

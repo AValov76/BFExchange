@@ -25,12 +25,9 @@ public class POSController implements Initializable {
     public AnchorPane mainAnchorPane;
     public TextField dirExchange, posName, rep, flag;
     public Button dirButton, cancelButton,okButton;
-
     public ChoiceBox frontChoiceBox;
-
     public void initialize (URL location, ResourceBundle resources) {
         //Кнопка выбора папки обмена
-        //cancelButton.setBlendMode();
         dirButton.setOnAction(event -> {
             final DirectoryChooser directoryChooser = new DirectoryChooser();
             final Stage stage = new Stage();
@@ -40,10 +37,7 @@ public class POSController implements Initializable {
                 dirExchange.setText(file.toString());
             }
         });
-        ObservableList<String> items = FXCollections.observableArrayList();
-        items.addAll("Атол", "Штрих");
-        frontChoiceBox.setItems(items);
-        frontChoiceBox.getSelectionModel().selectFirst();
+        initPOS();
         //выбор типа Фронт-офиса кассы
         frontChoiceBox.setOnAction(event -> {
         });
@@ -55,4 +49,10 @@ public class POSController implements Initializable {
         });
     }
 
+    private void initPOS(){
+        ObservableList<String> items = FXCollections.observableArrayList();
+        items.addAll("Атол", "Штрих");
+        frontChoiceBox.setItems(items);
+        frontChoiceBox.getSelectionModel().selectFirst();
+    }
 }
