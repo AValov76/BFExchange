@@ -40,8 +40,6 @@ interface SetOfPOS {
 
     void removePOS (String pos);
 
-    void initPOS (Map setPOS);
-
     boolean existPOS (String pos);
 
 }
@@ -64,7 +62,7 @@ public class Model implements SetOfPOS {
     // по сути нахер не надо пока - сделано про запас, под конторы типа АВС с 2 организациями
     private Element company;
     // по сути контейнер для данных из xml - файла. некий посредник между файлом и моделью
-    private Map<String, String[]> mapPOS = new TreeMap<>();
+    private java.util.Map<String, String[]> mapPOS = new java.util.TreeMap<>();
     private Collection<String> s = new ArrayList();
 
     // инициализация модели
@@ -96,9 +94,9 @@ public class Model implements SetOfPOS {
 
         Node root = document.getDocumentElement(); // корневой узел
         NodeList c = root.getChildNodes(); // список детей корневого узла
-        String k = new String();
-        String[] v = new String[4];
         for (int i = 0; i < c.getLength(); i++) {
+            String k = new String();
+            String[] v = new String[4];
             Node pos = c.item(i); // один из детей из списка с - списка компаний
             k = pos.getAttributes().item(0).getTextContent();
             s.add(k);
@@ -114,27 +112,23 @@ public class Model implements SetOfPOS {
                 v[j] = posProp.getChildNodes().item(0).getTextContent();
                 s.add(v[j]);
             }
-            //addPOS(k, v);
-            //System.out.println(mapPOS.get(key)[5]);
+            addPOS(k, v);
         }
-
-        for (int i = 0; i < s.size() / 5; i++) {
-            k=(String)s.toArray()[i*5];
-            for (int j = 0; j < 4; j++) {
-                v[j]=(String)s.toArray()[5*i+j];
-            }
-            addPOS(k,v);
-
-        }
-        print();
+        print(mapPOS);
         System.out.println(s);
     }
 
-    void print () {
-        for (String s : mapPOS.keySet()
+    void print (java.util.Map<String,String[]> mp) {
+        for(java.util.Map.Entry entry: mp.entrySet()) {
+            //получить ключ
+            String key = (String)entry.getKey();
+            //получить значение
+            String[] value = (String[])entry.getValue();}
+
+        for (String s : mp.keySet()
                 ) {
             System.out.print("Key " + s + ": [");
-            for (String v : mapPOS.get(s)
+            for (String v : mp.get(s)
                     ) {
                 System.out.print(v + ",");
             }
@@ -143,7 +137,7 @@ public class Model implements SetOfPOS {
         }
     }
 
-    private boolean loadData () {
+    private boolean loadData() {
 
         try {
             document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(System.getProperty("user.dir")
@@ -215,6 +209,7 @@ public class Model implements SetOfPOS {
         //mapPOS.put(k+"1", v);
         mapPOS.put(k, v);
 
+
     }
 
     @Override
@@ -239,10 +234,6 @@ public class Model implements SetOfPOS {
 
     }
 
-    @Override
-    public void initPOS (Map setPOS) {
-
-    }
 
     @Override
     public boolean existPOS (String pos) {
