@@ -19,8 +19,9 @@ import java.util.ResourceBundle;
 //ссылка на этот класс идёт в fxml файле POS.fxml
 
 public class POSController implements Initializable {
-    String[] kv = new String[5]; //данные POS
 
+    String[] kv = new String[5]; //данные POS, которыми обменивается окно "Редактирование настройки обмена текущей кассы" с главным окном
+    private MainController mainController; //увы, ничего умнее для передачи измененных данных POS взад при закрытии окна не придумал
     @FXML
     public AnchorPane mainAnchorPane;
     public TextField dirExchange, posName, flag, rep;
@@ -38,19 +39,50 @@ public class POSController implements Initializable {
                 dirExchange.setText(file.toString());
             }
         });
-        //initPOS();
+
         //выбор типа Фронт-офиса кассы
         frontChoiceBox.setOnAction(event -> {
         });
+
+        //кнопка отмены изменений
         cancelButton.setOnAction(event -> {
-            System.out.println("Закрываем форму...");
             //With the exception of the root node of a scene graph, each node in a scene graph has a single parent and zero or more children
             Stage stage = (Stage) cancelButton.getScene().getWindow();
             stage.close();
         });
+        //кнопка принятия изменений
+        okButton.setOnAction(event -> {
+            //удаляем то что было на момент открытия формы из массива данных
+            mainController.data.removePOS(kv[0]);
+            //сохраняем новые данные из формы в массив
+            setKV();
+            //херачим этот массив в data главного контроллера
+            String[] s= {kv[1],kv[2],kv[3],kv[4]};
+            mainController.data.addPOS(kv[0],s);
+            //перегружаем список
+            mainController.initList();
+            //With the exception of the root node of a scene graph, each node in a scene graph has a single parent and zero or more children
+            Stage stage = (Stage) cancelButton.getScene().getWindow();
+            stage.close();
+
+        });
     }
 
-    private void initPOS () {
+//записывает данные из формы в массив (временное хранилище)
+    private void setKV () {
+        // posName
+        kv[0]=posName.getText();
+        // dirExchange
+        kv[1]=dirExchange.getText();
+        //frontChoiceBox
+        kv[2]=frontChoiceBox.getSelectionModel().getSelectedItem().toString();
+        // rep
+        kv[3]=rep.getText();
+        // flag
+        kv[4]=flag.getText();
+    }
+
+    private void setPOS () {
         posName.setText(kv[0]);
         dirExchange.setText(kv[1]);
         ObservableList<String> items = FXCollections.observableArrayList();
@@ -59,14 +91,19 @@ public class POSController implements Initializable {
         if (kv[2].equals("Атол")) {
             frontChoiceBox.getSelectionModel().selectFirst();
         } else {
-           frontChoiceBox.getSelectionModel().selectLast();
+            frontChoiceBox.getSelectionModel().selectLast();
         }
         rep.setText(kv[3]);
         flag.setText(kv[4]);
     }
-    public void initKV(String[] kv){
-        this.kv=kv;
-        initPOS();
+
+    // метод для передачи данных по POS из главного окна в это
+    public void initPOS (MainController mainController) {
+        //передача данных из главного окна в это
+        this.mainController = mainController;
+        this.kv = mainController.getSelectedPOSData();
+        // заполняем форму данными из массива kv[] (данные туда были записаны при инициализации окна методом MainController.editStringAction так posController.initKV(data.getKV(s))
+        setPOS();
     }
 
 }

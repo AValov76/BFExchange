@@ -25,9 +25,8 @@ import java.util.ResourceBundle;
 //ссылка на этот класс идёт в fxml файле Main.fxml
 
 public class MainController implements Initializable {
-
-
-    private SetOfPOS data; //переменная для
+    public MainController mainController;
+    public SetOfPOS data; //набор данных с кассами
 
     @FXML
     //некоторые элементы меню (при инициализации можно определить его Event Handling, что и сделано ниже
@@ -74,7 +73,7 @@ public class MainController implements Initializable {
 
     private void posListInitialization () {
         ObservableList<String> items = FXCollections.observableArrayList();
-        items.addAll(data.listPOS());
+        items.addAll(data.getListPOS());
         posList.setItems(items.sorted());
         posList.getSelectionModel().selectLast();
 
@@ -92,15 +91,17 @@ public class MainController implements Initializable {
     }
 
     public void delStringAction (ActionEvent event) {
-        ObservableList<String> items = posList.getItems();
-        items.remove(posList.getSelectionModel().getSelectedItem());
-
+        data.removePOS((String)posList.getSelectionModel().getSelectedItem());
+        posListInitialization();
     }
 
     public void addStringAction (ActionEvent event) {
         data.addNewPOS();
+        initList();
+    }
+
+    public void initList () {
         posListInitialization();
-        //System.out.println(data.listPOS()[1]);
         posList.getSelectionModel().clearSelection();
         posList.getSelectionModel().selectLast();
     }
@@ -109,11 +110,8 @@ public class MainController implements Initializable {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("POS.fxml"));
         Parent root = loader.load();
-        //Parent root = FXMLLoader.load(getClass().getResource("POS.fxml"));
         POSController posController = loader.getController(); //получаем контроллер для второй формы
-        String s = (String)posList.getSelectionModel().getSelectedItem();
-        //System.out.println(s);
-        posController.initKV(data.getKV(s)); // передаем необходимые параметры
+        posController.initPOS(mainController); // передаем необходимые параметры
         stage.setScene(new Scene(root, 560, 272));
         stage.setTitle("Редактирование настройки обмена текущей кассы");
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -135,7 +133,10 @@ public class MainController implements Initializable {
         stage.setTitle("О программе...");
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
+    }
 
+    public String[] getSelectedPOSData(){
+        return data.getKV((String)posList.getSelectionModel().getSelectedItem());
     }
 
 }

@@ -33,10 +33,11 @@ interface SetOfPOS {
 
     void addNewPOS ();
 
+    // получить данные POS по названию POS
     String[] getKV (String k);
 
     // Полный список POS как массив String[]
-    String[] listPOS ();
+    String[] getListPOS ();
 
     void removePOS (String pos);
 
@@ -55,7 +56,6 @@ public class Model implements SetOfPOS {
     private final static String POSNAME = "Касса №";
     private final static String[] POSDATANAME = {"pathPOS", "typeofPOS", "repName", "flagName"}; // пока не использовал
     private final static String[] POSDATA = {"C:\\Obmen", "Атол", "report.rep", "report.flg"};
-
     //структура, в которой лежат данные из файла на диске. используется дважды
     // - при инициализации модели, для прогрузки
     private Document document;
@@ -114,11 +114,11 @@ public class Model implements SetOfPOS {
             }
             addPOS(k, v);
         }
-        print(mapPOS);
-        System.out.println(s);
+//        print(mapPOS);
     }
 
-    void print (java.util.Map<String,String[]> mp) {
+    // печать данных всех POS
+    public void print (Map<String,String[]> mp) {
         for(java.util.Map.Entry entry: mp.entrySet()) {
             //получить ключ
             String key = (String)entry.getKey();
@@ -192,24 +192,13 @@ public class Model implements SetOfPOS {
     // добавляет строки в структуру документа (для сохранения)
 
     @Override
-    public String[] listPOS () {
+    public String[] getListPOS () {
         return mapPOS.keySet().toArray(new String[0]); // оно получает String и возвращает его же
     }
 
     @Override
     public void addPOS (String k, String[] v) {
-/*
-        String sss = new String();
-        for (String s:v
-             ) {
-            sss+=s+" ";
-        }
-        System.out.println(k+":"+sss);
-*/
-        //mapPOS.put(k+"1", v);
         mapPOS.put(k, v);
-
-
     }
 
     @Override
@@ -231,9 +220,8 @@ public class Model implements SetOfPOS {
 
     @Override
     public void removePOS (String pos) {
-
+        mapPOS.remove(pos);
     }
-
 
     @Override
     public boolean existPOS (String pos) {
@@ -250,15 +238,11 @@ public class Model implements SetOfPOS {
             StreamResult result = new StreamResult(
                     new File(System.getProperty("user.dir")
                             + File.separator + FILENAME));
-
             // Для соображений отладки можно вывести результат работы
             // программы на стандартный вывод
             // StreamResult result = new StreamResult(System.out);
-
             transformer.transform(source, result);
-
             System.out.println("Документ сохранен!");
-
         } catch (TransformerException ex) {
             Logger.getLogger(Model.class.getName())
                     .log(Level.SEVERE, null, ex);
