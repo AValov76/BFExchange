@@ -4,11 +4,13 @@
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/company.xml" beforeDir="false" afterPath="$PROJECT_DIR$/company.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/kstovoservice/About.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovoservice/About.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,11 +83,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file leaf-file-name="POSController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/POSController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="32" column="40" lean-forward="true" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+            <state relative-caret-position="575">
+              <caret line="39" column="13" lean-forward="true" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,68 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/MainController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1326">
-              <caret line="98" column="17" selection-start-line="98" selection-start-column="17" selection-end-line="98" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#posListInitialization#0;class#MainController#0" />
-                <element signature="method#testButtonAction#0;class#MainController#0" />
-                <element signature="method#repButtonAction#0;class#MainController#0" />
-                <element signature="method#addStringAction#0;class#MainController#0" />
-                <element signature="method#editStringAction#0;class#MainController#0" />
-                <element signature="method#aboutMenuAction#0;class#MainController#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/POS.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="51" column="20" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/Model.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
-              <folding>
-                <element signature="method#loadmapPOS#0;class#Model#0" />
-                <element signature="method#print#0;class#Model#0" />
-                <element signature="method#loadData#0;class#Model#0" />
-                <element signature="method#getListPOS#0;class#Model#0" />
-                <element signature="method#getKV#0;class#Model#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/Main.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="79" selection-start-line="22" selection-start-column="79" selection-end-line="22" selection-end-column="79" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
+            <state relative-caret-position="250">
               <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -240,7 +185,7 @@
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="481" />
     <option name="y" value="147" />
     <option name="width" value="1530" />
@@ -258,7 +203,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -270,19 +214,6 @@
               <item name="BFExchange" type="b2602c69:ProjectViewProjectNode" />
               <item name="BFExchange" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BFExchange" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BFExchange" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="kstovoservice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BFExchange" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BFExchange" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="kstovoservice" type="462c0819:PsiDirectoryNode" />
-              <item name="Model.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
             <path>
               <item name="BFExchange" type="b2602c69:ProjectViewProjectNode" />
@@ -339,8 +270,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -385,21 +317,9 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
-    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
-      <Host>localhost</Host>
-      <Port>5050</Port>
-    </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
+      <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
@@ -415,35 +335,54 @@
       </extension>
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
+      <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="moduleWithDependencies" />
       </option>
-      <method v="2">
+      <patterns />
+      <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="moduleWithDependencies" />
       </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
       <properties />
       <listeners />
-      <method v="2">
+      <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
@@ -452,9 +391,21 @@
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
-      <method v="2">
+      <method>
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
     </configuration>
   </component>
   <component name="SvnConfiguration">
@@ -660,81 +611,81 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1216" extended-state="6" />
+    <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.07462686" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Learn" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Image Layers" order="7" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49921876" weight="0.32897604" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48027718" visible="true" weight="0.4856879" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49648437" weight="0.39869282" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="7" sideWeight="0.5197228" side_tool="true" visible="true" weight="0.4856879" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.48671874" weight="0.3278867" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info id="Image Layers" order="7" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5199219" side_tool="true" visible="true" weight="0.16448802" />
+      <window_info anchor="right" id="Maven Projects" order="4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48007813" visible="true" weight="0.16448802" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.48671874" weight="0.3278867" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.07460938" />
+      <window_info id="Learn" order="5" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49648437" weight="0.39869282" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="right" id="JetGradle" order="8" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection Results" order="15" weight="0.32897604" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49921876" weight="0.32897604" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Changes" order="11" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Database" order="9" />
       <window_info anchor="bottom" id="Profiler" order="12" />
       <window_info anchor="bottom" id="Problems" order="13" />
-      <window_info anchor="bottom" id="Application Servers" order="14" />
-      <window_info anchor="bottom" id="Inspection Results" order="15" weight="0.32897604" />
       <window_info anchor="bottom" id="Dependency Viewer" order="16" weight="0.32897604" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven Projects" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Theme Preview" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="JetGradle" order="8" />
-      <window_info anchor="right" id="Database" order="9" />
+      <window_info anchor="bottom" id="Application Servers" order="14" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.12421875" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Learn" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Image Layers" order="7" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4984375" weight="0.32897604" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5015625" side_tool="true" visible="true" weight="0.32897604" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3278867" />
-      <window_info anchor="bottom" id="Changes" order="11" />
-      <window_info anchor="bottom" id="Profiler" order="12" />
-      <window_info anchor="bottom" id="Problems" order="13" />
       <window_info anchor="bottom" id="Application Servers" order="14" />
-      <window_info anchor="bottom" id="Inspection Results" order="15" weight="0.32897604" />
-      <window_info anchor="bottom" id="Dependency Viewer" order="16" weight="0.32897604" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info id="Designer" order="3" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven Projects" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Theme Preview" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4984375" weight="0.32897604" />
       <window_info anchor="right" id="JetGradle" order="8" />
+      <window_info id="Image Layers" order="7" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Changes" order="11" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Profiler" order="12" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="bottom" id="Inspection Results" order="15" weight="0.32897604" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5015625" side_tool="true" visible="true" weight="0.32897604" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.12421875" />
       <window_info anchor="right" id="Database" order="9" />
+      <window_info anchor="bottom" id="Problems" order="13" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="16" weight="0.32897604" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="right" id="Maven Projects" order="4" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info id="Learn" order="5" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3278867" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -781,14 +732,6 @@
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/javax/xml/parsers/DocumentBuilderFactory.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/javafx-src.zip!/javafx/application/Application.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/org/w3c/dom/Document.java" />
-    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/About.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/javafx-src.zip!/javafx/scene/control/SelectionMode.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/javafx-src.zip!/javafx/event/EventTarget.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/javafx-src.zip!/javafx/beans/value/ObservableValue.java" />
@@ -817,37 +760,11 @@
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/util/Map.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/javafx-src.zip!/javafx/fxml/FXMLLoader.java" />
     <entry file="file://$PROJECT_DIR$/company.xml" />
-    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/POSController.java">
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/Main.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="32" column="40" lean-forward="true" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1326">
-          <caret line="98" column="17" selection-start-line="98" selection-start-column="17" selection-end-line="98" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#posListInitialization#0;class#MainController#0" />
-            <element signature="method#testButtonAction#0;class#MainController#0" />
-            <element signature="method#repButtonAction#0;class#MainController#0" />
-            <element signature="method#addStringAction#0;class#MainController#0" />
-            <element signature="method#editStringAction#0;class#MainController#0" />
-            <element signature="method#aboutMenuAction#0;class#MainController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/POS.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" column="20" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
+        <state relative-caret-position="225">
+          <caret line="9" column="40" lean-forward="true" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -856,30 +773,53 @@
         <state relative-caret-position="102">
           <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
           <folding>
-            <element signature="method#loadmapPOS#0;class#Model#0" />
-            <element signature="method#print#0;class#Model#0" />
-            <element signature="method#loadData#0;class#Model#0" />
             <element signature="method#getListPOS#0;class#Model#0" />
             <element signature="method#getKV#0;class#Model#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/Main.fxml">
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/POS.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="79" selection-start-line="22" selection-start-column="79" selection-end-line="22" selection-end-column="79" />
+        <state relative-caret-position="249">
+          <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="669">
+          <caret line="100" column="5" selection-start-line="100" selection-start-column="5" selection-end-line="100" selection-end-column="5" />
+          <folding>
+            <element signature="method#editStringAction#0;class#MainController#0" />
+            <element signature="method#aboutMenuAction#0;class#MainController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/About.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/POSController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="39" column="13" lean-forward="true" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
+        <state relative-caret-position="250">
           <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
