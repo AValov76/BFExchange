@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -13,39 +17,52 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="mainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="243.0" minWidth="543.0" prefHeight="397.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kstovoservice.MainController">
-    <MenuBar prefHeight="25.0" prefWidth="576.0">
-        <Menu mnemonicParsing="false" text="Файл">
-            <MenuItem fx:id="closeMenu" mnemonicParsing="false" text="Выход" />
-        </Menu>
-        <Menu mnemonicParsing="false" text="Редактирование">
-            <MenuItem fx:id="setString" mnemonicParsing="false" onAction="#addStringAction" text="Добавить новую кассу" />
-            <MenuItem fx:id="editString" mnemonicParsing="false" onAction="#editStringAction" text="Редактирорвать текущую кассу" />
-            <MenuItem fx:id="delString" mnemonicParsing="false" onAction="#delStringAction" text="Удалить текущую кассу" />
-        </Menu>
-        <Menu mnemonicParsing="false" text="Помощь">
-            <MenuItem fx:id="aboutMenu" mnemonicParsing="false" onAction="#aboutMenuAction" text="О программе..." />
-        </Menu>
-    </MenuBar>
-      <ListView fx:id="posList" editable="true" prefHeight="267.0" prefWidth="611.0" />
-    <AnchorPane prefHeight="107.0" prefWidth="558.0">
-        <children>
-            <Button fx:id="repButton" layoutX="14.0" layoutY="73.0" mnemonicParsing="false" onAction="#repButtonAction" text="Загрузить" />
-         <Label layoutX="230.0" layoutY="2.0" prefHeight="25.0" prefWidth="119.0" text="Загрузка отчета">
-            <font>
-               <Font size="16.0" />
-            </font></Label>
-         <ChoiceBox layoutX="13.0" layoutY="35.0" prefWidth="150.0" />
-         <DatePicker layoutX="178.0" layoutY="35.0" />
-         <DatePicker layoutX="359.0" layoutY="35.0" />
-         <Label fx:id="labelRep" layoutX="109.0" layoutY="76.0" text="Результат загрузки отчета">
-            <font>
-               <Font size="14.0" />
-            </font></Label>
-         <TextField layoutX="178.0" layoutY="47.0" prefHeight="25.0" prefWidth="174.0" visible="false" />
-         <Label fx:id="label1" layoutX="178.0" layoutY="19.0" text="Label" />
-         <Label fx:id="label2" layoutX="359.0" layoutY="19.0" text="Label" />
-         <Button fx:id="testButton" layoutX="493.0" layoutY="73.0" mnemonicParsing="false" onAction="#testButtonAction" text="Тест" />
-        </children>
-    </AnchorPane>
+<VBox fx:id="mainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="243.0" minWidth="543.0" prefHeight="412.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kstovoservice.MainController">
+   <children>
+       <MenuBar prefHeight="25.0" prefWidth="576.0">
+          <menus>
+              <Menu mnemonicParsing="false" text="Файл">
+                 <items>
+                     <MenuItem fx:id="closeMenu" mnemonicParsing="false" text="Выход" />
+                 </items>
+              </Menu>
+              <Menu mnemonicParsing="false" text="Редактирование">
+                 <items>
+                     <MenuItem fx:id="setString" mnemonicParsing="false" onAction="#addStringAction" text="Добавить новую кассу" />
+                     <MenuItem fx:id="editString" mnemonicParsing="false" onAction="#editStringAction" text="Редактирорвать текущую кассу" />
+                     <MenuItem fx:id="delString" mnemonicParsing="false" onAction="#delStringAction" text="Удалить текущую кассу" />
+                 </items>
+              </Menu>
+              <Menu mnemonicParsing="false" text="Помощь">
+                 <items>
+                     <MenuItem fx:id="aboutMenu" mnemonicParsing="false" onAction="#aboutMenuAction" text="О программе..." />
+                 </items>
+              </Menu>
+          </menus>
+       </MenuBar>
+         <ListView fx:id="posList" editable="true" prefHeight="267.0" prefWidth="611.0" />
+       <AnchorPane prefHeight="119.0" prefWidth="550.0">
+           <children>
+               <Button fx:id="repButton" layoutX="14.0" layoutY="89.0" mnemonicParsing="false" onAction="#repRequestButtonAction" text="Загрузить" />
+            <Label layoutX="186.0" layoutY="2.0" prefHeight="27.0" prefWidth="166.0" text="Загрузка отчетов">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="typeOfRepChoiceBox" layoutX="13.0" layoutY="56.0" prefWidth="150.0" />
+            <DatePicker fx:id="dateFrom" layoutX="178.0" layoutY="56.0" />
+            <DatePicker fx:id="dateTo" layoutX="359.0" layoutY="56.0" />
+            <Label fx:id="labelRep" layoutX="109.0" layoutY="92.0" text="Результат загрузки отчета">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="178.0" layoutY="47.0" prefHeight="25.0" prefWidth="174.0" visible="false" />
+            <Label fx:id="label1" layoutX="179.0" layoutY="37.0" text="С даты:" />
+            <Label fx:id="label2" layoutX="360.0" layoutY="37.0" text="По дату:" />
+            <Button fx:id="testButton" layoutX="493.0" layoutY="89.0" mnemonicParsing="false" onAction="#testButtonAction" text="Тест" />
+            <Label fx:id="label11" layoutX="14.0" layoutY="37.0" prefHeight="17.0" prefWidth="150.0" text="Тип отчета:" />
+           </children>
+       </AnchorPane>
+   </children>
 </VBox>

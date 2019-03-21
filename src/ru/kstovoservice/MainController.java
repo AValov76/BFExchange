@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.xml.sax.SAXException;
@@ -18,8 +19,14 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 
@@ -39,13 +46,16 @@ public class MainController implements Initializable {
     public MenuItem delString;
     public MenuItem setString;
     public MenuItem editString;
-// остальные узлы сцены
+    // остальные узлы сцены
     public ListView posList;
     public Label label1; // c
     public Label label2; // по
     public Label labelRep;  // результат обмена
+    public DatePicker dateFrom;
+    public DatePicker dateTo;
+    public ChoiceBox typeOfRepChoiceBox;
 
-    public void initialize (URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources) {
 
         // просто еще один способ описывать Event Handling это так называемое Lambda Expression
         closeMenu.setOnAction(event -> {
@@ -56,7 +66,7 @@ public class MainController implements Initializable {
         // инициализация модели_данных
         try {
             data = new Model();
-           // System.out.println(data.listPOS()[0]);
+            // System.out.println(data.listPOS()[0]);
             posListInitialization();
 
         } catch (ParserConfigurationException ex) {
@@ -66,52 +76,85 @@ public class MainController implements Initializable {
         posList.setPrefSize(550, 300);
         posList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         posList.setEditable(true);
+        // заполнение значениями по умолчанию
+        dateFrom.setValue(LocalDate.now().minusDays(1));
+        dateTo.setValue(LocalDate.now().minusDays(1));
+        ObservableList<String> items = FXCollections.observableArrayList();
+        items.addAll("по дням", "по сменам");
+        typeOfRepChoiceBox.setItems(items);
+        typeOfRepChoiceBox.getSelectionModel().selectFirst();
+        //
     }
 
-    private void programExit(){
+
+    private void programExit() {
         try {
             data.saveAllDataToFile();
             System.out.println("Close programm...");
             Platform.exit();
-        } catch (ParserConfigurationException ex){}
+        } catch (ParserConfigurationException ex) {
+        }
 
     }
-    private void posListInitialization () {
+
+    private void posListInitialization() {
         ObservableList<String> items = FXCollections.observableArrayList();
         items.addAll(data.getListPOS());
         posList.setItems(items.sorted());
         posList.getSelectionModel().selectLast();
 
     }
+
     // Action зона
-    public void testButtonAction (ActionEvent event) throws ParserConfigurationException, IOException, SAXException {
+    public void testButtonAction(ActionEvent event) throws ParserConfigurationException, IOException, SAXException {
         data.addNewPOS();
         posListInitialization();
     }
 
-    public void repButtonAction (ActionEvent event) {
-        labelRep.setText("Тест кнопки Загрузить");
+    public void repRequestButtonAction(ActionEvent event) {
+        //проверка на корректность
+        if (typeOfRepChoiceBox.getSelectionModel().isSelected(0)) {
+            if (dateFrom.getValue().compareTo(dateTo.getValue())>0){
+                labelRep.setTextFill(Color.RED);
+                labelRep.setText("Запрос не выполнен! Проверьте даты запроса!");
+            } else {
+
+            }
+
+        } else {
+            labelRep.setTextFill(Color.RED);
+            labelRep.setText("Запрос отчетов по номерам не реализован!");
+        }
         labelRep.setVisible(true);
 
     }
 
-    public void delStringAction (ActionEvent event) {
-        data.removePOS((String)posList.getSelectionModel().getSelectedItem());
+    // запрос отчета с POS - терминала на котором фокус
+    private void repRequest(String dateF, String dateT, String pathFlag, String nameFlag) throws IOException {
+        FileWriter fileWriter;
+        fileWriter = new FileWriter(nameFlag);
+        fileWriter.write("$$$TRANSACTIONSBYDATERANGE\n");
+
+        fileWriter.close();
+    }
+
+    public void delStringAction(ActionEvent event) {
+        data.removePOS((String) posList.getSelectionModel().getSelectedItem());
         posListInitialization();
     }
 
-    public void addStringAction (ActionEvent event) {
+    public void addStringAction(ActionEvent event) {
         data.addNewPOS();
         initList();
     }
 
-    public void initList () {
+    public void initList() {
         posListInitialization();
         posList.getSelectionModel().clearSelection();
         posList.getSelectionModel().selectLast();
     }
 
-    public void editStringAction (ActionEvent event) throws Exception { // пришлось дописать "throws Exception" так как иначе не работало
+    public void editStringAction(ActionEvent event) throws Exception { // пришлось дописать "throws Exception" так как иначе не работало
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("POS.fxml"));
         Parent root = loader.load();
@@ -131,7 +174,7 @@ public class MainController implements Initializable {
 */
     }
 
-    public void aboutMenuAction (ActionEvent event) throws Exception {
+    public void aboutMenuAction(ActionEvent event) throws Exception {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("About.fxml")); // базовый класс для всех узлов у которых есть потомки на сцене
         stage.setScene(new Scene(root, 500, 100));
@@ -140,8 +183,8 @@ public class MainController implements Initializable {
         stage.show();
     }
 
-    public String[] getSelectedPOSData(){
-        return data.getKV((String)posList.getSelectionModel().getSelectedItem());
+    public String[] getSelectedPOSData() {
+        return data.getKV((String) posList.getSelectionModel().getSelectedItem());
     }
 
 }
