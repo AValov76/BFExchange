@@ -15,6 +15,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.xml.sax.SAXException;
 
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
@@ -25,6 +26,7 @@ import java.util.ResourceBundle;
 //ссылка на этот класс идёт в fxml файле Main.fxml
 
 public class MainController implements Initializable {
+
     public MainController mainController;
     public SetOfPOS data; //набор данных с кассами
 
@@ -34,12 +36,11 @@ public class MainController implements Initializable {
     public MenuItem aboutMenu;
     public MenuItem closeMenu;
     public Button repButton;
-    public ListView posList;
-
-    // меню
     public MenuItem delString;
     public MenuItem setString;
     public MenuItem editString;
+// остальные узлы сцены
+    public ListView posList;
     public Label label1; // c
     public Label label2; // по
     public Label labelRep;  // результат обмена
@@ -49,8 +50,7 @@ public class MainController implements Initializable {
         // просто еще один способ описывать Event Handling это так называемое Lambda Expression
         closeMenu.setOnAction(event -> {
             // Закрываем приложение
-            System.out.println("Close programm...");
-            Platform.exit();
+            programExit();
         });
 
         // инициализация модели_данных
@@ -61,16 +61,21 @@ public class MainController implements Initializable {
 
         } catch (ParserConfigurationException ex) {
             ex.printStackTrace(System.out);
-        } catch (SAXException ex) {
-            ex.printStackTrace(System.out);
-        } catch (IOException ex) {
-            ex.printStackTrace(System.out);
         }
+
         posList.setPrefSize(550, 300);
         posList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         posList.setEditable(true);
     }
 
+    private void programExit(){
+        try {
+            data.saveAllDataToFile();
+            System.out.println("Close programm...");
+            Platform.exit();
+        } catch (ParserConfigurationException ex){}
+
+    }
     private void posListInitialization () {
         ObservableList<String> items = FXCollections.observableArrayList();
         items.addAll(data.getListPOS());
