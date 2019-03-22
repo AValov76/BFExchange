@@ -55,6 +55,13 @@ public class MainController implements Initializable {
     public DatePicker dateTo;
     public ChoiceBox typeOfRepChoiceBox;
 
+
+    public class RepError extends Throwable {
+        public RepError(String msg) {
+            super(msg);
+        }
+    } // класс ошибки запроса отчета
+
     public void initialize(URL location, ResourceBundle resources) {
 
         // просто еще один способ описывать Event Handling это так называемое Lambda Expression
@@ -86,7 +93,6 @@ public class MainController implements Initializable {
         //
     }
 
-
     private void programExit() {
         try {
             data.saveAllDataToFile();
@@ -94,7 +100,6 @@ public class MainController implements Initializable {
             Platform.exit();
         } catch (ParserConfigurationException ex) {
         }
-
     }
 
     private void posListInitialization() {
@@ -105,6 +110,38 @@ public class MainController implements Initializable {
 
     }
 
+    // ожидание ответа с кассы (отчета с ККТ)
+    private void repWait() {
+
+    }
+
+    private void repRequestControl() throws RepError {
+
+        if (typeOfRepChoiceBox.getSelectionModel().isSelected(0)) {
+            System.out.println(dateFrom.getValue());
+            if (dateFrom.getValue() == null) {
+                throw new RepError("Проверьте дату начала отчета!");
+            } else if (dateTo.getValue() == null) {
+                throw new RepError("Проверьте дату конца отчета!");
+            }
+            if (dateFrom.getValue().compareTo(dateTo.getValue()) > 0) {
+                throw new RepError("Дата начала отчета должна быть меньше даты конца!"); //);
+            }
+        } else {
+            throw new RepError("Запрос отчетов по номерам не реализован!");
+        }
+    }
+
+    // запрос отчета с POS - терминала на котором фокус
+    private void repFileRequest(String dateF, String dateT, String pathFlag, String nameFlagFile) throws IOException {
+        FileWriter fileWriter;
+        fileWriter = new FileWriter(nameFlagFile);
+        fileWriter.write("$$$TRANSACTIONSBYDATERANGE\n");
+        fileWriter.write(dateF + ";" + dateT);
+        fileWriter.close();
+    }
+
+
     // Action зона
     public void testButtonAction(ActionEvent event) throws ParserConfigurationException, IOException, SAXException {
         data.addNewPOS();
@@ -112,30 +149,21 @@ public class MainController implements Initializable {
     }
 
     public void repRequestButtonAction(ActionEvent event) {
-        //проверка на корректность
-        if (typeOfRepChoiceBox.getSelectionModel().isSelected(0)) {
-            if (dateFrom.getValue().compareTo(dateTo.getValue())>0){
-                labelRep.setTextFill(Color.RED);
-                labelRep.setText("Запрос не выполнен! Проверьте даты запроса!");
-            } else {
 
-            }
-
-        } else {
+        try {
+            //проверка на корректность перед запросом
+            repRequestControl();
+            //формирование файла запроса
+            //repFileRequest("1", "2", "3", "4");
+            // ожидание загрузки отчета
+            labelRep.setVisible(true);
+            labelRep.setTextFill(Color.BLACK);
+            labelRep.setText("Ожидаем получения отчета за выбранный период");
+            repWait();
+        } catch (Throwable error) {
             labelRep.setTextFill(Color.RED);
-            labelRep.setText("Запрос отчетов по номерам не реализован!");
+            labelRep.setText(error.getMessage());
         }
-        labelRep.setVisible(true);
-
-    }
-
-    // запрос отчета с POS - терминала на котором фокус
-    private void repRequest(String dateF, String dateT, String pathFlag, String nameFlag) throws IOException {
-        FileWriter fileWriter;
-        fileWriter = new FileWriter(nameFlag);
-        fileWriter.write("$$$TRANSACTIONSBYDATERANGE\n");
-
-        fileWriter.close();
     }
 
     public void delStringAction(ActionEvent event) {
