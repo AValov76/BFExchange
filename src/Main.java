@@ -15,7 +15,7 @@ public class Main extends Application {
         MainController mainController = loader.getController(); //контроллер главной формы
         mainController.mainController = mainController;
         primaryStage.setTitle("Синхронизатор отчетов");
-        primaryStage.setScene(new Scene(root, 550, 440));
+        primaryStage.setScene(new Scene(root, 550, 460));
         primaryStage.show();
 
     }

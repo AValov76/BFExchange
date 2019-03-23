@@ -15,27 +15,26 @@ import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.xml.sax.SAXException;
-
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 import java.util.ResourceBundle;
+
 
 
 //ссылка на этот класс идёт в fxml файле Main.fxml
 
 public class MainController implements Initializable {
-
+    // класс ошибки запроса отчета
+    class RepError extends Throwable {
+        public RepError(String msg) {
+            super(msg);
+        }
+    }
     public MainController mainController;
-    public SetOfPOS data; //набор данных с кассами
+    public SetOfPOS data; //набор данных по каждому POS
 
     @FXML
     //некоторые элементы меню (при инициализации можно определить его Event Handling, что и сделано ниже
@@ -55,12 +54,6 @@ public class MainController implements Initializable {
     public DatePicker dateTo;
     public ChoiceBox typeOfRepChoiceBox;
 
-
-    public class RepError extends Throwable {
-        public RepError(String msg) {
-            super(msg);
-        }
-    } // класс ошибки запроса отчета
 
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -96,7 +89,7 @@ public class MainController implements Initializable {
     private void programExit() {
         try {
             data.saveAllDataToFile();
-            System.out.println("Close programm...");
+            System.out.println("Close program...");
             Platform.exit();
         } catch (ParserConfigurationException ex) {
         }
@@ -143,11 +136,13 @@ public class MainController implements Initializable {
 
 
     // Action зона
+
     public void testButtonAction(ActionEvent event) throws ParserConfigurationException, IOException, SAXException {
         data.addNewPOS();
         posListInitialization();
     }
 
+    // обработка запроса отчета с кассы
     public void repRequestButtonAction(ActionEvent event) {
 
         try {
@@ -188,7 +183,7 @@ public class MainController implements Initializable {
         Parent root = loader.load();
         POSController posController = loader.getController(); //получаем контроллер для второй формы
         posController.initPOS(mainController); // передаем необходимые параметры
-        stage.setScene(new Scene(root, 560, 272));
+        stage.setScene(new Scene(root, 560, 410));
         stage.setTitle("Редактирование настройки обмена текущей кассы");
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
@@ -211,6 +206,7 @@ public class MainController implements Initializable {
         stage.show();
     }
 
+    // возвращает массив с данными кассы которая в фокусе
     public String[] getSelectedPOSData() {
         return data.getKV((String) posList.getSelectionModel().getSelectedItem());
     }

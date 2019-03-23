@@ -5,6 +5,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
@@ -17,7 +18,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -36,7 +36,8 @@ interface SetOfPOS {
 
     // Полный список POS как массив String[]
     String[] getListPOS();
-// удаляет POS из карты POS
+
+    // удаляет POS из карты POS
     void removePOS(String pos);
 
     // записывает все POS в файл
@@ -54,8 +55,8 @@ public class Model implements SetOfPOS {
     private static final String FILENAME = "company.xml";
     // данные по умолчанию
     private final static String POSNAME = "Касса №";
-    private final static String[] POSDATANAME = {"pathPOS", "typeofPOS", "repName", "flagName"}; // пока не использовал
-    private final static String[] POSDATA = {"C:\\Obmen", "Атол", "report.rep", "report.flg"};
+    private final static String[] POSDATANAME = {"pathPOS", "typeofPOS", "repName", "flagName", "", "checkBoxIPOOO", "pathIP", "pathOOO"}; // пока не использовал
+    private final static String[] POSDATA = {"C:\\Obmen", "Атол", "report.rep", "report.flg", "0", "C:\\Obmen", "C:\\Obmen"};
 
     // инициализация модели
     public Model() throws ParserConfigurationException {
@@ -83,13 +84,11 @@ public class Model implements SetOfPOS {
             NodeList c = root.getChildNodes(); // список детей корневого узла
             for (int i = 0; i < c.getLength(); i++) {
                 String k = new String();
-                String[] v = new String[4];
+                String[] v = new String[7];
                 Node pos = c.item(i); // один из детей из списка с - списка компаний
                 k = pos.getAttributes().item(0).getTextContent();
                 s.add(k);
-                //System.out.println(pos.getAttributes().item(0).getTextContent() + " 1");
                 // Если нода не текст, то это книга - заходим внутрь
-
                 NodeList posData = pos.getChildNodes();
                 for (int j = 0; j < posData.getLength(); j++) {
                     Node posProp = posData.item(j);
@@ -109,7 +108,6 @@ public class Model implements SetOfPOS {
             ex.printStackTrace(System.out);
         }
 
-        //        print(mapPOS);
     }
 
     // печать данных всех POS
@@ -133,6 +131,7 @@ public class Model implements SetOfPOS {
         }
     }
 
+    //проверка на существование файла с данными по POS
     private boolean loadData() {
 
         Document document;
@@ -177,7 +176,7 @@ public class Model implements SetOfPOS {
 
     @Override
     public String[] getKV(String k) {
-        String[] kv = new String[5];
+        String[] kv = new String[8];
         kv[0] = k;
         int i = 1;
         for (String s : mapPOS.get(k)
@@ -192,7 +191,7 @@ public class Model implements SetOfPOS {
         mapPOS.remove(pos);
     }
 
-// записывает все POS в файл
+    // записывает все POS в файл
     @Override
     public void saveAllDataToFile() throws ParserConfigurationException {
         //структура, в которой лежат данные из файла на диске. используется дважды
@@ -206,17 +205,15 @@ public class Model implements SetOfPOS {
                 .newDocumentBuilder().newDocument();
         company = document.createElement("company");
         document.appendChild(company);
-
+        //print(mapPOS);
 // Добавление POS в документ
         for (String pos : mapPOS.keySet()
         ) {
             // Элемент типа pos
             Element posName = document.createElement("POS");
-            //posName.setTextContent(pos);
             company.appendChild(posName);
-            // Еще можно сделать так
             posName.setAttribute("posName", pos);
-            // Определяем posName
+            // Определяем pathPOS
             Element pathPOS = document.createElement("pathPOS");
             pathPOS.setTextContent(mapPOS.get(pos)[0]); // pathPOS
             posName.appendChild(pathPOS);
@@ -232,8 +229,19 @@ public class Model implements SetOfPOS {
             Element flagName = document.createElement("flagName");
             flagName.setTextContent(mapPOS.get(pos)[3]);
             posName.appendChild(flagName);
+            // Определяем checkBoxIPOOO
+            Element checkBoxIPOOO = document.createElement("checkBoxIPOOO");
+            checkBoxIPOOO.setTextContent(mapPOS.get(pos)[4]); // pathPOS
+            posName.appendChild(checkBoxIPOOO);
+            // Определяем pathPOSIP
+            Element pathPOSIP = document.createElement("pathPOSIP");
+            pathPOSIP.setTextContent(mapPOS.get(pos)[5]); // pathPOS
+            posName.appendChild(pathPOSIP);
+            // Определяем pathPOSOOO
+            Element pathPOSOOO = document.createElement("pathPOSOOO");
+            pathPOSOOO.setTextContent(mapPOS.get(pos)[6]); // pathPOS
+            posName.appendChild(pathPOSOOO);
         }
-
 // Запись документа
         try {
             // Сохранить текстовое представление XML документа в файл
@@ -252,7 +260,6 @@ public class Model implements SetOfPOS {
             Logger.getLogger(Model.class.getName())
                     .log(Level.SEVERE, null, ex);
         }
-
     }
 
 

@@ -6,40 +6,31 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 
 //ссылка на этот класс идёт в fxml файле POS.fxml
 
 public class POSController implements Initializable {
 
-    String[] kv = new String[5]; //данные POS, которыми обменивается окно "Редактирование настройки обмена текущей кассы" с главным окном
+    String[] kv = new String[8]; //данные POS, которыми обменивается окно "Редактирование настройки обмена текущей кассы" с главным окном
     private MainController mainController; //увы, ничего умнее для передачи измененных данных POS взад при закрытии окна не придумал
     @FXML
     public AnchorPane mainAnchorPane;
-    public TextField dirExchange, posName, flag, rep;
-    public Button dirButton, cancelButton, okButton;
+    public TextField dirExchange, dirExchangeIP, dirExchangeOOO, posName, flag, rep;
+    public Button dirButton,dirButtonIP,dirButtonOOO, cancelButton, okButton;
     public ChoiceBox frontChoiceBox;
+    public CheckBox checkBox;
 
-    public void initialize (URL location, ResourceBundle resources) {
-        //Кнопка выбора папки обмена
-        dirButton.setOnAction(event -> {
-            final DirectoryChooser directoryChooser = new DirectoryChooser();
-            final Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            File file = directoryChooser.showDialog(stage);
-            if (file != null) {
-                dirExchange.setText(file.toString());
-            }
-        });
-
+    public void initialize(URL location, ResourceBundle resources) {
         //выбор типа Фронт-офиса кассы
         frontChoiceBox.setOnAction(event -> {
         });
@@ -50,6 +41,12 @@ public class POSController implements Initializable {
             Stage stage = (Stage) cancelButton.getScene().getWindow();
             stage.close();
         });
+
+        //кнопка активации checkbox
+        checkBox.setOnAction(event -> {
+        });
+
+
         //кнопка принятия изменений
         okButton.setOnAction(event -> {
             //удаляем то что было на момент открытия формы из массива данных
@@ -57,32 +54,38 @@ public class POSController implements Initializable {
             //сохраняем новые данные из формы в массив
             setKV();
             //херачим этот массив в data главного контроллера
-            String[] s= {kv[1],kv[2],kv[3],kv[4]};
-            mainController.data.addPOS(kv[0],s);
+            String[] s = {kv[1], kv[2], kv[3], kv[4],kv[5], kv[6], kv[7]};
+            mainController.data.addPOS(kv[0], s);
             //перегружаем список
             mainController.initList();
             //With the exception of the root node of a scene graph, each node in a scene graph has a single parent and zero or more children
             Stage stage = (Stage) cancelButton.getScene().getWindow();
             stage.close();
-
         });
     }
 
-//записывает данные из формы в массив (временное хранилище)
-    private void setKV () {
+    //записывает данные из формы в массив (временное хранилище)
+    private void setKV() {
         // posName
-        kv[0]=posName.getText();
+        kv[0] = posName.getText();
         // dirExchange
-        kv[1]=dirExchange.getText();
+        kv[1] = dirExchange.getText();
         //frontChoiceBox
-        kv[2]=frontChoiceBox.getSelectionModel().getSelectedItem().toString();
+        kv[2] = frontChoiceBox.getSelectionModel().getSelectedItem().toString();
         // rep
-        kv[3]=rep.getText();
+        kv[3] = rep.getText();
         // flag
-        kv[4]=flag.getText();
+        kv[4] = flag.getText();
+        // checkBoxIPOOO
+        kv[5] = (checkBox.isSelected())? "1":"0" ;
+        // dirExchangeIP
+        kv[6] = dirExchangeIP.getText();
+        // dirExchangeOOO
+        kv[7] = dirExchangeOOO.getText();
     }
 
-    private void setPOS () {
+    private void setPOS() {
+
         posName.setText(kv[0]);
         dirExchange.setText(kv[1]);
         ObservableList<String> items = FXCollections.observableArrayList();
@@ -95,10 +98,13 @@ public class POSController implements Initializable {
         }
         rep.setText(kv[3]);
         flag.setText(kv[4]);
+        checkBox.setSelected((kv[5]).equals("1"));
+        dirExchangeIP.setText(kv[6]);
+        dirExchangeOOO.setText(kv[7]);
     }
 
     // метод для передачи данных по POS из главного окна в это
-    public void initPOS (MainController mainController) {
+    public void initPOS(MainController mainController) {
         //передача данных из главного окна в это
         this.mainController = mainController;
         this.kv = mainController.getSelectedPOSData();
@@ -106,4 +112,18 @@ public class POSController implements Initializable {
         setPOS();
     }
 
+    // Action зона
+    // обработчик кнопки выбора папки (одинаков для всех трех кнопок
+    public void dirButtonAction (ActionEvent event){
+        final DirectoryChooser directoryChooser = new DirectoryChooser();
+        final Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        File file = directoryChooser.showDialog(stage);
+        if (file != null) {
+            if (event.getTarget().equals(dirButtonIP)) dirExchangeIP.setText(file.toString());
+            if (event.getTarget().equals(dirButtonOOO)) dirExchangeOOO.setText(file.toString());
+            if (event.getTarget().equals(dirButton)) dirExchange.setText(file.toString());
+        }
+
+    }
 }
