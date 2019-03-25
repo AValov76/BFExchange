@@ -15,24 +15,22 @@ import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.xml.sax.SAXException;
+
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 //ссылка на этот класс идёт в fxml файле Main.fxml
 
 public class MainController implements Initializable {
-    // класс ошибки запроса отчета
-    class RepError extends Throwable {
-        public RepError(String msg) {
-            super(msg);
-        }
-    }
+
+
     public MainController mainController;
     public SetOfPOS data; //набор данных по каждому POS
 
@@ -108,29 +106,30 @@ public class MainController implements Initializable {
 
     }
 
-    private void repRequestControl() throws RepError {
+    private void repRequestControl() throws Error {
 
         if (typeOfRepChoiceBox.getSelectionModel().isSelected(0)) {
-            System.out.println(dateFrom.getValue());
             if (dateFrom.getValue() == null) {
-                throw new RepError("Проверьте дату начала отчета!");
+                throw new Error("Проверьте дату начала отчета!");
             } else if (dateTo.getValue() == null) {
-                throw new RepError("Проверьте дату конца отчета!");
+                throw new Error("Проверьте дату конца отчета!");
             }
             if (dateFrom.getValue().compareTo(dateTo.getValue()) > 0) {
-                throw new RepError("Дата начала отчета должна быть меньше даты конца!"); //);
+                throw new Error("Дата начала отчета должна быть меньше даты конца!"); //);
             }
         } else {
-            throw new RepError("Запрос отчетов по номерам не реализован!");
+            throw new Error("Запрос отчетов по номерам не реализован!");
         }
     }
 
     // запрос отчета с POS - терминала на котором фокус
     private void repFileRequest(String dateF, String dateT, String pathFlag, String nameFlagFile) throws IOException {
         FileWriter fileWriter;
-        fileWriter = new FileWriter(nameFlagFile);
-        fileWriter.write("$$$TRANSACTIONSBYDATERANGE\n");
+        fileWriter = new FileWriter(pathFlag+"\\"+nameFlagFile);
+        fileWriter.write("$$$TRANSACTIONSBYDATERANGE");
+        fileWriter.write("\r\n");
         fileWriter.write(dateF + ";" + dateT);
+        fileWriter.write("\r\n");
         fileWriter.close();
     }
 
@@ -140,25 +139,6 @@ public class MainController implements Initializable {
     public void testButtonAction(ActionEvent event) throws ParserConfigurationException, IOException, SAXException {
         data.addNewPOS();
         posListInitialization();
-    }
-
-    // обработка запроса отчета с кассы
-    public void repRequestButtonAction(ActionEvent event) {
-
-        try {
-            //проверка на корректность перед запросом
-            repRequestControl();
-            //формирование файла запроса
-            //repFileRequest("1", "2", "3", "4");
-            // ожидание загрузки отчета
-            labelRep.setVisible(true);
-            labelRep.setTextFill(Color.BLACK);
-            labelRep.setText("Ожидаем получения отчета за выбранный период");
-            repWait();
-        } catch (Throwable error) {
-            labelRep.setTextFill(Color.RED);
-            labelRep.setText(error.getMessage());
-        }
     }
 
     public void delStringAction(ActionEvent event) {
@@ -211,4 +191,25 @@ public class MainController implements Initializable {
         return data.getKV((String) posList.getSelectionModel().getSelectedItem());
     }
 
+    // обработка запроса отчета с кассы
+    public void repRequestButtonAction(ActionEvent event) {
+
+        try {
+            //проверка на корректность перед запросом
+            repRequestControl();
+            //формирование файла запроса
+            SimpleDateFormat oldDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            SimpleDateFormat newDateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+            System.out.println(newDateFormat.format(oldDateFormat.parse(dateFrom.getValue().toString())));
+            repFileRequest(newDateFormat.format(oldDateFormat.parse(dateFrom.getValue().toString())), newDateFormat.format(oldDateFormat.parse(dateTo.getValue().toString())),getSelectedPOSData()[1] ,getSelectedPOSData()[4]);
+            // ожидание загрузки отчета
+            labelRep.setVisible(true);
+            labelRep.setTextFill(Color.BLACK);
+            labelRep.setText("Ожидаем получения отчета за выбранный период");
+            repWait();
+        } catch (Throwable error) {
+            labelRep.setTextFill(Color.RED);
+            labelRep.setText(error.getMessage());
+        }
+    }
 }
