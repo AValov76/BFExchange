@@ -130,7 +130,11 @@ public class MainController implements Initializable {
         }
     }
 
+<<<<<<< HEAD
     // формирование файла запроса отчета с POS - терминала
+=======
+    // формирование файла-запроса отчета с POS-терминала, на котором фокус
+>>>>>>> dcc95f18cf1a3242855a9edbd4d079fc1fc3ed0a
     private void repFileRequest(String dateF, String dateT, String pathFlag, String nameFlagFile) throws IOException {
         FileWriter fileWriter;
         fileWriter = new FileWriter(pathFlag + "\\" + nameFlagFile);
@@ -147,6 +151,9 @@ public class MainController implements Initializable {
     public void testButtonAction(ActionEvent event) throws ParserConfigurationException, IOException, SAXException {
         data.addNewPOS();
         posListInitialization();
+        Thread tr1 = new Thread(new R_ex());
+        tr1.start();
+
     }
 
     public void delStringAction(ActionEvent event) {
@@ -289,4 +296,13 @@ public class MainController implements Initializable {
 
 
 }
+<<<<<<< HEAD
 
+=======
+class R_ex implements java.lang.Runnable  {
+    @Override
+    public void run () {
+        System.out.println("поток тест");
+    }
+}
+>>>>>>> dcc95f18cf1a3242855a9edbd4d079fc1fc3ed0a
