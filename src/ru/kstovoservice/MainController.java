@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
@@ -25,12 +26,15 @@ import java.util.ResourceBundle;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 //ссылка на этот класс идёт в fxml файле Main.fxml
 
 public class MainController implements Initializable {
 
 
+    private final int REPWAITTIME = 15;
+    private int timerClock = REPWAITTIME;
     public MainController mainController;
     public SetOfPOS data; //набор данных по каждому POS
 
@@ -84,6 +88,7 @@ public class MainController implements Initializable {
         //
     }
 
+    // обработка выхода из программе
     private void programExit() {
         try {
             data.saveAllDataToFile();
@@ -102,10 +107,13 @@ public class MainController implements Initializable {
     }
 
     // ожидание ответа с кассы (отчета с ККТ)
-    private void repWait() {
-
+    private void repWait(String repFileName) {
+        // обработка запроса отчета в отдельном потоке
+        Thread rep = new Thread(new MainController.RepReq(repFileName));    //Создание потока "myThready"
+        rep.start();                //Запуск потока
     }
 
+    // проверка перед формированием флага запроса отчета
     private void repRequestControl() throws Error {
 
         if (typeOfRepChoiceBox.getSelectionModel().isSelected(0)) {
@@ -122,10 +130,10 @@ public class MainController implements Initializable {
         }
     }
 
-    // запрос отчета с POS - терминала на котором фокус
+    // формирование файла запроса отчета с POS - терминала
     private void repFileRequest(String dateF, String dateT, String pathFlag, String nameFlagFile) throws IOException {
         FileWriter fileWriter;
-        fileWriter = new FileWriter(pathFlag+"\\"+nameFlagFile);
+        fileWriter = new FileWriter(pathFlag + "\\" + nameFlagFile);
         fileWriter.write("$$$TRANSACTIONSBYDATERANGE");
         fileWriter.write("\r\n");
         fileWriter.write(dateF + ";" + dateT);
@@ -191,25 +199,94 @@ public class MainController implements Initializable {
         return data.getKV((String) posList.getSelectionModel().getSelectedItem());
     }
 
+
     // обработка запроса отчета с кассы
     public void repRequestButtonAction(ActionEvent event) {
 
         try {
+            if (timerClock < REPWAITTIME) throw new Error("Дождитесь окончания предидущего запроса!");
             //проверка на корректность перед запросом
             repRequestControl();
             //формирование файла запроса
             SimpleDateFormat oldDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
             SimpleDateFormat newDateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
             System.out.println(newDateFormat.format(oldDateFormat.parse(dateFrom.getValue().toString())));
-            repFileRequest(newDateFormat.format(oldDateFormat.parse(dateFrom.getValue().toString())), newDateFormat.format(oldDateFormat.parse(dateTo.getValue().toString())),getSelectedPOSData()[1] ,getSelectedPOSData()[4]);
+            repFileRequest(newDateFormat.format(oldDateFormat.parse(dateFrom.getValue().toString())), newDateFormat.format(oldDateFormat.parse(dateTo.getValue().toString())), getSelectedPOSData()[1], getSelectedPOSData()[4]);
             // ожидание загрузки отчета
             labelRep.setVisible(true);
             labelRep.setTextFill(Color.BLACK);
             labelRep.setText("Ожидаем получения отчета за выбранный период");
-            repWait();
+            repWait(getSelectedPOSData()[1] + "\\" + getSelectedPOSData()[3]); // запуск ожидания отчета
+
         } catch (Throwable error) {
             labelRep.setTextFill(Color.RED);
             labelRep.setText(error.getMessage());
+            // завершение потока
         }
+        System.out.println("Кнопка отжата");
     }
+
+
+    // отдельный класс с интерфейсом Runnable для запуска запроса отчета отдельным потоком чтобы можно было продолжать работать пока идёт ожидание отчета
+    class RepReq implements Runnable {
+        private String repFileName;
+
+        RepReq(String rFN) {
+            repFileName = rFN;
+        }
+
+        public void run() {
+
+            //repButton.setDisable(true);
+            for (timerClock = REPWAITTIME; timerClock > 0; --timerClock) {
+                //https://stackoverflow.com/questions/17850191/why-am-i-getting-java-lang-illegalstateexception-not-on-fx-application-thread
+                //The user interface cannot be directly updated from a non-application thread. Instead, use Platform.runLater(), with the logic inside the Runnable object.
+                if (fileExist()) {
+                    Platform.runLater(
+                            () -> {
+                                labelRep.setTextFill(Color.GREEN);
+                                labelRep.setText("Отчет получен");
+                            });
+                    timerClock=30;
+                    break;
+                } else {
+                    try {
+                        Thread.sleep(1000l);
+                        Platform.runLater(() -> {
+                            labelRep.setTextFill(Color.BLACK);
+                            labelRep.setText("Ожидаем отчет с кассы " + timerClock);
+                        });
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            if (timerClock > 0) return;
+            else {
+                {
+                    Platform.runLater(() -> {
+                        labelRep.setTextFill(Color.RED);
+                        labelRep.setText("Отчет не получен");
+                        timerClock = REPWAITTIME;
+                    });
+                }
+            }
+        }
+
+
+        private boolean fileExist() {
+            //формирование имени файла
+            System.out.println(repFileName);
+            File f = new File(repFileName);
+            if (f.exists() && !f.isDirectory()) {
+                return true;
+            }
+            return false;
+        }
+
+    }
+
+
 }
+
