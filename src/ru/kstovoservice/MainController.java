@@ -170,7 +170,7 @@ public class MainController implements Initializable {
         Parent root = loader.load();
         POSController posController = loader.getController(); //получаем контроллер для второй формы
         posController.initPOS(mainController); // передаем необходимые параметры
-        stage.setScene(new Scene(root, 560, 410));
+        stage.setScene(new Scene(root, 560, 500));
         stage.setTitle("Редактирование настройки обмена текущей кассы");
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
