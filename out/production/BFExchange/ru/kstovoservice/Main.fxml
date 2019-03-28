@@ -41,27 +41,28 @@
           </menus>
        </MenuBar>
          <ListView fx:id="posList" editable="true" prefHeight="267.0" prefWidth="611.0" />
-       <AnchorPane prefHeight="119.0" prefWidth="550.0">
+       <AnchorPane prefHeight="191.0" prefWidth="550.0">
            <children>
-               <Button fx:id="repButton" layoutX="14.0" layoutY="89.0" mnemonicParsing="false" onAction="#repRequestButtonAction" text="Загрузить" />
-            <Label layoutX="186.0" layoutY="2.0" prefHeight="27.0" prefWidth="166.0" text="Загрузка отчетов">
+               <Button fx:id="repButton" layoutX="14.0" layoutY="116.0" mnemonicParsing="false" onAction="#repRequestButtonAction" prefHeight="25.0" prefWidth="150.0" text="Запрос отчета на кассе" />
+            <Label layoutX="125.0" layoutY="1.0" prefHeight="27.0" prefWidth="300.0" text="Загрузка отчета/Выгрузка товара">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <ChoiceBox fx:id="typeOfRepChoiceBox" layoutX="13.0" layoutY="56.0" prefWidth="150.0" />
-            <DatePicker fx:id="dateFrom" layoutX="178.0" layoutY="56.0" />
-            <DatePicker fx:id="dateTo" layoutX="359.0" layoutY="56.0" />
-            <Label fx:id="labelRep" layoutX="109.0" layoutY="92.0" text="Результат загрузки отчета">
+            <ChoiceBox fx:id="typeOfRepChoiceBox" layoutX="13.0" layoutY="56.0" prefHeight="25.0" prefWidth="150.0" />
+            <DatePicker fx:id="dateFrom" layoutX="200.0" layoutY="56.0" prefHeight="25.0" prefWidth="150.0" />
+            <DatePicker fx:id="dateTo" layoutX="380.0" layoutY="56.0" prefHeight="25.0" prefWidth="150.0" />
+            <Label fx:id="labelRep" layoutX="11.0" layoutY="152.0" prefHeight="70.0" prefWidth="528.0" text="Результат операции">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
             <TextField layoutX="178.0" layoutY="47.0" prefHeight="25.0" prefWidth="174.0" visible="false" />
-            <Label fx:id="label1" layoutX="179.0" layoutY="37.0" text="С даты:" />
-            <Label fx:id="label2" layoutX="360.0" layoutY="37.0" text="По дату:" />
-            <Button fx:id="testButton" layoutX="493.0" layoutY="89.0" mnemonicParsing="false" onAction="#testButtonAction" text="Тест" />
-            <Label fx:id="label11" layoutX="14.0" layoutY="37.0" prefHeight="17.0" prefWidth="150.0" text="Тип отчета:" />
+            <Label fx:id="label1" layoutX="201.0" layoutY="37.0" text="С даты:" />
+            <Label fx:id="label2" layoutX="381.0" layoutY="37.0" text="По дату:" />
+            <Button fx:id="testButton" layoutX="380.0" layoutY="116.0" mnemonicParsing="false" onAction="#testButtonAction" prefHeight="25.0" prefWidth="150.0" text="Выгрузка товара в кассу" />
+            <Label fx:id="label11" layoutX="14.0" layoutY="37.0" prefHeight="17.0" prefWidth="75.0" text="Тип отчета:" />
+            <Button fx:id="testButton1" layoutX="194.0" layoutY="116.0" mnemonicParsing="false" onAction="#testButtonAction" prefHeight="25.0" prefWidth="150.0" text="Выгрузка отчета в 1С" />
            </children>
        </AnchorPane>
    </children>

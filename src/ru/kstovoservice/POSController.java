@@ -85,7 +85,6 @@ public class POSController implements Initializable {
     }
 
     private void setPOS() {
-
         posName.setText(kv[0]);
         dirExchange.setText(kv[1]);
         ObservableList<String> items = FXCollections.observableArrayList();
