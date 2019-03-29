@@ -28,6 +28,8 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
+import static javafx.application.Platform.runLater;
+
 //ссылка на этот класс идёт в fxml файле Main.fxml
 
 public class MainController implements Initializable {
@@ -107,9 +109,9 @@ public class MainController implements Initializable {
     }
 
     // ожидание ответа с кассы (отчета с ККТ)
-    private void repWait(String repFileName) {
+    private void repWait(String repFileName, String repFlagName) {
         // обработка запроса отчета в отдельном потоке
-        Thread rep = new Thread(new MainController.RepReq(repFileName));    //Создание потока "myThready"
+        Thread rep = new Thread(new MainController.RepReq(repFileName, repFlagName));    //Создание потока "myThready"
         rep.start();                //Запуск потока
     }
 
@@ -129,17 +131,6 @@ public class MainController implements Initializable {
             throw new Error("Запрос отчетов по номерам не реализован!");
         }
     }
-
-    private void repFileRequest(String dateF, String dateT, String pathFlag, String nameFlagFile) throws IOException {
-        FileWriter fileWriter;
-        fileWriter = new FileWriter(pathFlag + "\\" + nameFlagFile);
-        fileWriter.write("$$$TRANSACTIONSBYDATERANGE");
-        fileWriter.write("\r\n");
-        fileWriter.write(dateF + ";" + dateT);
-        fileWriter.write("\r\n");
-        fileWriter.close();
-    }
-
 
     // Action зона
 
@@ -175,9 +166,9 @@ public class MainController implements Initializable {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
 /* Гы, работает, но с какими-то ошибками
-        Stage stage = (Stage) mainMenu.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("POS.fxml"));
-        stage.setScene(new Scene(root, 560, 272));
+        Stage stage1 = (Stage) mainMenu.getScene().getWindow();
+        Parent root1 = FXMLLoader.load(getClass().getResource("POS.fxml"));
+        stage.setScene(new Scene(root1, 560, 272));
         stage.setTitle("Редактирование настройки обмена текущей кассы");
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
@@ -210,12 +201,12 @@ public class MainController implements Initializable {
             SimpleDateFormat oldDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
             SimpleDateFormat newDateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
             System.out.println(newDateFormat.format(oldDateFormat.parse(dateFrom.getValue().toString())));
-            repFileRequest(newDateFormat.format(oldDateFormat.parse(dateFrom.getValue().toString())), newDateFormat.format(oldDateFormat.parse(dateTo.getValue().toString())), getSelectedPOSData()[1], getSelectedPOSData()[4]);
+            repFileRequest(newDateFormat.format(oldDateFormat.parse(dateFrom.getValue().toString())), newDateFormat.format(oldDateFormat.parse(dateTo.getValue().toString())), getSelectedPOSData()[1] + "\\" + getSelectedPOSData()[4]);
             // ожидание загрузки отчета
             labelRep.setVisible(true);
             labelRep.setTextFill(Color.BLACK);
             labelRep.setText("Ожидаем получения отчета за выбранный период");
-            repWait(getSelectedPOSData()[1] + "\\" + getSelectedPOSData()[3]); // запуск ожидания отчета
+            repWait(getSelectedPOSData()[1] + "\\" + getSelectedPOSData()[3], getSelectedPOSData()[1] + "\\" + getSelectedPOSData()[4]); // запуск ожидания отчета
 
         } catch (Throwable error) {
             labelRep.setTextFill(Color.RED);
@@ -229,62 +220,88 @@ public class MainController implements Initializable {
     // отдельный класс с интерфейсом Runnable для запуска запроса отчета отдельным потоком чтобы можно было продолжать работать пока идёт ожидание отчета
     class RepReq implements Runnable {
         private String repFileName;
+        private String repFlagName;
 
-        RepReq(String rFN) {
-            repFileName = rFN;
+        // конструктор класса
+        RepReq(String rFileN, String rFlagN) {
+            repFileName = rFileN;
+            repFlagName = rFlagN;
         }
 
         public void run() {
-
             //repButton.setDisable(true);
-            for (timerClock = REPWAITTIME; timerClock > 0; --timerClock) {
-                //https://stackoverflow.com/questions/17850191/why-am-i-getting-java-lang-illegalstateexception-not-on-fx-application-thread
-                //The user interface cannot be directly updated from a non-application thread. Instead, use Platform.runLater(), with the logic inside the Runnable object.
-                if (fileExist()) {
-                    Platform.runLater(
+            //https://stackoverflow.com/questions/17850191/why-am-i-getting-java-lang-illegalstateexception-not-on-fx-application-thread
+            //The user interface cannot be directly updated from a non-application thread. Instead, use Platform.runLater(), with the logic inside the Runnable object.
+            for (timerClock = REPWAITTIME; timerClock > 0; --timerClock)
+                if (fileExist(repFileName)) { // ура, отчет на диске присутствует
+                    runLater( // надо сказать пользователю про это
                             () -> {
                                 labelRep.setTextFill(Color.GREEN);
                                 labelRep.setText("Отчет получен");
                             });
-                    timerClock=30;
+                    timerClock = 30;
+                    fileDelete(repFlagName);
                     break;
-                } else {
-                    try {
-                        Thread.sleep(1000l);
-                        Platform.runLater(() -> {
-                            labelRep.setTextFill(Color.BLACK);
-                            labelRep.setText("Ожидаем отчет с кассы " + timerClock);
-                        });
+                } else try { // отчета нет, надо заснуть на секунду...
+                    Thread.sleep(1000l);
+                    Platform.runLater(() -> {
+                        labelRep.setTextFill(Color.BLACK);
+                        labelRep.setText("Ожидаем отчет с кассы " + timerClock);
+                    });
 
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-            }
             if (timerClock > 0) return;
             else {
-                {
-                    Platform.runLater(() -> {
-                        labelRep.setTextFill(Color.RED);
-                        labelRep.setText("Отчет не получен");
-                        timerClock = REPWAITTIME;
-                    });
-                }
+                runLater(() -> {
+                    labelRep.setTextFill(Color.RED);
+                    labelRep.setText("Отчет не получен");
+                    timerClock = REPWAITTIME; // важно сбросить таймер, по этому таймеру основной процесс судит о завершенности начатого процесса обмена
+                    fileDelete(repFlagName); // удаляем файл-флаг запроса отчета (согласно интсрукции производителя ПО xPOS)
+                });
             }
         }
-
-
-        private boolean fileExist() {
-            //формирование имени файла
-            System.out.println(repFileName);
-            File f = new File(repFileName);
-            if (f.exists() && !f.isDirectory()) {
-                return true;
-            }
-            return false;
-        }
-
     }
 
+    // проверка существоания файла по заданному пути
+    public boolean fileExist(String fileName) {
+        //формирование имени файла
+        System.out.println("Проверка существования файла " + fileName);
+        File f = new File(fileName);
+        if (f.exists() && !f.isDirectory()) {
+            return true;
+        }
+        return false;
+    }
 
+    // удаление заданного файла
+    public void fileDelete(String flagName) {
+        //формирование имени файла
+        System.out.println("Удаление файла " + flagName);
+        File f = new File(flagName);
+        if (f.exists() && !f.isDirectory()) {
+            f.delete();
+        }
+    }
+
+    //формирование файла-флага (файла запроса отчета)
+    private void repFileRequest(String dateF, String dateT, String flagName) throws IOException {
+        FileWriter fileWriter;
+        fileWriter = new FileWriter(flagName);
+        fileWriter.write("$$$TRANSACTIONSBYDATERANGE");
+        fileWriter.write("\r\n");
+        fileWriter.write(dateF + ";" + dateT);
+        fileWriter.write("\r\n");
+        fileWriter.close();
+    }
+
+    public void repTo1C(){
+        try{
+    }
+    catch (Error error){
+        labelRep.setTextFill(Color.RED);
+        labelRep.setText(error.getMessage());
+        }
+    }
 }
