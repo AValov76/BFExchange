@@ -24,9 +24,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Locale;
-import java.util.concurrent.TimeUnit;
 
 import static javafx.application.Platform.runLater;
 
@@ -45,7 +43,7 @@ public class MainController implements Initializable {
     public VBox mainMenu;
     public MenuItem aboutMenu;
     public MenuItem closeMenu;
-    public Button repButton;
+    public Button repButton, repTo1CButton;
     public MenuItem delString;
     public MenuItem setString;
     public MenuItem editString;
@@ -61,10 +59,15 @@ public class MainController implements Initializable {
 
     public void initialize(URL location, ResourceBundle resources) {
 
-        // просто еще один способ описывать Event Handling это так называемое Lambda Expression
+        // просто еще один способ описывать Event Handling
         closeMenu.setOnAction(event -> {
             // Закрываем приложение
             programExit();
+        });
+
+        // кнопка выгрузк Отчета в 1С
+        repTo1CButton.setOnAction(event -> {
+            repTo1C();
         });
 
         // инициализация модели_данных
@@ -165,14 +168,6 @@ public class MainController implements Initializable {
         stage.setTitle("Редактирование настройки обмена текущей кассы");
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
-/* Гы, работает, но с какими-то ошибками
-        Stage stage1 = (Stage) mainMenu.getScene().getWindow();
-        Parent root1 = FXMLLoader.load(getClass().getResource("POS.fxml"));
-        stage.setScene(new Scene(root1, 560, 272));
-        stage.setTitle("Редактирование настройки обмена текущей кассы");
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.show();
-*/
     }
 
     public void aboutMenuAction(ActionEvent event) throws Exception {
@@ -296,12 +291,23 @@ public class MainController implements Initializable {
         fileWriter.close();
     }
 
+
+    //Парсер отчета с кассы
     public void repTo1C(){
-        try{
-    }
+        try {
+            if (!(getSelectedPOSData()[5].equals("1"))) throw new Error("Не стоит галка раздельного учета по ИП и ООО");//проверить что операция парсинга требуется
+            if (!fileExist(getSelectedPOSData()[1] + "\\" + getSelectedPOSData()[3])) throw new Error("Файл не существует");//проверить, что есть исходный файл отчета
+            RepParser.repParse(getSelectedPOSData()[1] + "\\" + getSelectedPOSData()[3]);// print отчета с кассы
+        }
     catch (Error error){
         labelRep.setTextFill(Color.RED);
         labelRep.setText(error.getMessage());
         }
+        catch (IOException e){
+            labelRep.setTextFill(Color.RED);
+            labelRep.setText(e.getMessage());
+
+        }
+
     }
 }

@@ -62,7 +62,7 @@
             <Label fx:id="label2" layoutX="381.0" layoutY="37.0" text="По дату:" />
             <Button fx:id="testButton" layoutX="380.0" layoutY="116.0" mnemonicParsing="false" onAction="#testButtonAction" prefHeight="25.0" prefWidth="150.0" text="Выгрузка товара в кассу" />
             <Label fx:id="label11" layoutX="14.0" layoutY="37.0" prefHeight="17.0" prefWidth="75.0" text="Тип отчета:" />
-            <Button fx:id="testButton1" layoutX="194.0" layoutY="116.0" mnemonicParsing="false" onAction="#testButtonAction" prefHeight="25.0" prefWidth="150.0" text="Выгрузка отчета в 1С" />
+            <Button fx:id="repTo1CButton" layoutX="194.0" layoutY="116.0" mnemonicParsing="false" onAction="#repTo1C" prefHeight="25.0" prefWidth="150.0" text="Выгрузка отчета в 1С" />
            </children>
        </AnchorPane>
    </children>
