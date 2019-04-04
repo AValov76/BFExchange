@@ -12,15 +12,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="532.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kstovoservice.POSController">
+<AnchorPane fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="532.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kstovoservice.POSController">
     <children>
         <Label layoutX="9.0" layoutY="13.0" prefHeight="25.0" prefWidth="150.0" text="Наименование кассы:">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Button fx:id="okButton" layoutX="489.0" layoutY="441.0" mnemonicParsing="false" text="OK" />
-        <Button fx:id="cancelButton" layoutX="422.0" layoutY="441.0" mnemonicParsing="false" text="Отмена" />
+        <Button fx:id="okButton" layoutX="489.0" layoutY="488.0" mnemonicParsing="false" text="OK" />
+        <Button fx:id="cancelButton" layoutX="422.0" layoutY="488.0" mnemonicParsing="false" text="Отмена" />
         <Label layoutX="9.0" layoutY="70.0" prefHeight="25.0" prefWidth="105.0" text="Папка обмена:">
             <font>
                 <Font size="14.0" />
@@ -94,55 +94,81 @@
          </font>
       </Label>
       <CheckBox fx:id="checkBox" layoutX="210.0" layoutY="217.0" mnemonicParsing="false" />
-      <Label layoutX="270.0" layoutY="350.0" prefHeight="25.0" prefWidth="79.0" text="Имя отчета ИП:">
+      <Label layoutX="270.0" layoutY="368.0" prefHeight="25.0" prefWidth="79.0" text="Имя отчета ИП:">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
-      <Label layoutX="270.0" layoutY="378.0" prefHeight="25.0" prefWidth="87.0" text="Имя отчета OOO:">
+      <Label layoutX="270.0" layoutY="396.0" prefHeight="25.0" prefWidth="87.0" text="Имя отчета OOO:">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
-      <TextField fx:id="dirExchangeIP1" editable="false" layoutX="360.0" layoutY="348.0" prefHeight="17.0" prefWidth="93.0" text="reportIP.rep">
+      <TextField fx:id="dirExchangeIP1" editable="false" layoutX="360.0" layoutY="366.0" prefHeight="17.0" prefWidth="93.0" text="reportIP.rep">
          <font>
             <Font size="10.0" />
          </font>
       </TextField>
-      <TextField fx:id="dirExchangeIP11" editable="false" layoutX="360.0" layoutY="378.0" prefHeight="9.0" prefWidth="93.0" text="reportOOO.rep">
+      <TextField fx:id="dirExchangeIP11" editable="false" layoutX="360.0" layoutY="396.0" prefHeight="9.0" prefWidth="93.0" text="reportOOO.rep">
          <font>
             <Font size="10.0" />
          </font>
       </TextField>
-      <Label layoutX="9.0" layoutY="348.0" prefHeight="25.0" prefWidth="132.0" text="Справочник товаров ИП:">
+      <Label layoutX="9.0" layoutY="366.0" prefHeight="25.0" prefWidth="132.0" text="Справочник товаров ИП:">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
-      <Label layoutX="9.0" layoutY="378.0" prefHeight="25.0" prefWidth="124.0" text="Справочник товаров OOO:">
+      <Label layoutX="9.0" layoutY="396.0" prefHeight="25.0" prefWidth="124.0" text="Справочник товаров OOO:">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
-      <TextField fx:id="dirExchangeIP12" editable="false" layoutX="155.0" layoutY="348.0" prefHeight="17.0" prefWidth="93.0" text="goodsIP.spr">
+      <TextField fx:id="dirExchangeIP12" editable="false" layoutX="155.0" layoutY="366.0" prefHeight="17.0" prefWidth="93.0" text="goodsIP.spr">
          <font>
             <Font size="10.0" />
          </font>
       </TextField>
-      <TextField fx:id="dirExchangeIP111" editable="false" layoutX="155.0" layoutY="378.0" prefHeight="17.0" prefWidth="93.0" text="goodsOOO.spr">
+      <TextField fx:id="dirExchangeIP111" editable="false" layoutX="155.0" layoutY="396.0" prefHeight="17.0" prefWidth="93.0" text="goodsOOO.spr">
          <font>
             <Font size="10.0" />
          </font>
       </TextField>
-      <TextField fx:id="dirExchangeIP112" editable="false" layoutX="155.0" layoutY="408.0" prefHeight="9.0" prefWidth="93.0" text="goods.spr">
+      <TextField fx:id="dirExchangeIP112" editable="false" layoutX="155.0" layoutY="426.0" prefHeight="9.0" prefWidth="93.0" text="goods.spr">
          <font>
             <Font size="10.0" />
          </font>
       </TextField>
-      <Label layoutX="9.0" layoutY="408.0" prefHeight="25.0" prefWidth="124.0" text="Справочник товаров POS:">
+      <Label layoutX="9.0" layoutY="426.0" prefHeight="25.0" prefWidth="124.0" text="Справочник товаров POS:">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
+      <Separator layoutX="10.0" layoutY="331.0" prefHeight="3.0" prefWidth="510.0" />
+      <Label layoutX="9.0" layoutY="334.0" prefHeight="25.0" prefWidth="174.0" text="Значения по умолчанию:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="dirExchangeIP113" editable="false" layoutX="420.0" layoutY="426.0" prefHeight="23.0" prefWidth="33.0" text="1/2">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </TextField>
+      <Label layoutX="270.0" layoutY="426.0" prefHeight="25.0" prefWidth="124.0" text="Код группы ИП/ООО:">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="9.0" layoutY="457.0" prefHeight="25.0" prefWidth="124.0" text="Модификатор SKU ООО:">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <TextField fx:id="dirExchangeIP1121" editable="false" layoutX="155.0" layoutY="457.0" prefHeight="9.0" prefWidth="93.0" text="add --&gt;9">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </TextField>
     </children>
 </AnchorPane>

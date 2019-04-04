@@ -131,7 +131,7 @@ public class MainController implements Initializable {
                 throw new Error("Дата начала отчета должна быть меньше даты конца!"); //);
             }
         } else {
-            throw new Error("Запрос отчетов по номерам не реализован!");
+            throw new Error("Запрос отчетов по номерам смен пока не реализован!");
         }
     }
 
@@ -234,7 +234,7 @@ public class MainController implements Initializable {
                                 labelRep.setTextFill(Color.GREEN);
                                 labelRep.setText("Отчет получен");
                             });
-                    timerClock = 30;
+                    timerClock = REPWAITTIME;
                     fileDelete(repFlagName);
                     break;
                 } else try { // отчета нет, надо заснуть на секунду...
@@ -294,10 +294,11 @@ public class MainController implements Initializable {
 
     //Парсер отчета с кассы
     public void repTo1C(){
+        String repNotify=null;
         try {
-            if (!(getSelectedPOSData()[5].equals("1"))) throw new Error("Не стоит галка раздельного учета по ИП и ООО");//проверить что операция парсинга требуется
+            if (!(getSelectedPOSData()[5].equals("1"))) throw new Error("У этой кассы не настроен раздельный учет ИП и ООО. Выгрузка в 1С не нужна.");//проверить что операция парсинга требуется
             if (!fileExist(getSelectedPOSData()[1] + "\\" + getSelectedPOSData()[3])) throw new Error("Файл не существует");//проверить, что есть исходный файл отчета
-            RepParser.repParse(getSelectedPOSData()[1] + "\\" + getSelectedPOSData()[3]);// print отчета с кассы
+            repNotify = RepParser.repParse(getSelectedPOSData()[1] + "\\" + getSelectedPOSData()[3],getSelectedPOSData()[6],getSelectedPOSData()[7]);// print отчета с кассы
         }
     catch (Error error){
         labelRep.setTextFill(Color.RED);
@@ -306,7 +307,11 @@ public class MainController implements Initializable {
         catch (IOException e){
             labelRep.setTextFill(Color.RED);
             labelRep.setText(e.getMessage());
-
+        }
+        finally {
+            if (repNotify!=null){
+            labelRep.setTextFill(Color.GREEN);
+            labelRep.setText(repNotify);}
         }
 
     }
