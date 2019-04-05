@@ -32,10 +32,24 @@ import static javafx.application.Platform.runLater;
 
 public class MainController implements Initializable {
 
+    // константы
+    public static final String GOODS_IP_FILENAME="goodsIP.spr";
+    public static final String GOODS_OOO_FILENAME="goodsOOO.spr";
+    public static final String GOODS_POS_FILENAME="goods.spr";
+    public static final String REP_IP_FILENAME="reportIP.rep";
+    public static final String REP_OOO_FILENAME="reportOOO.rep";
+    public static final String SKU_MOD = "9";
+    public static final String IP_PRINTGROUP_CODE = "1";
+    public static final String OOO_PRINTGROUP_CODE = "2";
+    public static final int REPWAITTIME = 15;
 
-    private final int REPWAITTIME = 15;
+    // оно щелкает часами в потоке
     private int timerClock = REPWAITTIME;
+    // для передачи в дочернее окно
     public MainController mainController;
+
+    // типа интерфейс данных (данные могут храниться по-разному, а интерфейс будет один и тот же)
+    // этот интерфейс описан и реализован в классе Model.java
     public SetOfPOS data; //набор данных по каждому POS
 
     @FXML
@@ -43,7 +57,7 @@ public class MainController implements Initializable {
     public VBox mainMenu;
     public MenuItem aboutMenu;
     public MenuItem closeMenu;
-    public Button repButton, repTo1CButton;
+    public Button repButton, rep1CButton;
     public MenuItem delString;
     public MenuItem setString;
     public MenuItem editString;
@@ -63,11 +77,6 @@ public class MainController implements Initializable {
         closeMenu.setOnAction(event -> {
             // Закрываем приложение
             programExit();
-        });
-
-        // кнопка выгрузк Отчета в 1С
-        repTo1CButton.setOnAction(event -> {
-            repTo1C();
         });
 
         // инициализация модели_данных
@@ -137,11 +146,6 @@ public class MainController implements Initializable {
 
     // Action зона
 
-    public void testButtonAction(ActionEvent event) throws ParserConfigurationException, IOException, SAXException {
-        data.addNewPOS();
-        posListInitialization();
-    }
-
     public void delStringAction(ActionEvent event) {
         data.removePOS((String) posList.getSelectionModel().getSelectedItem());
         posListInitialization();
@@ -164,7 +168,7 @@ public class MainController implements Initializable {
         Parent root = loader.load();
         POSController posController = loader.getController(); //получаем контроллер для второй формы
         posController.initPOS(mainController); // передаем необходимые параметры
-        stage.setScene(new Scene(root, 560, 500));
+        stage.setScene(new Scene(root, 530, 540));
         stage.setTitle("Редактирование настройки обмена текущей кассы");
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
@@ -292,9 +296,10 @@ public class MainController implements Initializable {
     }
 
 
-    //Парсер отчета с кассы
-    public void repTo1C(){
+    //Обработка нажатия кнопки "Выгрузка отчета в 1С"
+    public void repTo1CButton(ActionEvent event){
         String repNotify=null;
+        // Удобно обрабатывать возможные ошибки через блок try/catch пихая в соответствующее место на экране результат выполнения операции
         try {
             if (!(getSelectedPOSData()[5].equals("1"))) throw new Error("У этой кассы не настроен раздельный учет ИП и ООО. Выгрузка в 1С не нужна.");//проверить что операция парсинга требуется
             if (!fileExist(getSelectedPOSData()[1] + "\\" + getSelectedPOSData()[3])) throw new Error("Файл не существует");//проверить, что есть исходный файл отчета
@@ -313,6 +318,11 @@ public class MainController implements Initializable {
             labelRep.setTextFill(Color.GREEN);
             labelRep.setText(repNotify);}
         }
+    }
+
+    //обработка нажатия кнопки "Выгрузка товара на POS"
+    public void goodsToPOSButton(ActionEvent event){
 
     }
+
 }

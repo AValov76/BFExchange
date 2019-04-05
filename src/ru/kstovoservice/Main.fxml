@@ -43,7 +43,7 @@
          <ListView fx:id="posList" editable="true" prefHeight="267.0" prefWidth="611.0" />
        <AnchorPane prefHeight="191.0" prefWidth="550.0">
            <children>
-               <Button fx:id="repButton" layoutX="14.0" layoutY="116.0" mnemonicParsing="false" onAction="#repRequestButtonAction" prefHeight="25.0" prefWidth="150.0" text="Запрос отчета на кассе" />
+               <Button fx:id="repButton" layoutX="14.0" layoutY="116.0" mnemonicParsing="false" onAction="#repRequestButtonAction" prefHeight="25.0" prefWidth="150.0" text="Запрос отчета на POS" />
             <Label layoutX="125.0" layoutY="1.0" prefHeight="27.0" prefWidth="300.0" text="Загрузка отчета/Выгрузка товара">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -60,9 +60,9 @@
             <TextField layoutX="178.0" layoutY="47.0" prefHeight="25.0" prefWidth="174.0" visible="false" />
             <Label fx:id="label1" layoutX="201.0" layoutY="37.0" text="С даты:" />
             <Label fx:id="label2" layoutX="381.0" layoutY="37.0" text="По дату:" />
-            <Button fx:id="testButton" layoutX="380.0" layoutY="116.0" mnemonicParsing="false" onAction="#testButtonAction" prefHeight="25.0" prefWidth="150.0" text="Выгрузка товара в кассу" />
+            <Button fx:id="goodsButton" layoutX="380.0" layoutY="116.0" mnemonicParsing="false" onAction="#goodsToPOSButton" prefHeight="25.0" prefWidth="150.0" text="Выгрузка товара на POS" />
             <Label fx:id="label11" layoutX="14.0" layoutY="37.0" prefHeight="17.0" prefWidth="75.0" text="Тип отчета:" />
-            <Button fx:id="repTo1CButton" layoutX="194.0" layoutY="116.0" mnemonicParsing="false" onAction="#repTo1C" prefHeight="25.0" prefWidth="150.0" text="Выгрузка отчета в 1С" />
+            <Button fx:id="rep1CButton" layoutX="194.0" layoutY="116.0" mnemonicParsing="false" onAction="#repTo1CButton" prefHeight="25.0" prefWidth="150.0" text="Выгрузка отчета в 1С" />
            </children>
        </AnchorPane>
    </children>

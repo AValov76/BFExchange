@@ -22,27 +22,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-// типа делаю всё по науке, это интерфейс взаимодействия с контроллером, который должен работать с любой моделью (файл XML, SQL база ...)
+// реализация интерфейса взаимодействия с данными
 
-interface SetOfPOS {
-
-
-    void addPOS(String posName, String... data);
-
-    void addNewPOS();
-
-    // получить данные POS по названию POS
-    String[] getKV(String k);
-
-    // Полный список POS как массив String[]
-    String[] getListPOS();
-
-    // удаляет POS из карты POS
-    void removePOS(String pos);
-
-    // записывает все POS в файл
-    void saveAllDataToFile() throws ParserConfigurationException;
-}
 
 // ну а это конкретная реализация модели, файловый вариант
 

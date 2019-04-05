@@ -2,15 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ru/kstovoservice/SepOfPOS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/Main.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/MainController$RepReq.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/MainController$RepReq.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/Model.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/POS.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/POS.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/POSController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/POSController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/RepParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/RepParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/SetOfPOS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/SetOfPOS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/kstovoservice/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovoservice/Main.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ru/kstovoservice/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovoservice/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/kstovoservice/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovoservice/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ru/kstovoservice/POS.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovoservice/POS.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/kstovoservice/POSController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovoservice/POSController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ru/kstovoservice/RepParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovoservice/RepParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Несколько касс на 1 компе/goods и reports/OOO/goodsOOO.txt" beforeDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -107,8 +114,20 @@
       <file leaf-file-name="MainController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="298" column="131" lean-forward="true" selection-start-line="298" selection-start-column="131" selection-end-line="298" selection-end-column="131" />
+            <state relative-caret-position="-3424">
+              <caret line="170" column="46" selection-start-line="170" selection-start-column="46" selection-end-line="170" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="POSController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/POSController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="62" column="8" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -118,27 +137,34 @@
       </file>
       <file leaf-file-name="Main.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/Main.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+            <state relative-caret-position="-125">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="93">
+              <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+              <folding>
+                <element signature="e#792#793#0" expanded="true" />
+                <element signature="e#820#821#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="RepParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/RepParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="208" column="51" selection-start-line="208" selection-start-column="51" selection-end-line="208" selection-end-column="51" />
+            <state relative-caret-position="2245">
+              <caret line="184" lean-forward="true" selection-start-line="184" selection-end-line="184" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3370#3378#0" expanded="true" />
-                <element signature="e#3441#3449#0" expanded="true" />
-                <element signature="e#2619#2627#0" expanded="true" />
-                <element signature="e#2693#2701#0" expanded="true" />
-                <element signature="e#4724#4725#0" expanded="true" />
-                <element signature="e#4768#4769#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -147,8 +173,8 @@
       <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="58" column="102" lean-forward="true" selection-start-line="58" selection-start-column="102" selection-end-line="58" selection-end-column="102" />
+            <state relative-caret-position="100">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="e#5789#5790#0" expanded="true" />
                 <element signature="e#5821#5822#0" expanded="true" />
@@ -158,14 +184,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="POS.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/POS.fxml">
+      <file leaf-file-name="SepOfPOS.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/SepOfPOS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="794">
-              <caret line="109" column="16" lean-forward="true" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="16" />
+            <state relative-caret-position="150">
+              <caret line="6" column="70" selection-start-line="6" selection-start-column="70" selection-end-line="6" selection-end-column="70" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="POS.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/POS.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="591">
+              <caret line="109" column="16" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="16" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -181,8 +216,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>lis</find>
-      <find>getS</find>
       <find>getScence</find>
       <find>getScene</find>
       <find>Opacity</find>
@@ -200,7 +233,6 @@
       <find>Date</find>
       <find>RU</find>
       <find>item</find>
-      <find>testButtonAction</find>
       <find>testButton</find>
       <find>check</find>
       <find>model</find>
@@ -211,6 +243,9 @@
       <find>RepP</find>
       <find>File</find>
       <find>timer</find>
+      <find>testButtonAction</find>
+      <find>rep</find>
+      <find>repTO</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -252,10 +287,11 @@
         <option value="$PROJECT_DIR$/src/ru/kstovoservice/ShopController.java" />
         <option value="$PROJECT_DIR$/src/ru/kstovoservice/Main.fxml" />
         <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/ru/kstovoservice/Model.java" />
-        <option value="$PROJECT_DIR$/src/ru/kstovoservice/POSController.java" />
         <option value="$PROJECT_DIR$/src/ru/kstovoservice/POS.fxml" />
+        <option value="$PROJECT_DIR$/src/ru/kstovoservice/Model.java" />
+        <option value="$PROJECT_DIR$/src/ru/kstovoservice/SepOfPOS.java" />
         <option value="$PROJECT_DIR$/src/ru/kstovoservice/RepParser.java" />
+        <option value="$PROJECT_DIR$/src/ru/kstovoservice/POSController.java" />
         <option value="$PROJECT_DIR$/src/ru/kstovoservice/MainController.java" />
       </list>
     </option>
@@ -268,7 +304,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
+    <option name="x" value="-8" />
     <option name="width" value="1312" />
     <option name="height" value="1047" />
   </component>
@@ -284,7 +320,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -308,7 +344,7 @@
               <item name="BFExchange" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="kstovoservice" type="462c0819:PsiDirectoryNode" />
-              <item name="Model.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+              <item name="SepOfPOS.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
             <path>
               <item name="BFExchange" type="b2602c69:ProjectViewProjectNode" />
@@ -339,6 +375,23 @@
               <item name="jfxrt.jar" type="462c0819:PsiDirectoryNode" />
               <item name="javafx" type="462c0819:PsiDirectoryNode" />
               <item name="event" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BFExchange" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="jfxrt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="javafx" type="462c0819:PsiDirectoryNode" />
+              <item name="scene" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BFExchange" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="jfxrt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="javafx" type="462c0819:PsiDirectoryNode" />
+              <item name="scene" type="462c0819:PsiDirectoryNode" />
+              <item name="control" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BFExchange" type="b2602c69:ProjectViewProjectNode" />
@@ -391,7 +444,7 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -744,10 +797,10 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.11015625" side_tool="true" visible="true" weight="0.22076502" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.11054687" side_tool="true" weight="0.21969697" />
       <window_info anchor="right" id="Maven Projects" order="4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8894531" visible="true" weight="0.21969697" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49921876" weight="0.33005464" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.88984376" weight="0.22076502" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -757,62 +810,65 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="6" />
-      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.630597" weight="0.39761648" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Inspection Results" order="15" weight="0.32897604" />
       <window_info anchor="bottom" id="Changes" order="11" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="18" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49921876" weight="0.32897604" />
       <window_info anchor="right" id="JetGradle" order="8" />
+      <window_info anchor="right" id="Maven" order="10" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="Problems" order="13" />
       <window_info anchor="bottom" id="Profiler" order="12" />
       <window_info anchor="right" id="Database" order="9" />
       <window_info anchor="bottom" id="Application Servers" order="14" />
-      <window_info anchor="right" id="Maven" order="10" />
       <window_info anchor="bottom" id="Dependency Viewer" order="16" weight="0.32897604" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="17" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49921876" weight="0.32897604" />
     </layout>
     <layout-to-restore>
+      <window_info anchor="right" id="Maven" order="10" />
       <window_info anchor="bottom" id="Application Servers" order="14" />
       <window_info id="Designer" order="3" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4984375" weight="0.32897604" />
       <window_info anchor="right" id="JetGradle" order="8" />
-      <window_info id="Image Layers" order="7" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8894531" visible="true" weight="0.21969697" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Changes" order="11" />
+      <window_info id="Capture Tool" order="2" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="bottom" id="Profiler" order="12" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info id="Capture Tool" order="2" />
+      <window_info anchor="bottom" id="Docker" order="18" show_stripe_button="false" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="bottom" id="Inspection Results" order="15" weight="0.32897604" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5015625" side_tool="true" visible="true" weight="0.32897604" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.12421875" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.11054687" side_tool="true" visible="true" weight="0.21969697" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49921876" weight="0.32897604" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.21054688" />
       <window_info anchor="right" id="Database" order="9" />
       <window_info anchor="bottom" id="Problems" order="13" />
+      <window_info id="Image Layers" order="7" />
       <window_info anchor="bottom" id="Dependency Viewer" order="16" weight="0.32897604" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49921876" weight="0.33005464" />
       <window_info anchor="right" id="Maven Projects" order="4" />
+      <window_info anchor="bottom" id="Database Changes" order="17" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info id="Learn" order="5" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3278867" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.47890624" weight="0.32677597" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.630597" weight="0.39761648" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -850,8 +906,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/javafx-src.zip!/javafx/collections/transformation/FilteredList.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/org/w3c/dom/NodeList.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/javax/xml/parsers/DocumentBuilder.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/org/w3c/dom/Node.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/util/Iterator.java" />
@@ -861,12 +915,12 @@
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/javafx-src.zip!/javafx/fxml/FXMLLoader.java" />
     <entry file="file://$PROJECT_DIR$/company.xml" />
     <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/About.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/time/format/DateTimeFormatter.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/fxml/FXMLLoader.java" />
@@ -896,16 +950,6 @@
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/javafx-src.zip!/javafx/event/EventHandler.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/lang/ArrayIndexOutOfBoundsException.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/nio/file/Files.java" />
-    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/POSController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1750">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/lang/Object.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -945,21 +989,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/javafx-src.zip!/javafx/scene/control/MenuItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+        <state relative-caret-position="223">
+          <caret line="312" column="21" lean-forward="true" selection-start-line="312" selection-start-column="21" selection-end-line="312" selection-end-column="21" />
           <folding>
-            <element signature="e#792#793#0" expanded="true" />
-            <element signature="e#820#821#0" expanded="true" />
+            <element signature="e#10057#10058#0" expanded="true" />
+            <element signature="e#10103#10104#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/SepOfPOS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="70" selection-start-line="6" selection-start-column="70" selection-end-line="6" selection-end-column="70" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="58" column="102" lean-forward="true" selection-start-line="58" selection-start-column="102" selection-end-line="58" selection-end-column="102" />
+        <state relative-caret-position="100">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="e#5789#5790#0" expanded="true" />
             <element signature="e#5821#5822#0" expanded="true" />
@@ -968,42 +1019,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/Main.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/POS.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="794">
-          <caret line="109" column="16" lean-forward="true" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="16" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/RepParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="208" column="51" selection-start-line="208" selection-start-column="51" selection-end-line="208" selection-end-column="51" />
+        <state relative-caret-position="2245">
+          <caret line="184" lean-forward="true" selection-start-line="184" selection-end-line="184" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3370#3378#0" expanded="true" />
-            <element signature="e#3441#3449#0" expanded="true" />
-            <element signature="e#2619#2627#0" expanded="true" />
-            <element signature="e#2693#2701#0" expanded="true" />
-            <element signature="e#4724#4725#0" expanded="true" />
-            <element signature="e#4768#4769#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/POSController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="62" column="8" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/Main.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-125">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding>
+            <element signature="e#792#793#0" expanded="true" />
+            <element signature="e#820#821#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/POS.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="591">
+          <caret line="109" column="16" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="298" column="131" lean-forward="true" selection-start-line="298" selection-start-column="131" selection-end-line="298" selection-end-column="131" />
+        <state relative-caret-position="-3424">
+          <caret line="170" column="46" selection-start-line="170" selection-start-column="46" selection-end-line="170" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

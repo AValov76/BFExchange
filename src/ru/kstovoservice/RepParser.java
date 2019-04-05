@@ -15,12 +15,6 @@ import java.util.regex.Pattern;
 
 public class RepParser {
 
-    static final String IP_PRINTGROUP = "1";
-    static final String OOO_PRINTGROUP = "2";
-    static final String REP_IP_FILENAME = "reportIP.rep";
-    static final String REP_OOO_FILENAME = "reportOOO.rep";
-    static final String SKU_OOO = "9";
-
     // возможные типы транзакций (сделано для справки) - не пользовался
     public static final Map<String, String> DT;
 
@@ -83,14 +77,14 @@ public class RepParser {
                     deltaRepIP.add(line);
                     break;
                 case "ITEM_OOO":
-                    s[16] = IP_PRINTGROUP;
+                    s[16] = MainController.IP_PRINTGROUP_CODE;
                     s[7] = s[7].substring(1); // удаляем первый символ из строки SKU
                     deltaRepOOO.add(strСompile(s)); //
                     break;
                 // Отправка в ЕГАИС
                 case "EGAIS":
                     s = strDecompile(line);
-                    s[16] = IP_PRINTGROUP;
+                    s[16] = MainController.IP_PRINTGROUP_CODE;
                     deltaRepOOO.add(strСompile(s)); //
                     break;
 
@@ -155,7 +149,7 @@ public class RepParser {
                 case "11":
                 case "2":
                 case "12":
-                    if (strDecomp[16].equals(OOO_PRINTGROUP)) {
+                    if (strDecomp[16].equals(MainController.OOO_PRINTGROUP_CODE)) {
                         return "ITEM_OOO";
                     } else
                         return "ITEM_IP";
@@ -169,7 +163,7 @@ public class RepParser {
                     return "CLOSE_DOC";
                 case "49":
                 case "45":
-                    if (strDecomp[16].equals(OOO_PRINTGROUP)) return "EGAIS";
+                    if (strDecomp[16].equals(MainController.OOO_PRINTGROUP_CODE)) return "EGAIS";
                     return "ITEM_IP";
             }
         }
@@ -190,8 +184,8 @@ public class RepParser {
     }
 
     private static void rep_IP_OOO (String repIPPath, String repOOOPath, List... lists) throws IOException {
-        String pathIP = repIPPath + "\\" + REP_IP_FILENAME;
-        String pathOOO = repOOOPath + "\\" + REP_OOO_FILENAME;
+        String pathIP = repIPPath + "\\" + MainController.REP_IP_FILENAME;
+        String pathOOO = repOOOPath + "\\" + MainController.REP_OOO_FILENAME;
         // удаляем то, что есть перед записью
         File repIP = new File(pathIP);
         if (repIP.exists() && !repIP.isDirectory()) {
