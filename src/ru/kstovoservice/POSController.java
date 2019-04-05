@@ -52,15 +52,15 @@ public class POSController implements Initializable {
 
     public void initialize (URL location, ResourceBundle resources) {
 
-        goodsIPFileNameTextField.setText(MainController.GOODS_IP_FILENAME);
-        repIPFileNameTextField.setText(MainController.REP_IP_FILENAME);
-        goodsOOOFileNameTextField.setText(MainController.GOODS_OOO_FILENAME);
-        repOOOFileNameTextField.setText(MainController.REP_OOO_FILENAME);
-        goodsPOSFileNameTextField.setText(MainController.GOODS_POS_FILENAME);
-        skuModTextField.setText(MainController.SKU_MOD);
-        ipGroupTextField.setText(MainController.IP_PRINTGROUP_CODE);
-        oooGroupTextField.setText(MainController.OOO_PRINTGROUP_CODE);
-        repWaitTimeTextField.setText(Integer.toString(MainController.REPWAITTIME));
+        goodsIPFileNameTextField.setText(Sync1C.GOODS_IP_FILENAME);
+        repIPFileNameTextField.setText(Sync1C.REP_IP_FILENAME);
+        goodsOOOFileNameTextField.setText(Sync1C.GOODS_OOO_FILENAME);
+        repOOOFileNameTextField.setText(Sync1C.REP_OOO_FILENAME);
+        goodsPOSFileNameTextField.setText(Sync1C.GOODS_POS_FILENAME);
+        skuModTextField.setText(Sync1C.SKU_MOD);
+        ipGroupTextField.setText(Sync1C.IP_PRINTGROUP_CODE);
+        oooGroupTextField.setText(Sync1C.OOO_PRINTGROUP_CODE);
+        repWaitTimeTextField.setText(Integer.toString(Sync1C.REPWAITTIME));
 
         //выбор типа Фронт-офиса кассы
         frontChoiceBox.setOnAction(event -> {

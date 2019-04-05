@@ -14,7 +14,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
@@ -32,19 +31,9 @@ import static javafx.application.Platform.runLater;
 
 public class MainController implements Initializable {
 
-    // константы
-    public static final String GOODS_IP_FILENAME="goodsIP.spr";
-    public static final String GOODS_OOO_FILENAME="goodsOOO.spr";
-    public static final String GOODS_POS_FILENAME="goods.spr";
-    public static final String REP_IP_FILENAME="reportIP.rep";
-    public static final String REP_OOO_FILENAME="reportOOO.rep";
-    public static final String SKU_MOD = "9";
-    public static final String IP_PRINTGROUP_CODE = "1";
-    public static final String OOO_PRINTGROUP_CODE = "2";
-    public static final int REPWAITTIME = 15;
 
     // оно щелкает часами в потоке
-    private int timerClock = REPWAITTIME;
+    private int timerClock = Sync1C.REPWAITTIME;
     // для передачи в дочернее окно
     public MainController mainController;
 
@@ -123,7 +112,7 @@ public class MainController implements Initializable {
     // ожидание ответа с кассы (отчета с ККТ)
     private void repWait(String repFileName, String repFlagName) {
         // обработка запроса отчета в отдельном потоке
-        Thread rep = new Thread(new MainController.RepReq(repFileName, repFlagName));    //Создание потока "myThready"
+        Thread rep = new Thread(new MainController.RepReq(repFileName, repFlagName));    //Создание потока RepReq, ожидающий файл с отчетом
         rep.start();                //Запуск потока
     }
 
@@ -193,7 +182,7 @@ public class MainController implements Initializable {
     public void repRequestButtonAction(ActionEvent event) {
 
         try {
-            if (timerClock < REPWAITTIME) throw new Error("Дождитесь окончания предидущего запроса!");
+            if (timerClock < Sync1C.REPWAITTIME) throw new Error("Дождитесь окончания предидущего запроса!");
             //проверка на корректность перед запросом
             repRequestControl();
             //формирование файла запроса
@@ -215,9 +204,12 @@ public class MainController implements Initializable {
         System.out.println("Кнопка отжата");
     }
 
-
-    // отдельный класс с интерфейсом Runnable для запуска запроса отчета отдельным потоком чтобы можно было продолжать работать пока идёт ожидание отчета
-    class RepReq implements Runnable {
+    /* внутренний класс (inner class) предназначеннй для ожидания отчета с кассы
+        - это класс, так как он запускается в отдельном потоке
+        - этот класс имеет интерфейс Runnable так как запускается в отдельном потоке
+        - он внутренний так как оперирует с объектами внешнего класса (выплевывает текстовые сообщения в элемент формы MainController)
+    */
+        class RepReq implements Runnable {
         private String repFileName;
         private String repFlagName;
 
@@ -231,14 +223,14 @@ public class MainController implements Initializable {
             //repButton.setDisable(true);
             //https://stackoverflow.com/questions/17850191/why-am-i-getting-java-lang-illegalstateexception-not-on-fx-application-thread
             //The user interface cannot be directly updated from a non-application thread. Instead, use Platform.runLater(), with the logic inside the Runnable object.
-            for (timerClock = REPWAITTIME; timerClock > 0; --timerClock)
+            for (timerClock = Sync1C.REPWAITTIME; timerClock > 0; --timerClock)
                 if (fileExist(repFileName)) { // ура, отчет на диске присутствует
                     runLater( // надо сказать пользователю про это
                             () -> {
                                 labelRep.setTextFill(Color.GREEN);
                                 labelRep.setText("Отчет получен");
                             });
-                    timerClock = REPWAITTIME;
+                    timerClock = Sync1C.REPWAITTIME;
                     fileDelete(repFlagName);
                     break;
                 } else try { // отчета нет, надо заснуть на секунду...
@@ -256,7 +248,7 @@ public class MainController implements Initializable {
                 runLater(() -> {
                     labelRep.setTextFill(Color.RED);
                     labelRep.setText("Отчет не получен");
-                    timerClock = REPWAITTIME; // важно сбросить таймер, по этому таймеру основной процесс судит о завершенности начатого процесса обмена
+                    timerClock = Sync1C.REPWAITTIME; // важно сбросить таймер, по этому таймеру основной процесс судит о завершенности начатого процесса обмена
                     fileDelete(repFlagName); // удаляем файл-флаг запроса отчета (согласно интсрукции производителя ПО xPOS)
                 });
             }

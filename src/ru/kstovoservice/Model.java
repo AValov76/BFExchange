@@ -33,11 +33,6 @@ public class Model implements SetOfPOS {
     private java.util.Map<String, String[]> mapPOS = new java.util.TreeMap<>();
     private Collection<String> s = new ArrayList();
     // путь к файлу с данными на диске
-    private static final String FILENAME = "company.xml";
-    // данные по умолчанию
-    private final static String POSNAME = "Касса №";
-    private final static String[] POSDATANAME = {"pathPOS", "typeofPOS", "repName", "flagName", "", "checkBoxIPOOO", "pathIP", "pathOOO"}; // пока не использовал
-    private final static String[] POSDATA = {"C:\\Obmen", "Атол", "report.rep", "report.flg", "0", "C:\\Obmen", "C:\\Obmen"};
 
     // инициализация модели
     public Model() throws ParserConfigurationException {
@@ -45,7 +40,7 @@ public class Model implements SetOfPOS {
         // проверка на существование файла с данными
         if (!loadData()) {
             //добавляем хоть что-то к данным (настройки по умолчанию
-            addPOS(POSNAME + "1", POSDATA);
+            addPOS(Sync1C.POSNAME + "1", Sync1C.POSDATA);
             // и сохраняем всё в файл
             saveAllDataToFile();
         }
@@ -60,7 +55,7 @@ public class Model implements SetOfPOS {
 
         try {
             document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(System.getProperty("user.dir")
-                    + File.separator + FILENAME);
+                    + File.separator + Sync1C.PREFFILENAME);
             Node root = document.getDocumentElement(); // корневой узел
             NodeList c = root.getChildNodes(); // список детей корневого узла
             for (int i = 0; i < c.getLength(); i++) {
@@ -118,7 +113,7 @@ public class Model implements SetOfPOS {
         Document document;
         try {
             document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(System.getProperty("user.dir")
-                    + File.separator + FILENAME);
+                    + File.separator + Sync1C.PREFFILENAME);
 
         } catch (ParserConfigurationException ex) {
             ex.printStackTrace(System.out);
@@ -152,7 +147,7 @@ public class Model implements SetOfPOS {
 
     @Override
     public void addNewPOS() {
-        addPOS(POSNAME + (mapPOS.size() + 1), POSDATA);
+        addPOS(Sync1C.POSNAME + (mapPOS.size() + 1), Sync1C.POSDATA);
     }
 
     @Override
@@ -231,7 +226,7 @@ public class Model implements SetOfPOS {
             DOMSource source = new DOMSource(document);
             StreamResult result = new StreamResult(
                     new File(System.getProperty("user.dir")
-                            + File.separator + FILENAME));
+                            + File.separator + Sync1C.PREFFILENAME));
             // Для соображений отладки можно вывести результат работы
             // программы на стандартный вывод
             // StreamResult result = new StreamResult(System.out);
