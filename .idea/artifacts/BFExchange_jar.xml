@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="BFExchange:jar">
+    <output-path>C:/test</output-path>
+    <root id="archive" name="BFExchange.jar">
+      <element id="module-output" name="BFExchange" />
+    </root>
+  </artifact>
+</component>
