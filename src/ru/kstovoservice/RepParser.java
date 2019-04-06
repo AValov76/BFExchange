@@ -176,6 +176,15 @@ public class RepParser {
     private static String[] strDecompile (String string) {
         Pattern p = Pattern.compile(";");
         String[] str = p.split(string);
+        // оно не сохраноло последние пустые части -->   ;;;
+        //посчитаем, сколько их было всего в строке
+        int semicilonCount = string.length() - string.replace(";", "").length();
+        // вычтем те, которые учлись
+        semicilonCount = semicilonCount - str.length+1;
+// допишем точку с запятой в последний элемент массива
+        for(int i=semicilonCount;i>0;i--){
+            str[str.length-1]= str[str.length-1]+";";
+        }
         return str;
     }
 
