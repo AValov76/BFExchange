@@ -114,12 +114,12 @@
             <Font size="10.0" />
          </font>
       </TextField>
-      <Label layoutX="9.0" layoutY="366.0" prefHeight="25.0" prefWidth="124.0" text="Справочник товаров ИП:">
+      <Label layoutX="9.0" layoutY="366.0" prefHeight="25.0" prefWidth="124.0" text="Товары/флаг ИП:">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
-      <Label layoutX="9.0" layoutY="396.0" prefHeight="25.0" prefWidth="124.0" text="Справочник товаров OOO:">
+      <Label layoutX="9.0" layoutY="396.0" prefHeight="25.0" prefWidth="124.0" text="Товары/флаг ООО:">
          <font>
             <Font size="10.0" />
          </font>
@@ -139,7 +139,7 @@
             <Font size="10.0" />
          </font>
       </TextField>
-      <Label layoutX="9.0" layoutY="426.0" prefHeight="25.0" prefWidth="124.0" text="Справочник товаров POS:">
+      <Label layoutX="9.0" layoutY="426.0" prefHeight="25.0" prefWidth="124.0" text="Товары/флаг POS:">
          <font>
             <Font size="10.0" />
          </font>

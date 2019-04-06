@@ -3,8 +3,10 @@ package ru.kstovoservice;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,11 +58,11 @@ public class RepParser {
     //парсер отчета с кассы - основной модуль
     public static String repParse (String repfileName, String repIPPath, String repOOOPath) throws IOException {
 
-        List<String> repXPOS = Files.readAllLines(Paths.get(repfileName), StandardCharsets.UTF_8); //пихаем файл построчно в коллекцию строк
-        List<String> repIP = new ArrayList<String>(); // отчет для ИП
-        List<String> repOOO = new ArrayList<String>(); // отчет для ООО
-        List<String> deltaRepIP = new ArrayList<String>(); // чек для ИП
-        List<String> deltaRepOOO = new ArrayList<String>(); // чек для ООО
+        List<String> repXPOS = Files.readAllLines(Paths.get(repfileName), Charset.forName("windows-1251")); //пихаем файл построчно в коллекцию строк
+        List<String> repIP = new ArrayList<String>(); // отчет ИП
+        List<String> repOOO = new ArrayList<String>(); // отчет ООО
+        List<String> deltaRepIP = new ArrayList<String>(); // чек ИП
+        List<String> deltaRepOOO = new ArrayList<String>(); // чек ООО
 
         int i = 0;
 
@@ -110,7 +112,7 @@ public class RepParser {
 
         }
         //printIP_OOO(new List[]{repIP, repOOO});
-        rep_IP_OOO(repIPPath,repOOOPath,new List[]{repIP, repOOO});
+        rep_IP_OOO(repIPPath, repOOOPath, new List[]{repIP, repOOO});
         return "Сформированы отчеты по ИП и ООО за заданный период";
     }
 
@@ -184,8 +186,8 @@ public class RepParser {
     }
 
     private static void rep_IP_OOO (String repIPPath, String repOOOPath, List... lists) throws IOException {
-        String pathIP = repIPPath + "\\" + Sync1C.REP_IP_FILENAME;
-        String pathOOO = repOOOPath + "\\" + Sync1C.REP_OOO_FILENAME;
+        String pathIP = repIPPath + File.separator + Sync1C.REP_IP_FILENAME;
+        String pathOOO = repOOOPath + File.separator + Sync1C.REP_OOO_FILENAME;
         // удаляем то, что есть перед записью
         File repIP = new File(pathIP);
         if (repIP.exists() && !repIP.isDirectory()) {
@@ -216,5 +218,67 @@ public class RepParser {
             fileWriter.close();
         }
     }
+
+    // слив товаров по ИП ООО в 1 файл...
+    public static String goodsToPOS (String goodsPOSPath, String goodsIPPath, String goodsOOOPath) throws IOException {
+
+        String fullPathGoodsPOS = goodsPOSPath + File.separator + Sync1C.GOODS_POS_FILENAME;
+        String fullPathGoodsFlagPOS = goodsPOSPath + File.separator + Sync1C.GOODS_POSFLAG_FILENAME;
+        String fullPathGoodsIP = goodsIPPath + File.separator + Sync1C.GOODS_IP_FILENAME;
+        String fullPathGoodsIPFlag = goodsIPPath + File.separator + Sync1C.GOODS_IPFLAG_FILENAME;
+        String fullPathGoodsOOO = goodsOOOPath + File.separator + Sync1C.GOODS_OOO_FILENAME;
+        String fullPathGoodsFlagOOO = goodsOOOPath + File.separator + Sync1C.GOODS_OOOFLAG_FILENAME;
+
+        //удаляем файл goodsPOS если он вообще есть и его флаг
+        filedelete(fullPathGoodsPOS, fullPathGoodsFlagPOS);
+
+        // Удалили, ок. Таперича готовим место, куда писать
+        FileWriter goodsFile;
+        goodsFile = new FileWriter(fullPathGoodsPOS);
+        // данные из файла товаров ИП непосредственно перекатываем в goodsPOS
+        List<String> goods = Files.readAllLines(Paths.get(fullPathGoodsIP), Charset.forName("windows-1251")); //пихаем файл построчно в коллекцию строк
+        for (String string : goods
+                ) {
+            goodsFile.write(string);
+            goodsFile.write("\r\n");
+        }
+
+        //данные из файла товаров ООО модифицируем и дописываем к файлу goodsPOS
+        goods = Files.readAllLines(Paths.get(fullPathGoodsOOO), Charset.forName("windows-1251"));
+        for (String string : goods
+                )
+            if (string.length() > 50) { //пихаем только сроки за исключением шапки
+                String[] str = strDecompile(string); // надо дописать девятку к SKU и 17 поле (группа печати) заменить 1 на 2
+                str[0] = Sync1C.SKU_MOD + str[0];
+                str[16] = Sync1C.OOO_PRINTGROUP_CODE;
+                string = strСompile(str);
+                goodsFile.write(string);
+                goodsFile.write("\r\n");
+            }
+
+        //удаляем файлы goodsIP goodsOOO как обработанные и их флаги (по методике надо поменять первый символ и удалить только флаг, но мне хочется именно удалить всё)
+        filedelete(fullPathGoodsIP, fullPathGoodsIPFlag, fullPathGoodsOOO, fullPathGoodsFlagOOO);
+
+        // Также надо сделать файл-флаг для goodsPOS
+        FileWriter fileWritergoodsPOSFlag;
+        fileWritergoodsPOSFlag = new FileWriter(fullPathGoodsFlagPOS);
+        fileWritergoodsPOSFlag.close();
+
+        //ну вот и всё
+        goodsFile.close();
+        return "Выгрузка товара на кассу произведена";
+    }
+
+    // хрень для удаления файла
+    public static void filedelete (String... fullfilename) {
+        for (String str : fullfilename
+                ) {
+            File file = new File(str);
+            if (file.exists() && !file.isDirectory()) {
+                file.delete();
+            }
+        }
+    }
+
 
 }

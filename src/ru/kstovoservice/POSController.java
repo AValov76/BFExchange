@@ -52,11 +52,11 @@ public class POSController implements Initializable {
 
     public void initialize (URL location, ResourceBundle resources) {
 
-        goodsIPFileNameTextField.setText(Sync1C.GOODS_IP_FILENAME);
+        goodsIPFileNameTextField.setText(Sync1C.GOODS_IP_FILENAME+"\\"+Sync1C.GOODS_IPFLAG_FILENAME);
         repIPFileNameTextField.setText(Sync1C.REP_IP_FILENAME);
-        goodsOOOFileNameTextField.setText(Sync1C.GOODS_OOO_FILENAME);
+        goodsOOOFileNameTextField.setText(Sync1C.GOODS_OOO_FILENAME+"\\"+Sync1C.GOODS_OOOFLAG_FILENAME);
         repOOOFileNameTextField.setText(Sync1C.REP_OOO_FILENAME);
-        goodsPOSFileNameTextField.setText(Sync1C.GOODS_POS_FILENAME);
+        goodsPOSFileNameTextField.setText(Sync1C.GOODS_POS_FILENAME+"\\"+Sync1C.GOODS_POSFLAG_FILENAME);
         skuModTextField.setText(Sync1C.SKU_MOD);
         ipGroupTextField.setText(Sync1C.IP_PRINTGROUP_CODE);
         oooGroupTextField.setText(Sync1C.OOO_PRINTGROUP_CODE);

@@ -20,10 +20,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.util.ResourceBundle;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 import static javafx.application.Platform.runLater;
 
@@ -60,7 +60,7 @@ public class MainController implements Initializable {
     public ChoiceBox typeOfRepChoiceBox;
 
 
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize (URL location, ResourceBundle resources) {
 
         // просто еще один способ описывать Event Handling
         closeMenu.setOnAction(event -> {
@@ -92,7 +92,7 @@ public class MainController implements Initializable {
     }
 
     // обработка выхода из программе
-    private void programExit() {
+    private void programExit () {
         try {
             data.saveAllDataToFile();
             System.out.println("Close program...");
@@ -101,7 +101,7 @@ public class MainController implements Initializable {
         }
     }
 
-    private void posListInitialization() {
+    private void posListInitialization () {
         ObservableList<String> items = FXCollections.observableArrayList();
         items.addAll(data.getListPOS());
         posList.setItems(items.sorted());
@@ -110,14 +110,14 @@ public class MainController implements Initializable {
     }
 
     // ожидание ответа с кассы (отчета с ККТ)
-    private void repWait(String repFileName, String repFlagName) {
+    private void repWait (String repFileName, String repFlagName) {
         // обработка запроса отчета в отдельном потоке
         Thread rep = new Thread(new MainController.RepReq(repFileName, repFlagName));    //Создание потока RepReq, ожидающий файл с отчетом
         rep.start();                //Запуск потока
     }
 
     // проверка перед формированием флага запроса отчета
-    private void repRequestControl() throws Error {
+    private void repRequestControl () throws Error {
 
         if (typeOfRepChoiceBox.getSelectionModel().isSelected(0)) {
             if (dateFrom.getValue() == null) {
@@ -135,23 +135,23 @@ public class MainController implements Initializable {
 
     // Action зона
 
-    public void delStringAction(ActionEvent event) {
+    public void delStringAction (ActionEvent event) {
         data.removePOS((String) posList.getSelectionModel().getSelectedItem());
         posListInitialization();
     }
 
-    public void addStringAction(ActionEvent event) {
+    public void addStringAction (ActionEvent event) {
         data.addNewPOS();
         initList();
     }
 
-    public void initList() {
+    public void initList () {
         posListInitialization();
         posList.getSelectionModel().clearSelection();
         posList.getSelectionModel().selectLast();
     }
 
-    public void editStringAction(ActionEvent event) throws Exception { // пришлось дописать "throws Exception" так как иначе не работало
+    public void editStringAction (ActionEvent event) throws Exception { // пришлось дописать "throws Exception" так как иначе не работало
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("POS.fxml"));
         Parent root = loader.load();
@@ -163,7 +163,7 @@ public class MainController implements Initializable {
         stage.show();
     }
 
-    public void aboutMenuAction(ActionEvent event) throws Exception {
+    public void aboutMenuAction (ActionEvent event) throws Exception {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("About.fxml")); // базовый класс для всех узлов у которых есть потомки на сцене
         stage.setScene(new Scene(root, 500, 100));
@@ -173,13 +173,13 @@ public class MainController implements Initializable {
     }
 
     // возвращает массив с данными кассы которая в фокусе
-    public String[] getSelectedPOSData() {
+    public String[] getSelectedPOSData () {
         return data.getKV((String) posList.getSelectionModel().getSelectedItem());
     }
 
 
     // обработка запроса отчета с кассы
-    public void repRequestButtonAction(ActionEvent event) {
+    public void repRequestButtonAction (ActionEvent event) {
 
         try {
             if (timerClock < Sync1C.REPWAITTIME) throw new Error("Дождитесь окончания предидущего запроса!");
@@ -209,17 +209,17 @@ public class MainController implements Initializable {
         - этот класс имеет интерфейс Runnable так как запускается в отдельном потоке
         - он внутренний так как оперирует с объектами внешнего класса (выплевывает текстовые сообщения в элемент формы MainController)
     */
-        class RepReq implements Runnable {
+    class RepReq implements Runnable {
         private String repFileName;
         private String repFlagName;
 
         // конструктор класса
-        RepReq(String rFileN, String rFlagN) {
+        RepReq (String rFileN, String rFlagN) {
             repFileName = rFileN;
             repFlagName = rFlagN;
         }
 
-        public void run() {
+        public void run () {
             //repButton.setDisable(true);
             //https://stackoverflow.com/questions/17850191/why-am-i-getting-java-lang-illegalstateexception-not-on-fx-application-thread
             //The user interface cannot be directly updated from a non-application thread. Instead, use Platform.runLater(), with the logic inside the Runnable object.
@@ -256,7 +256,7 @@ public class MainController implements Initializable {
     }
 
     // проверка существоания файла по заданному пути
-    public boolean fileExist(String fileName) {
+    public boolean fileExist (String fileName) {
         //формирование имени файла
         System.out.println("Проверка существования файла " + fileName);
         File f = new File(fileName);
@@ -267,7 +267,7 @@ public class MainController implements Initializable {
     }
 
     // удаление заданного файла
-    public void fileDelete(String flagName) {
+    public void fileDelete (String flagName) {
         //формирование имени файла
         System.out.println("Удаление файла " + flagName);
         File f = new File(flagName);
@@ -277,7 +277,7 @@ public class MainController implements Initializable {
     }
 
     //формирование файла-флага (файла запроса отчета)
-    private void repFileRequest(String dateF, String dateT, String flagName) throws IOException {
+    private void repFileRequest (String dateF, String dateT, String flagName) throws IOException {
         FileWriter fileWriter;
         fileWriter = new FileWriter(flagName);
         fileWriter.write("$$$TRANSACTIONSBYDATERANGE");
@@ -289,32 +289,60 @@ public class MainController implements Initializable {
 
 
     //Обработка нажатия кнопки "Выгрузка отчета в 1С"
-    public void repTo1CButton(ActionEvent event){
-        String repNotify=null;
+    public void repTo1CButton (ActionEvent event) {
+        String repNotify = null;
         // Удобно обрабатывать возможные ошибки через блок try/catch пихая в соответствующее место на экране результат выполнения операции
         try {
-            if (!(getSelectedPOSData()[5].equals("1"))) throw new Error("У этой кассы не настроен раздельный учет ИП и ООО. Выгрузка в 1С не нужна.");//проверить что операция парсинга требуется
-            if (!fileExist(getSelectedPOSData()[1] + "\\" + getSelectedPOSData()[3])) throw new Error("Файл не существует");//проверить, что есть исходный файл отчета
-            repNotify = RepParser.repParse(getSelectedPOSData()[1] + "\\" + getSelectedPOSData()[3],getSelectedPOSData()[6],getSelectedPOSData()[7]);// print отчета с кассы
-        }
-    catch (Error error){
-        labelRep.setTextFill(Color.RED);
-        labelRep.setText(error.getMessage());
-        }
-        catch (IOException e){
+            if (!(getSelectedPOSData()[5].equals("1")))
+                throw new Error("У этой кассы не настроен раздельный учет ИП и ООО. Выгрузка в 1С не нужна.");//проверить что операция парсинга требуется
+            if (!fileExist(getSelectedPOSData()[1] + "\\" + getSelectedPOSData()[3]))
+                throw new Error("Файл не существует");//проверить, что есть исходный файл отчета
+            if (!getSelectedPOSData()[2].equals(Sync1C.ATOLPOS))
+                throw new Error("Работа с кассами " + getSelectedPOSData()[2] + " не поддерживается в данной версии"); // касса Атол
+            repNotify = RepParser.repParse(getSelectedPOSData()[1] + File.separator + getSelectedPOSData()[3], getSelectedPOSData()[6], getSelectedPOSData()[7]);// print отчета с кассы
+        } catch (Error error) {
+            labelRep.setTextFill(Color.RED);
+            labelRep.setText(error.getMessage());
+        } catch (IOException e) {
             labelRep.setTextFill(Color.RED);
             labelRep.setText(e.getMessage());
-        }
-        finally {
-            if (repNotify!=null){
-            labelRep.setTextFill(Color.GREEN);
-            labelRep.setText(repNotify);}
+        } finally {
+            if (repNotify != null) {
+                labelRep.setTextFill(Color.GREEN);
+                labelRep.setText(repNotify);
+            }
         }
     }
 
     //обработка нажатия кнопки "Выгрузка товара на POS"
-    public void goodsToPOSButton(ActionEvent event){
-
+    public void goodsToPOSButton (ActionEvent event) {
+        String notify = null;
+        try {
+            if (!(getSelectedPOSData()[5].equals("1")))
+                throw new Error("У этой кассы не настроен раздельный учет ИП и ООО. Выгрузка на POS не нужна.");// операция парсинга требуется
+            if (!fileExist(getSelectedPOSData()[6] + File.separator + Sync1C.GOODS_IP_FILENAME))
+                throw new Error("Отсутствует файл с товарами по ИП");// есть исходный флаг файла товаров по ИП
+            if (!fileExist(getSelectedPOSData()[6] + File.separator + Sync1C.GOODS_IPFLAG_FILENAME))
+                throw new Error("Отсутствует файл-флаг товаров по ИП");// есть исходный флаг файла товаров по ИП
+            if (!fileExist(getSelectedPOSData()[7] + File.separator + Sync1C.GOODS_OOOFLAG_FILENAME))
+                throw new Error("Отсутствует файл с товарами по ООО");//есть исходный флаг файла товаров по ООО
+            if (!fileExist(getSelectedPOSData()[7] + File.separator + Sync1C.GOODS_OOO_FILENAME))
+                throw new Error("Отсутствует файл-флаг товаров по ООО");//есть исходный флаг файла товаров по ООО
+            if (!getSelectedPOSData()[2].equals(Sync1C.ATOLPOS))
+                throw new Error("Работа с кассами " + getSelectedPOSData()[2] + " не поддерживается в данной версии"); // касса Атол
+            notify = RepParser.goodsToPOS(getSelectedPOSData()[1],getSelectedPOSData()[6],getSelectedPOSData()[7]);
+        } catch (Error error) {
+            labelRep.setTextFill(Color.RED);
+            labelRep.setText(error.getMessage());
+        } catch (IOException e) {
+            labelRep.setTextFill(Color.RED);
+            labelRep.setText(e.getMessage());
+        } finally {
+            if (notify != null) {
+                labelRep.setTextFill(Color.GREEN);
+                labelRep.setText(notify);
+            }
+        }
     }
 
 }
