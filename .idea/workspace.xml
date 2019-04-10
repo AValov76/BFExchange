@@ -7,8 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ru/kstovoservice/Lic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company.xml" beforeDir="false" afterPath="$PROJECT_DIR$/company.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/Sync1C.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/Sync1C.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/kstovoservice/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovoservice/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/kstovoservice/POSController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovoservice/POSController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/kstovoservice/Sync1C.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovoservice/Sync1C.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,19 +66,32 @@
     <ui_properties converted="true" />
     <breakpoint_rules converted="true" />
   </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4658">
-              <caret line="301" column="83" selection-start-line="301" selection-start-column="83" selection-end-line="301" selection-end-column="83" />
+            <state relative-caret-position="101">
+              <caret line="324" column="3" selection-start-line="324" selection-start-column="3" selection-end-line="324" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/POSController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="365">
+              <caret line="90" column="32" lean-forward="true" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -80,68 +99,87 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/Sync1C.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="22" column="40" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="45" />
+            <state relative-caret-position="382">
+              <caret line="47" column="38" lean-forward="true" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2469#2470#0" expanded="true" />
+                <element signature="e#2537#2538#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/RepParser.java">
+        <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_202/javafx-src.zip!/javafx/stage/Window.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2873">
-              <caret line="183" column="54" selection-start-line="183" selection-start-column="54" selection-end-line="183" selection-end-column="54" />
+            <state relative-caret-position="161">
+              <caret line="676" column="27" selection-start-line="676" selection-start-column="27" selection-end-line="676" selection-end-column="27" />
+              <folding>
+                <element signature="e#24319#24320#0" expanded="true" />
+                <element signature="e#24370#24371#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_202/javafx-src.zip!/javafx/beans/property/ObjectProperty.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="186">
+              <caret line="60" column="22" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_202/javafx-src.zip!/javafx/beans/value/WritableObjectValue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="382">
+              <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_202/javafx-src.zip!/javafx/application/Application.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="57" column="46" selection-start-line="57" selection-start-column="46" selection-end-line="57" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/Lic.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="365">
+              <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#773#774#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/lang/String.java">
+        <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/AboutController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40290">
-              <caret line="2449" column="25" selection-start-line="2449" selection-start-column="25" selection-end-line="2449" selection-end-column="25" />
-              <folding>
-                <element signature="e#94598#94599#0" expanded="true" />
-                <element signature="e#94636#94637#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="51">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/Model.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="53" column="12" lean-forward="true" selection-start-line="53" selection-start-column="12" selection-end-line="53" selection-end-column="12" />
-              <folding>
-                <element signature="method#getKV#0;class#Model#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_202/src.zip!/org/w3c/dom/Document.java">
+        <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/About.fxml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="47" column="25" lean-forward="true" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="32" />
+              <caret line="8" column="163" selection-start-line="8" selection-start-column="134" selection-end-line="8" selection-end-column="166" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/SepOfPOS.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-            </state>
-          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
     </leaf>
@@ -150,21 +188,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>System.</find>
-      <find>.put</find>
-      <find>put</find>
-      <find>add</find>
-      <find>Model</find>
-      <find>SetOfPOS</find>
-      <find>close</find>
-      <find>Date</find>
       <find>RU</find>
       <find>item</find>
       <find>testButton</find>
@@ -187,6 +217,14 @@
       <find>866</find>
       <find>1251</find>
       <find>Cp8</find>
+      <find>about</find>
+      <find>close</find>
+      <find>поток</find>
+      <find>thre</find>
+      <find>About</find>
+      <find>Прави</find>
+      <find>касса</find>
+      <find>кнопка от</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -233,10 +271,12 @@
         <option value="$PROJECT_DIR$/src/Sync1C.java" />
         <option value="$PROJECT_DIR$/src/ru/kstovoservice/RepReq.java" />
         <option value="$PROJECT_DIR$/src/ru/kstovoservice/SepOfPOS.java" />
+        <option value="$PROJECT_DIR$/src/ru/kstovoservice/RepParser.java" />
+        <option value="$PROJECT_DIR$/src/ru/kstovoservice/LicMsg.fxml" />
+        <option value="$PROJECT_DIR$/src/ru/kstovoservice/Lic.java" />
         <option value="$PROJECT_DIR$/src/ru/kstovoservice/Sync1C.java" />
         <option value="$PROJECT_DIR$/src/ru/kstovoservice/POSController.java" />
         <option value="$PROJECT_DIR$/src/ru/kstovoservice/MainController.java" />
-        <option value="$PROJECT_DIR$/src/ru/kstovoservice/RepParser.java" />
       </list>
     </option>
   </component>
@@ -247,7 +287,7 @@
     <auto-save>true</auto-save>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="width" value="1312" />
     <option name="height" value="1047" />
@@ -265,7 +305,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -295,6 +334,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -312,7 +352,7 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554297275038" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="C:/test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BFLS" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -646,8 +686,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.21383148" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.2154213" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -657,7 +698,7 @@
       <window_info id="Image Layers" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49921876" weight="0.32897604" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8894531" weight="0.21885157" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8894531" visible="true" weight="0.36511377" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.630597" weight="0.39761648" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -665,7 +706,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.11054687" side_tool="true" weight="0.21969697" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49921876" weight="0.33005464" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.47890624" weight="0.32575756" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.47890624" weight="0.32502708" />
       <window_info anchor="bottom" id="Changes" order="11" />
       <window_info anchor="bottom" id="Profiler" order="12" />
       <window_info anchor="bottom" id="Problems" order="13" />
@@ -687,7 +728,7 @@
       <window_info anchor="right" id="Maven" order="10" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.21054688" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.2154213" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -697,15 +738,15 @@
       <window_info id="Image Layers" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49921876" weight="0.32897604" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8894531" visible="true" weight="0.21969697" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8894531" visible="true" weight="0.21885157" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.630597" weight="0.39761648" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.11054687" side_tool="true" visible="true" weight="0.21969697" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.11054687" side_tool="true" weight="0.21969697" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49921876" weight="0.33005464" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.47890624" weight="0.32677597" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.47890624" weight="0.32575756" />
       <window_info anchor="bottom" id="Changes" order="11" />
       <window_info anchor="bottom" id="Profiler" order="12" />
       <window_info anchor="bottom" id="Problems" order="13" />
@@ -759,19 +800,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/fxml/FXMLLoader.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/Locale.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/layout/Region.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/Node.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/time/LocalDate.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/control/DatePicker.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/control/SingleSelectionModel.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/control/SelectionModel.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/ArrayList.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/collections/FXCollections.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/com/sun/javafx/collections/ObservableSequentialListWrapper.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/paint/Color.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_192/javafx-src.zip!/javafx/scene/control/Labeled.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_192/src.zip!/java/util/Map.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_192/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_192/javafx-src.zip!/javafx/scene/control/CheckBox.java" />
@@ -855,13 +883,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/POSController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="58" column="93" selection-start-line="58" selection-start-column="93" selection-end-line="58" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/util/List.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="489">
@@ -919,39 +940,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/MainController.java">
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_202/src.zip!/org/w3c/dom/Document.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4658">
-          <caret line="301" column="83" selection-start-line="301" selection-start-column="83" selection-end-line="301" selection-end-column="83" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="646">
+          <caret line="77" column="18" selection-start-line="77" selection-start-column="18" selection-end-line="77" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/Sync1C.java">
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_202/src.zip!/org/w3c/dom/DocumentType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="22" column="40" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="255">
+          <caret line="54" column="17" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/RepParser.java">
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_202/src.zip!/java/io/File.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2873">
-          <caret line="183" column="54" selection-start-line="183" selection-start-column="54" selection-end-line="183" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="298">
+          <caret line="221" column="31" selection-start-line="221" selection-start-column="31" selection-end-line="221" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40290">
+        <state relative-caret-position="634">
           <caret line="2449" column="25" selection-start-line="2449" selection-start-column="25" selection-end-line="2449" selection-end-column="25" />
           <folding>
             <element signature="e#94598#94599#0" expanded="true" />
@@ -960,27 +972,154 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/SepOfPOS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/Model.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
-          <caret line="53" column="12" lean-forward="true" selection-start-line="53" selection-start-column="12" selection-end-line="53" selection-end-column="12" />
+          <caret line="53" column="12" selection-start-line="53" selection-start-column="12" selection-end-line="53" selection-end-column="12" />
           <folding>
             <element signature="method#getKV#0;class#Model#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_202/src.zip!/org/w3c/dom/Document.java">
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/RepParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="183" column="54" selection-start-line="183" selection-start-column="54" selection-end-line="183" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/SepOfPOS.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="47" column="25" lean-forward="true" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="32" />
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/About.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="163" selection-start-line="8" selection-start-column="134" selection-end-line="8" selection-end-column="166" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/AboutController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/LicMsg.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_202/javafx-src.zip!/javafx/stage/Stage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="237" column="55" selection-start-line="237" selection-start-column="55" selection-end-line="237" selection-end-column="55" />
+          <folding>
+            <element signature="e#7505#7506#0" expanded="true" />
+            <element signature="e#7547#7548#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_202/javafx-src.zip!/com/sun/javafx/application/PlatformImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="466" column="23" selection-start-line="466" selection-start-column="23" selection-end-line="466" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_202/javafx-src.zip!/javafx/application/Platform.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="116" column="23" selection-start-line="116" selection-start-column="23" selection-end-line="116" selection-end-column="23" />
+          <folding>
+            <element signature="e#4036#4037#0" expanded="true" />
+            <element signature="e#4071#4072#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_202/javafx-src.zip!/javafx/application/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="57" column="46" selection-start-line="57" selection-start-column="46" selection-end-line="57" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/Lic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#773#774#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/POSController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="90" column="32" lean-forward="true" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/Sync1C.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="47" column="38" lean-forward="true" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2469#2470#0" expanded="true" />
+            <element signature="e#2537#2538#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_202/javafx-src.zip!/javafx/beans/value/WritableObjectValue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_202/javafx-src.zip!/javafx/stage/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="676" column="27" selection-start-line="676" selection-start-column="27" selection-end-line="676" selection-end-column="27" />
+          <folding>
+            <element signature="e#24319#24320#0" expanded="true" />
+            <element signature="e#24370#24371#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_202/javafx-src.zip!/javafx/beans/property/ObjectProperty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="60" column="22" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/kstovoservice/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="324" column="3" selection-start-line="324" selection-start-column="3" selection-end-line="324" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

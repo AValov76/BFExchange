@@ -5,21 +5,24 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import ru.kstovoservice.MainController;
-//import ru.kstovoservice.MainController;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.event.EventHandler;
+import javafx.stage.WindowEvent;
 
 public class Sync1C extends Application {
 
+    Lic lic = new Lic();
     // константы
-    public static final String GOODS_IP_FILENAME="goodsIP.spr";
-    public static final String GOODS_IPFLAG_FILENAME="goodsIP.flg";
-    public static final String GOODS_OOO_FILENAME="goodsOOO.spr";
-    public static final String GOODS_OOOFLAG_FILENAME="goodsOOO.flg";
-    public static final String GOODS_POS_FILENAME="goods.spr";
-    public static final String GOODS_POSFLAG_FILENAME="goods.flg";
-    public static final String REP_POS_FILENAME="report.rep";
-    public static final String REP_IP_FILENAME="reportIP.rep";
-    public static final String REP_OOO_FILENAME="reportOOO.rep";
+    public static final String GOODS_IP_FILENAME = "goodsIP.spr";
+    public static final String GOODS_IPFLAG_FILENAME = "goodsIP.flg";
+    public static final String GOODS_OOO_FILENAME = "goodsOOO.spr";
+    public static final String GOODS_OOOFLAG_FILENAME = "goodsOOO.flg";
+    public static final String GOODS_POS_FILENAME = "goods.spr";
+    public static final String GOODS_POSFLAG_FILENAME = "goods.flg";
+    public static final String REP_POS_FILENAME = "report.rep";
+    public static final String REP_IP_FILENAME = "reportIP.rep";
+    public static final String REP_OOO_FILENAME = "reportOOO.rep";
     public static final String SKU_MOD = "9";
     public static final String IP_PRINTGROUP_CODE = "1";
     public static final String OOO_PRINTGROUP_CODE = "2";
@@ -32,19 +35,33 @@ public class Sync1C extends Application {
     public static final String[] POSDATA = {"C:\\Obmen", ATOLPOS, REP_POS_FILENAME, "report.flg", "0", "C:\\Obmen", "C:\\Obmen"};
 
     @Override
-    public void start (Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) throws Exception {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
-        Parent root = loader.load();
-        MainController mainController = loader.getController(); //контроллер главной формы
-        mainController.mainController = mainController;
-        primaryStage.setTitle("Синхронизатор отчетов");
-        primaryStage.setScene(new Scene(root, 550, 460));
-        primaryStage.show();
+        //в зависимости от результата проверки наличия лицензии ...
+        if (lic.checkLic()) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
+            Parent root = loader.load();
+            MainController mc = loader.getController(); //контроллер главной формы
+            primaryStage.setTitle("Синхронизатор отчетов");
+            primaryStage.setScene(new Scene(root, 550, 460));
+            primaryStage.show();
+            primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                public void handle(WindowEvent we) {
+                    mc.programExit();
+                }
+            });
+        } else {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Информационное сообщение");
+            alert.setHeaderText("Отсутствует лицензия на программный продукт!");
+            alert.setContentText("Обратитесь к разработчику! \nООО Кстовоторгсервис тел.\n+7(902)306-47-96 ");
+            alert.showAndWait();
+        }
 
     }
-    
-    public static void main (String[] args) {
+
+    public static void main(String[] args) {
+        // проверка лицензии на продукт
         launch(args);
     }
 

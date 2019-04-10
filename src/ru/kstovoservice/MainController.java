@@ -34,8 +34,6 @@ public class MainController implements Initializable {
 
     // оно щелкает часами в потоке
     private int timerClock = Sync1C.REPWAITTIME;
-    // для передачи в дочернее окно
-    public MainController mainController;
 
     // типа интерфейс данных (данные могут храниться по-разному, а интерфейс будет один и тот же)
     // этот интерфейс описан и реализован в классе Model.java
@@ -92,10 +90,9 @@ public class MainController implements Initializable {
     }
 
     // обработка выхода из программе
-    private void programExit () {
+    public void programExit () {
         try {
             data.saveAllDataToFile();
-            System.out.println("Close program...");
             Platform.exit();
         } catch (ParserConfigurationException ex) {
         }
@@ -119,6 +116,8 @@ public class MainController implements Initializable {
     // проверка перед формированием флага запроса отчета
     private void repRequestControl () throws Error {
 
+        if (!getSelectedPOSData()[2].equals(Sync1C.ATOLPOS))
+            throw new Error("Работа с кассами " + getSelectedPOSData()[2] + " не поддерживается в данной версии"); // касса Атол
         if (typeOfRepChoiceBox.getSelectionModel().isSelected(0)) {
             if (dateFrom.getValue() == null) {
                 throw new Error("Проверьте дату начала отчета!");
@@ -156,7 +155,7 @@ public class MainController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("POS.fxml"));
         Parent root = loader.load();
         POSController posController = loader.getController(); //получаем контроллер для второй формы
-        posController.initPOS(mainController); // передаем необходимые параметры
+        posController.initPOS(this); // передаем необходимые параметры
         stage.setScene(new Scene(root, 530, 540));
         stage.setTitle("Редактирование настройки обмена текущей кассы");
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -321,13 +320,13 @@ public class MainController implements Initializable {
             if (!(getSelectedPOSData()[5].equals("1")))
                 throw new Error("У этой кассы не настроен раздельный учет ИП и ООО. Выгрузка на POS не нужна.");// операция парсинга требуется
             if (!fileExist(getSelectedPOSData()[6] + File.separator + Sync1C.GOODS_IP_FILENAME))
-                throw new Error("Отсутствует файл с товарами по ИП");// есть исходный флаг файла товаров по ИП
+                throw new Error("Отсутствует файл с товарами по ИП");// есть флаг файла товаров по ИП
             if (!fileExist(getSelectedPOSData()[6] + File.separator + Sync1C.GOODS_IPFLAG_FILENAME))
-                throw new Error("Отсутствует файл-флаг товаров по ИП");// есть исходный флаг файла товаров по ИП
+                throw new Error("Отсутствует файл-флаг товаров по ИП");// есть флаг файла товаров по ИП
             if (!fileExist(getSelectedPOSData()[7] + File.separator + Sync1C.GOODS_OOOFLAG_FILENAME))
-                throw new Error("Отсутствует файл с товарами по ООО");//есть исходный флаг файла товаров по ООО
+                throw new Error("Отсутствует файл с товарами по ООО");//есть флаг файла товаров по ООО
             if (!fileExist(getSelectedPOSData()[7] + File.separator + Sync1C.GOODS_OOO_FILENAME))
-                throw new Error("Отсутствует файл-флаг товаров по ООО");//есть исходный флаг файла товаров по ООО
+                throw new Error("Отсутствует файл-флаг товаров по ООО");//есть флаг файла товаров по ООО
             if (!getSelectedPOSData()[2].equals(Sync1C.ATOLPOS))
                 throw new Error("Работа с кассами " + getSelectedPOSData()[2] + " не поддерживается в данной версии"); // касса Атол
             notify = RepParser.goodsToPOS(getSelectedPOSData()[1],getSelectedPOSData()[6],getSelectedPOSData()[7]);

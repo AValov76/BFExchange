@@ -85,7 +85,8 @@ public class POSController implements Initializable {
             //сохраняем новые данные из формы в массив
             setKV();
             //херачим этот массив в data главного контроллера
-            String[] s = {kv[1], kv[2], kv[3], kv[4], kv[5], kv[6], kv[7]};
+            String[] s = new String[kv.length-1];
+            for(int i=1;i<kv.length;i++) s[i-1]=kv[i];
             mainController.data.addPOS(kv[0], s);
             //перегружаем список
             mainController.initList();
