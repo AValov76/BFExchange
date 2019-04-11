@@ -9,11 +9,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.event.EventHandler;
 import javafx.stage.WindowEvent;
+import javafx.scene.Group;
 
 public class Sync1C extends Application {
 
-    Lic lic = new Lic();
-    // константы
+    public static Lic lic = new Lic();
+
+    // константы, да дохуя констант получилось...
     public static final String GOODS_IP_FILENAME = "goodsIP.spr";
     public static final String GOODS_IPFLAG_FILENAME = "goodsIP.flg";
     public static final String GOODS_OOO_FILENAME = "goodsOOO.spr";
@@ -35,7 +37,7 @@ public class Sync1C extends Application {
     public static final String[] POSDATA = {"C:\\Obmen", ATOLPOS, REP_POS_FILENAME, "report.flg", "0", "C:\\Obmen", "C:\\Obmen"};
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) throws Exception { // неплохо про устройство Stage-->Scence-->Parent-->None написано тут https://metanit.com/java/javafx/1.5.php
 
         //в зависимости от результата проверки наличия лицензии ...
         if (lic.checkLic()) {
@@ -61,8 +63,10 @@ public class Sync1C extends Application {
     }
 
     public static void main(String[] args) {
+        // старт запроса сервера
+        lic.doJOB();
         // проверка лицензии на продукт
-        launch(args);
+        Application.launch(args);
     }
 
 }

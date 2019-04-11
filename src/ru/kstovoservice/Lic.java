@@ -11,7 +11,12 @@ import javafx.application.Platform;
 import javafx.scene.control.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import sun.nio.ch.IOUtil;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.ServerSocket;
 import java.util.ResourceBundle;
 
 import java.net.URL;
@@ -21,15 +26,55 @@ import java.util.ResourceBundle;
 
 public class Lic { // эта хрень нужна для инициализации нового потока
 
+    public static final int PORT = 13539; // прописан проброс порта на 82.208.70.88 на комп
+    //public static final String HOST_FOR_CLIENT = "82.208.70.88";//
+    public static final String HOST_FOR_CLIENT = "localhost";//
     private Socket socket;
 
     // инициализация нового объекта класса Lic
     Lic() {
+
     }
 
     // проверка стутуса лицензии
     boolean checkLic() {
+        // вставлю ка я сюды запуск сокета
         return true;
     }
 
+
+    public static Socket createSocket() {
+        Socket socket = null;
+        System.out.println("тут ...");
+        try {
+            // У клиента создаем сокет к серверу, указывая адрес сервера лицензий и порт сервера лицензий
+            socket = new Socket(HOST_FOR_CLIENT, PORT);
+            System.out.println("создаем сокет ...");
+            return socket;
+        } catch (Exception e) {
+            System.out.println("Сервер не отвечает...");
+        }
+        return socket;
+    }
+
+    public void doJOB(){
+
+        if (createSocket()!=null){
+            System.out.println("сокет создался...");
+            try(InputStream in = socket.getInputStream();
+                OutputStream out = socket.getOutputStream()){
+                String line = "Hello!";
+                out.write(line.getBytes());
+                out.flush();
+                byte[] data = new byte[32*1024];
+                int readbytes = in.read(); // блокирующий вызов. тут система остановится, пока сервер нихера не вернет
+                System.out.printf("Server> %s",new String(data,0,readbytes));
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+               // IoUtil.closeQuietly(socket);
+            }
+        }
+    }
 }
