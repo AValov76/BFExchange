@@ -16,20 +16,18 @@ import sun.nio.ch.IOUtil;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.ServerSocket;
+import java.net.*;
 import java.util.ResourceBundle;
 
-import java.net.URL;
-import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Lic { // эта хрень нужна для инициализации нового потока
 
     public static final int PORT = 13539; // прописан проброс порта на 82.208.70.88 на комп
-    //public static final String HOST_FOR_CLIENT = "82.208.70.88";//
-    public static final String HOST_FOR_CLIENT = "localhost";//
-    private Socket socket;
+    public static final String HOST_FOR_CLIENT = "82.208.70.88";//
+    //    public static final String HOST_FOR_CLIENT = "localhost";//
+    private static Socket socket;
 
     // инициализация нового объекта класса Lic
     Lic() {
@@ -44,7 +42,7 @@ public class Lic { // эта хрень нужна для инициализац
 
 
     public static Socket createSocket() {
-        Socket socket = null;
+        socket = null;
         System.out.println("тут ...");
         try {
             // У клиента создаем сокет к серверу, указывая адрес сервера лицензий и порт сервера лицензий
@@ -57,23 +55,31 @@ public class Lic { // эта хрень нужна для инициализац
         return socket;
     }
 
-    public void doJOB(){
+    public void doJOB() {
 
-        if (createSocket()!=null){
+        if (createSocket() != null) {
             System.out.println("сокет создался...");
-            try(InputStream in = socket.getInputStream();
-                OutputStream out = socket.getOutputStream()){
+            try {
+
+                InputStream in = socket.getInputStream();
+                OutputStream out = socket.getOutputStream();
+
                 String line = "Hello!";
                 out.write(line.getBytes());
                 out.flush();
-                byte[] data = new byte[32*1024];
-                int readbytes = in.read(); // блокирующий вызов. тут система остановится, пока сервер нихера не вернет
-                System.out.printf("Server> %s",new String(data,0,readbytes));
 
-            } catch (IOException e) {
-                e.printStackTrace();
+                byte[] data = new byte[32 * 1024];
+                int readbytes = in.read(data); // блокирующий вызов. тут система остановится, пока сервер что-то не вернет
+                System.out.printf("Server> %s", new String(data, 0, readbytes));
+                System.out.println("\n");
+            } catch (SocketException e) {
+                System.out.println(e);
+            } catch (NullPointerException e) {
+                System.out.println("Не удалось соединиться с сервером (Socket=null)!");
+            } catch (Exception e) {
+
             } finally {
-               // IoUtil.closeQuietly(socket);
+                // IoUtil.closeQuietly(socket);
             }
         }
     }
