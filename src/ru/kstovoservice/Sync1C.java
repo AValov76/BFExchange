@@ -64,7 +64,7 @@ public class Sync1C extends Application {
 
     public static void main(String[] args) {
         // старт запроса сервера
-        lic.doJOB();
+        //lic.doJOB();
         // проверка лицензии на продукт
         Application.launch(args);
     }

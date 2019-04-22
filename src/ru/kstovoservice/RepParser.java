@@ -176,15 +176,14 @@ public class RepParser {
     private static String[] strDecompile (String string) {
         Pattern p = Pattern.compile(";");
         String[] str = p.split(string);
-        // оно не сохраноло последние пустые части -->   ;;;
+        // но оно не сохранило последние пустые части -->   ;;; ибо так работает split
         //посчитаем, сколько их было всего в строке
-        int semicilonCount = string.length() - string.replace(";", "").length();
+        int semicolonCount;
+        semicolonCount = string.length() - string.replace(";", "").length();
         // вычтем те, которые учлись
-        semicilonCount = semicilonCount - str.length+1;
+        semicolonCount = (semicolonCount - str.length) + 1;
 // допишем точку с запятой в последний элемент массива
-        for(int i=semicilonCount;i>0;i--){
-            str[str.length-1]= str[str.length-1]+";";
-        }
+        for(int i=semicolonCount;i>0;i--) str[str.length - 1] = str[str.length - 1] + ";";
         return str;
     }
 
@@ -193,6 +192,7 @@ public class RepParser {
         String str = String.join(";", s);
         return str;
     }
+
 
     private static void rep_IP_OOO (String repIPPath, String repOOOPath, List... lists) throws IOException {
         String pathIP = repIPPath + File.separator + Sync1C.REP_IP_FILENAME;
@@ -257,15 +257,15 @@ public class RepParser {
         for (String string : goods
                 )
             if (string.length() > 50) { //пихаем только сроки за исключением шапки
-                String[] str = strDecompile(string); // надо дописать девятку к SKU и 17 поле (группа печати) заменить 1 на 2
+                String[] str = strDecompile(string); // надо дописать девятку к SKU и 39 поле (группа печати) заменить 1 на 2
                 str[0] = Sync1C.SKU_MOD + str[0];
-                str[16] = Sync1C.OOO_PRINTGROUP_CODE;
+                str[38] = Sync1C.OOO_PRINTGROUP_CODE;
                 string = strСompile(str);
                 goodsFile.write(string);
                 goodsFile.write("\r\n");
             }
 
-        //удаляем файлы goodsIP goodsOOO как обработанные и их флаги (по методике надо поменять первый символ и удалить только флаг, но мне хочется именно удалить всё)
+        //удаляем файлы goodsIP goodsOOO как обработанные и их флаги (по руководству интератора  надо поменять первый символ и удалить только файл-флаг, но мне хочется именно удалить всё)
         filedelete(fullPathGoodsIP, fullPathGoodsIPFlag, fullPathGoodsOOO, fullPathGoodsFlagOOO);
 
         // Также надо сделать файл-флаг для goodsPOS
