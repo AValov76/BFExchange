@@ -26,6 +26,7 @@ public class RepParser {
         DT.put("2", "Сторно товара по свободной цене");
         DT.put("11", "Регистрация товара из справочника");
         DT.put("12", "Сторно товара из справочника");
+        DT.put("14", "____________________________");
         DT.put("15", "Скидка суммой на позицию товара");
         DT.put("17", "Скидка % на позицию товара");
         DT.put("21", "Регистрация купюр по свободной цене");
@@ -113,7 +114,12 @@ public class RepParser {
         }
         //printIP_OOO(new List[]{repIP, repOOO});
         rep_IP_OOO(repIPPath, repOOOPath, new List[]{repIP, repOOO});
+
+        // удаляем исходный отчет, на основании которого делались отчеты по ИП и ООО
+        filedelete(repfileName);
+
         return "Сформированы отчеты по ИП и ООО за заданный период";
+
     }
 
     // проверка длины чека
@@ -151,6 +157,7 @@ public class RepParser {
                 case "11":
                 case "2":
                 case "12":
+                case "14":
                     if (strDecomp[16].equals(Sync1C.OOO_PRINTGROUP_CODE)) {
                         return "ITEM_OOO";
                     } else

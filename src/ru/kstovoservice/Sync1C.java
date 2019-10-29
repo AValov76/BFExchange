@@ -1,9 +1,11 @@
 package ru.kstovoservice;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -11,11 +13,16 @@ import javafx.event.EventHandler;
 import javafx.stage.WindowEvent;
 import javafx.scene.Group;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Locale;
+
 public class Sync1C extends Application {
 
     public static Lic lic = new Lic();
 
     // константы, да дохуя констант получилось...
+    public static final String LIC_DATE = "2019-04-26";
     public static final String GOODS_IP_FILENAME = "goodsIP.spr";
     public static final String GOODS_IPFLAG_FILENAME = "goodsIP.flg";
     public static final String GOODS_OOO_FILENAME = "goodsOOO.spr";
@@ -28,7 +35,7 @@ public class Sync1C extends Application {
     public static final String SKU_MOD = "9";
     public static final String IP_PRINTGROUP_CODE = "1";
     public static final String OOO_PRINTGROUP_CODE = "2";
-    public static final int REPWAITTIME = 15;
+    public static final int REPWAITTIME = 30;
     public static final String PREFFILENAME = "company.xml";
     public static final String POSNAME = "Касса №";
     public static final String SHTRIHPOS = "Штрих";
@@ -66,7 +73,18 @@ public class Sync1C extends Application {
         // старт запроса сервера
         //lic.doJOB();
         // проверка лицензии на продукт
+        licdatecheck();
         Application.launch(args);
     }
+    public static void licdatecheck(){
+
+       SimpleDateFormat newDateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+       System.out.println(LIC_DATE.equals(LocalDate.now().toString()));
+       //Platform.exit();
+
+        //System.out.println(newDateFormat.format(oldDateFormat.parse(dateFrom.getValue().toString())));
+
+    }
+
 
 }

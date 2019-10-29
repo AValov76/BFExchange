@@ -1,30 +1,16 @@
 package ru.kstovoservice;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.application.Platform;
-import javafx.scene.control.*;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import sun.nio.ch.IOUtil;
-
-import java.io.IOException;
+import java.io.BufferedReader;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.*;
-import java.util.ResourceBundle;
-
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Lic { // эта хрень нужна для инициализации нового потока
 
-    public static final int PORT = 13539; // прописан проброс порта на 82.208.70.88 на комп
+    public static final int PORT = 13539; // порт на котором сидит сервер лицензий
     public static final String HOST_FOR_CLIENT = "82.208.70.88";//
     //    public static final String HOST_FOR_CLIENT = "localhost";//
     private static Socket socket;
@@ -32,12 +18,52 @@ public class Lic { // эта хрень нужна для инициализац
     // инициализация нового объекта класса Lic
     Lic() {
 
+        for (String s : sysInfoPOS()
+        ) {
+            System.out.println(s);
+        }
+
     }
 
     // проверка стутуса лицензии
     boolean checkLic() {
-        // вставлю ка я сюды запуск сокета
         return true;
+    }
+
+    // возвращает уникальный слепок характеристик данного компьютера в формате списка строк
+    List<String> sysInfoPOS() {
+        // innerclass так как будет не один запрос а несколько
+        class Scr {
+            String line, serial = "";
+            List<String> strSysInfoPOS;
+            String[] commands;
+
+            Scr(String... strings) {
+                strSysInfoPOS = new LinkedList<String>();
+                commands = strings;
+            }
+
+            public List<String> scrList() {
+
+                for (String s : commands
+                ) {
+                    try {
+                        Process process = Runtime.getRuntime().exec("cmd /c " + s);
+                        BufferedReader in = new BufferedReader(
+                                new InputStreamReader(process.getInputStream()));
+                        while ((line = in.readLine()) != null) {
+                            strSysInfoPOS.add(line);
+                        }
+                        in.close();
+                    } catch (Exception e) {
+                    }
+                }
+                return strSysInfoPOS;
+            }
+        }
+
+        return new Scr("wmic diskdrive get serialnumber", "systeminfo" ).scrList();
+
     }
 
 

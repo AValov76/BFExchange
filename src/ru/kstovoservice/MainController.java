@@ -32,6 +32,7 @@ import static javafx.application.Platform.runLater;
 public class MainController implements Initializable {
 
 
+
     // оно щелкает часами в потоке
     private int timerClock = Sync1C.REPWAITTIME;
 
@@ -295,7 +296,7 @@ public class MainController implements Initializable {
             if (!(getSelectedPOSData()[5].equals("1")))
                 throw new Error("У этой кассы не настроен раздельный учет ИП и ООО. Выгрузка в 1С не нужна.");//проверить что операция парсинга требуется
             if (!fileExist(getSelectedPOSData()[1] + "\\" + getSelectedPOSData()[3]))
-                throw new Error("Файл не существует");//проверить, что есть исходный файл отчета
+                throw new Error("Нет отчета с кассы, нажми кнопку запрос отчета на POS");//проверить, что есть исходный файл отчета
             if (!getSelectedPOSData()[2].equals(Sync1C.ATOLPOS))
                 throw new Error("Работа с кассами " + getSelectedPOSData()[2] + " не поддерживается в данной версии"); // касса Атол
             repNotify = RepParser.repParse(getSelectedPOSData()[1] + File.separator + getSelectedPOSData()[3], getSelectedPOSData()[6], getSelectedPOSData()[7]);// print отчета с кассы
