@@ -4,9 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,17 +15,22 @@ import java.util.regex.Pattern;
 
 public class RepParser {
 
-    // возможные типы транзакций (сделано для справки) - не пользовался
-    public static final Map<String, String> DT;
+
+    public static final Map<String, String> DT; // возможные типы транзакций (сделано для справки) - не пользовался
 
     static {
         DT = new TreeMap<String, String>();
         DT.put("1", "Регистрация товара по свободной цене");
         DT.put("2", "Сторно товара по свободной цене");
+        DT.put("3", "Установка спеццены");
+        DT.put("4", "Налог на товар по свободной цене");
+        DT.put("6", "Регистрация товара в ККТ под новый порядок по свободной цене");
         DT.put("11", "Регистрация товара из справочника");
         DT.put("12", "Сторно товара из справочника");
-        DT.put("14", "____________________________");
+        DT.put("13", "Установка цены из прайс-листа");
+        DT.put("14", "Налог на товар из справочника");
         DT.put("15", "Скидка суммой на позицию товара");
+        DT.put("16", "Регистрация товара в ККТ под новый порядок из справочника");
         DT.put("17", "Скидка % на позицию товара");
         DT.put("21", "Регистрация купюр по свободной цене");
         DT.put("22", "Сторно купюр по свободной цене");
@@ -53,7 +56,7 @@ public class RepParser {
         DT.put("85", "Скидка суммой на документ, распределенная по позициям");
         DT.put("87", "Скидка % на документ, распределенная по позициям");
         DT.put("120", "Отправка данных в ЕГАИС");
-    }
+    }// static блок будет выполнен при инициализации класса
 
 
     //парсер отчета с кассы - основной модуль

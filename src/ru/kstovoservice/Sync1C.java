@@ -1,20 +1,16 @@
 package ru.kstovoservice;
 
 import javafx.application.Application;
-import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.DatePicker;
-import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.event.EventHandler;
+import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import javafx.scene.Group;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Locale;
 
 public class Sync1C extends Application {
@@ -22,6 +18,10 @@ public class Sync1C extends Application {
     public static Lic lic = new Lic();
 
     // константы, да дохуя констант получилось...
+    public static final int PORT = 13539; // порт на котором сидит сервер лицензий
+    public static final String HOST_FOR_CLIENT = "127.0.0.1";//
+    //    public static final String HOST_FOR_CLIENT = "82.208.70.88";//
+    //    public static final String HOST_FOR_CLIENT = "localhost";//
     public static final String LIC_DATE = "2019-04-26";
     public static final String GOODS_IP_FILENAME = "goodsIP.spr";
     public static final String GOODS_IPFLAG_FILENAME = "goodsIP.flg";
@@ -35,7 +35,7 @@ public class Sync1C extends Application {
     public static final String SKU_MOD = "9";
     public static final String IP_PRINTGROUP_CODE = "1";
     public static final String OOO_PRINTGROUP_CODE = "2";
-    public static final int REPWAITTIME = 30;
+    public static final int REPWAITTIME = 30; // время ожидания отчета в секундах
     public static final String PREFFILENAME = "company.xml";
     public static final String POSNAME = "Касса №";
     public static final String SHTRIHPOS = "Штрих";
@@ -48,6 +48,7 @@ public class Sync1C extends Application {
 
         //в зависимости от результата проверки наличия лицензии ...
         if (lic.checkLic()) {
+            System.out.println("Запускаем приложение ...");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
             Parent root = loader.load();
             MainController mc = loader.getController(); //контроллер главной формы
@@ -79,7 +80,7 @@ public class Sync1C extends Application {
     public static void licdatecheck(){
 
        SimpleDateFormat newDateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
-       System.out.println(LIC_DATE.equals(LocalDate.now().toString()));
+       //System.out.println(LIC_DATE.equals(LocalDate.now().toString()));
        //Platform.exit();
 
         //System.out.println(newDateFormat.format(oldDateFormat.parse(dateFrom.getValue().toString())));

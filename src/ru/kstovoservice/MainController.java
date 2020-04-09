@@ -31,11 +31,8 @@ import static javafx.application.Platform.runLater;
 
 public class MainController implements Initializable {
 
-
-
     // оно щелкает часами в потоке
     private int timerClock = Sync1C.REPWAITTIME;
-
     // типа интерфейс данных (данные могут храниться по-разному, а интерфейс будет один и тот же)
     // этот интерфейс описан и реализован в классе Model.java
     public SetOfPOS data; //набор данных по каждому POS
@@ -205,8 +202,7 @@ public class MainController implements Initializable {
     }
 
     /* внутренний класс (inner class) предназначеннй для ожидания отчета с кассы
-        - это класс, так как он запускается в отдельном потоке
-        - этот класс имеет интерфейс Runnable так как запускается в отдельном потоке
+        - этот класс имеет интерфейс Runnable, запускается в отдельном потоке
         - он внутренний так как оперирует с объектами внешнего класса (выплевывает текстовые сообщения в элемент формы MainController)
     */
     class RepReq implements Runnable {

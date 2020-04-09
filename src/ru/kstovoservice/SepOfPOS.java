@@ -7,7 +7,6 @@ import javax.xml.parsers.ParserConfigurationException;
 // но можно ведь реализацию сделать и по-другому, а интерфейс типа останется этот же
 
 interface SetOfPOS {
-
     void addPOS(String posName, String... data);
 
     void addNewPOS();

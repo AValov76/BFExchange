@@ -4,42 +4,53 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.net.*;
+import java.net.Socket;
+import java.net.SocketException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Lic { // эта хрень нужна для инициализации нового потока
 
-    public static final int PORT = 13539; // порт на котором сидит сервер лицензий
-    public static final String HOST_FOR_CLIENT = "82.208.70.88";//
-    //    public static final String HOST_FOR_CLIENT = "localhost";//
+public class Lic {
+
     private static Socket socket;
 
     // инициализация нового объекта класса Lic
     Lic() {
-
-        for (String s : sysInfoPOS()
-        ) {
-            System.out.println(s);
-        }
-
+        System.out.println("Запускаем модуль Lic...");
     }
 
     // проверка стутуса лицензии
     boolean checkLic() {
+        // Пытаемся получить лицензию с сервера ...;
+        newLic();
+        System.out.println("Проверяем имеющуюся лицензию на корректность ...");
+        if (licHash()) {
+            System.out.println("Лицензия корректна ...");
+            return true;
+        } else {
+            System.out.println("Лицензия не корректна ...");
+        }
+        return false;
+    }
+
+    boolean licHash() {
+
         return true;
     }
 
-    // возвращает уникальный слепок характеристик данного компьютера в формате списка строк
-    List<String> sysInfoPOS() {
-        // innerclass так как будет не один запрос а несколько
+    // возвращает String с инфой о компе
+    String sysInfoPOS() {
+        String sysInfo = "";
+        // возвращает List<String> с инфой о компе
         class Scr {
+
             String line, serial = "";
-            List<String> strSysInfoPOS;
+
+            List<String> strSysInfoPOS = new LinkedList<String>();
+
             String[] commands;
 
             Scr(String... strings) {
-                strSysInfoPOS = new LinkedList<String>();
                 commands = strings;
             }
 
@@ -56,24 +67,28 @@ public class Lic { // эта хрень нужна для инициализац
                         }
                         in.close();
                     } catch (Exception e) {
+                        System.out.println("Ошибка чтения данных о компе-лицензиате");
                     }
                 }
                 return strSysInfoPOS;
             }
         }
+        for (String s : new Scr("wmic diskdrive get serialnumber", "systeminfo").scrList()) {
+            sysInfo = sysInfo + "\n" + s;
+        }
 
-        return new Scr("wmic diskdrive get serialnumber", "systeminfo" ).scrList();
+        return sysInfo;
 
     }
 
 
-    public static Socket createSocket() {
+    private static Socket createSocket() {
         socket = null;
-        System.out.println("тут ...");
+        System.out.println("Стучимся на сервер лицензий");
         try {
             // У клиента создаем сокет к серверу, указывая адрес сервера лицензий и порт сервера лицензий
-            socket = new Socket(HOST_FOR_CLIENT, PORT);
-            System.out.println("создаем сокет ...");
+            socket = new Socket(Sync1C.HOST_FOR_CLIENT, Sync1C.PORT);
+            System.out.println("Сервер ответил ...");
             return socket;
         } catch (Exception e) {
             System.out.println("Сервер не отвечает...");
@@ -81,23 +96,31 @@ public class Lic { // эта хрень нужна для инициализац
         return socket;
     }
 
-    public void doJOB() {
+    // пытаемся получить лицензию с сервера
+    // соединяемся с сервером,  получаем ответ и пишем его в файл по возможности
+    public void newLic() {
 
         if (createSocket() != null) {
-            System.out.println("сокет создался...");
+            System.out.println("Передаем данные претендента...");
             try {
 
                 InputStream in = socket.getInputStream();
                 OutputStream out = socket.getOutputStream();
 
-                String line = "Hello!";
+                String line = sysInfoPOS();
                 out.write(line.getBytes());
                 out.flush();
 
                 byte[] data = new byte[32 * 1024];
-                int readbytes = in.read(data); // блокирующий вызов. тут система остановится, пока сервер что-то не вернет
-                System.out.printf("Server> %s", new String(data, 0, readbytes));
-                System.out.println("\n");
+                System.out.println("Ждём ответ сервера ...");
+                int readbytes = in.read(data); // блокирующий вызов. тут всё остановится, пока сервер что-то не вернет
+                String anser = new String(data, 0, readbytes);
+                //System.out.printf("Server> %s \n", anser); //printf - удобная херь со времен С для печати текста по формату
+                System.out.println("Ответ получен ...");
+                // надыть записать ответ в файл
+                fileWrite(anser);
+
+
             } catch (SocketException e) {
                 System.out.println(e);
             } catch (NullPointerException e) {
@@ -109,4 +132,10 @@ public class Lic { // эта хрень нужна для инициализац
             }
         }
     }
+
+    void fileWrite(String anser) {
+        System.out.println("Пишем ответ в файл ...");
+        System.out.println("Записали ответ в файл ...");
+    } // пишет в файл ответ сервера
+
 }
