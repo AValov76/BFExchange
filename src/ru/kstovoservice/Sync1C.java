@@ -10,19 +10,28 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Locale;
+import java.util.Date;
 
 public class Sync1C extends Application {
-
-    public static Lic lic = new Lic();
+    public static final String licSerialNumber = "S2BENWAJ717128K";
+    public static final String LIC_DATE = "2021-04-01";
+    public static Lic lic;
+    static {
+        try {
+            Date licDate = new SimpleDateFormat("yyyy-MM-dd").parse(LIC_DATE);
+            lic = new Lic(licDate,licSerialNumber);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
 
     // константы, да дохуя констант получилось...
     public static final int PORT = 13539; // порт на котором сидит сервер лицензий
     public static final String HOST_FOR_CLIENT = "127.0.0.1";//
     //    public static final String HOST_FOR_CLIENT = "82.208.70.88";//
     //    public static final String HOST_FOR_CLIENT = "localhost";//
-    public static final String LIC_DATE = "2019-04-26";
     public static final String GOODS_IP_FILENAME = "goodsIP.spr";
     public static final String GOODS_IPFLAG_FILENAME = "goodsIP.flg";
     public static final String GOODS_OOO_FILENAME = "goodsOOO.spr";
@@ -42,6 +51,9 @@ public class Sync1C extends Application {
     public static final String ATOLPOS = "Атол";
     public static final String[] POSDATANAME = {"pathPOS", "typeofPOS", "repName", "flagName", "", "checkBoxIPOOO", "pathIP", "pathOOO"}; // пока не использовал
     public static final String[] POSDATA = {"C:\\Obmen", ATOLPOS, REP_POS_FILENAME, "report.flg", "0", "C:\\Obmen", "C:\\Obmen"};
+
+    public Sync1C() throws ParseException {
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception { // неплохо про устройство Stage-->Scence-->Parent-->None написано тут https://metanit.com/java/javafx/1.5.php
@@ -71,21 +83,8 @@ public class Sync1C extends Application {
     }
 
     public static void main(String[] args) {
-        // старт запроса сервера
-        //lic.doJOB();
         // проверка лицензии на продукт
-        licdatecheck();
         Application.launch(args);
     }
-    public static void licdatecheck(){
-
-       SimpleDateFormat newDateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
-       //System.out.println(LIC_DATE.equals(LocalDate.now().toString()));
-       //Platform.exit();
-
-        //System.out.println(newDateFormat.format(oldDateFormat.parse(dateFrom.getValue().toString())));
-
-    }
-
 
 }

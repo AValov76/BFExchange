@@ -6,17 +6,25 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.net.SocketException;
+import java.text.ParseException;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
 
 public class Lic {
+    public final String licSerialNumber;
+    public final Date licDate;
+    String thisSerialNumber;
 
     private static Socket socket;
 
     // инициализация нового объекта класса Lic
-    Lic() {
+    Lic(Date licDate,String licSerialNumber) throws ParseException {
+        this.licDate =licDate;
+        this.licSerialNumber = licSerialNumber;
         System.out.println("Запускаем модуль Lic...");
+
     }
 
     // проверка стутуса лицензии
@@ -24,6 +32,11 @@ public class Lic {
         // Пытаемся получить лицензию с сервера ...;
         newLic();
         System.out.println("Проверяем имеющуюся лицензию на корректность ...");
+        Date date = new Date();
+        if (licDate.compareTo(date)<=0){
+            System.out.println("Истек срок лицензии ...");
+            return false;
+        }
         if (licHash()) {
             System.out.println("Лицензия корректна ...");
             return true;
@@ -33,13 +46,15 @@ public class Lic {
         return false;
     }
 
-    boolean licHash() {
 
+    private boolean licHash() {
+        if (thisSerialNumber!=null && thisSerialNumber.equals(licSerialNumber))
         return true;
+        else return false;
     }
 
     // возвращает String с инфой о компе
-    String sysInfoPOS() {
+    String sysInfo() {
         String sysInfo = "";
         // возвращает List<String> с инфой о компе
         class Scr {
@@ -73,9 +88,19 @@ public class Lic {
                 return strSysInfoPOS;
             }
         }
-        for (String s : new Scr("wmic diskdrive get serialnumber", "systeminfo").scrList()) {
-            sysInfo = sysInfo + "\n" + s;
+        for (String s : new Scr("cmd /c chcp 437", "cmd /c vol C:","wmic diskdrive get serialnumber", "systeminfo").scrList()) {
+            sysInfo = sysInfo + " "+s;
         }
+        sysInfo = sysInfo.trim().replaceAll(" +", " ");
+        String[] strings = sysInfo.split(" ");
+        for (int i = 0; i < strings.length; i++) {
+            if (strings[i].equals("SerialNumber")) {
+              thisSerialNumber=strings[i+1];
+                //System.out.println(thisSerialNumber);
+              break;
+            };
+        }
+        //System.out.println(sysInfo);
 
         return sysInfo;
 
@@ -100,6 +125,7 @@ public class Lic {
     // соединяемся с сервером,  получаем ответ и пишем его в файл по возможности
     public void newLic() {
 
+        String line = sysInfo();
         if (createSocket() != null) {
             System.out.println("Передаем данные претендента...");
             try {
@@ -107,7 +133,6 @@ public class Lic {
                 InputStream in = socket.getInputStream();
                 OutputStream out = socket.getOutputStream();
 
-                String line = sysInfoPOS();
                 out.write(line.getBytes());
                 out.flush();
 
@@ -119,7 +144,6 @@ public class Lic {
                 System.out.println("Ответ получен ...");
                 // надыть записать ответ в файл
                 fileWrite(anser);
-
 
             } catch (SocketException e) {
                 System.out.println(e);
