@@ -6,10 +6,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.regex.Pattern;
 
 
@@ -268,6 +265,7 @@ public class RepParser {
                 )
             if (string.length() > 50) { //пихаем только сроки за исключением шапки
                 String[] str = strDecompile(string); // надо дописать девятку к SKU и 39 поле (группа печати) заменить 1 на 2
+                System.out.println(Arrays.toString(str));
                 str[0] = Sync1C.SKU_MOD + str[0];
                 str[38] = Sync1C.OOO_PRINTGROUP_CODE;
                 string = strСompile(str);

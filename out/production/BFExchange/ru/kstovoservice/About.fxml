@@ -8,6 +8,6 @@
 
 <AnchorPane prefHeight="80.0" prefWidth="462.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kstovoservice.AboutController">
    <children>
-      <Label layoutX="9.0" layoutY="3.0" lineSpacing="1.0" prefHeight="74.0" prefWidth="445.0" text="(c) ООО &quot;Кстовоторгсервис&quot;. Версия 1.1  Тел. +7 (902) 306-47-96 г.Кстово, 2019" />
+      <Label layoutX="9.0" layoutY="3.0" lineSpacing="1.0" prefHeight="74.0" prefWidth="445.0" text="(c)Валов Андрей Викторович.Версия 1.1  Тел. +7 (902) 306-47-96 г.Кстово, 2020" />
    </children>
 </AnchorPane>

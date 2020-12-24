@@ -6,10 +6,21 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="доделал все пункты меню редактирования касс&#10;осталось доделать запись этого говна в файл при закрытии формы &#10;и можно приступать к главному - настройке собственно запроса на выгрузку данных и контроль их поступления">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="сделал примитивную работу с лицензией&#10;по дате и по серийному номеру диска С&#10;то и другое надо протисать в исполняемый файл и скомпилировать под конкретную машину">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/BFExchange_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/BFExchange_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ru/kstovoservice/Lic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovoservice/Lic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company.xml" beforeDir="false" afterPath="$PROJECT_DIR$/company.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/About.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/About.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/Lic$1Scr.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/Lic$1Scr.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/Lic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/Lic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/MainController$RepReq.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/MainController$RepReq.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/RepParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/RepParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/Sync1C$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/Sync1C$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/Sync1C.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BFExchange/ru/kstovoservice/Sync1C.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/kstovoservice/About.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovoservice/About.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/kstovoservice/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovoservice/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/kstovoservice/RepParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovoservice/RepParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ru/kstovoservice/Sync1C.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/kstovoservice/Sync1C.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -131,7 +142,7 @@
     <property name="create.test.in.the.same.root" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -455,7 +466,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586438353002</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="сделал примитивную работу с лицензией&#10;по дате и по серийному номеру диска С&#10;то и другое надо протисать в исполняемый файл и скомпилировать под конкретную машину">
+      <created>1607952978001</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1607952978001</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -508,7 +526,8 @@
     <MESSAGE value="оставил в MainController только интерфейс взаимодействия с Model" />
     <MESSAGE value="исправил наистраннейший баг с формированием mapPOS после 3х часов ебли" />
     <MESSAGE value="доделал все пункты меню редактирования касс&#10;осталось доделать запись этого говна в файл при закрытии формы &#10;и можно приступать к главному - настройке собственно запроса на выгрузку данных и контроль их поступления" />
-    <option name="LAST_COMMIT_MESSAGE" value="доделал все пункты меню редактирования касс&#10;осталось доделать запись этого говна в файл при закрытии формы &#10;и можно приступать к главному - настройке собственно запроса на выгрузку данных и контроль их поступления" />
+    <MESSAGE value="сделал примитивную работу с лицензией&#10;по дате и по серийному номеру диска С&#10;то и другое надо протисать в исполняемый файл и скомпилировать под конкретную машину" />
+    <option name="LAST_COMMIT_MESSAGE" value="сделал примитивную работу с лицензией&#10;по дате и по серийному номеру диска С&#10;то и другое надо протисать в исполняемый файл и скомпилировать под конкретную машину" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

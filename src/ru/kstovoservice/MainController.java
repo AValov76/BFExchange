@@ -113,7 +113,6 @@ public class MainController implements Initializable {
 
     // проверка перед формированием флага запроса отчета
     private void repRequestControl() throws Error {
-
         if (!getSelectedPOSData()[2].equals(Sync1C.ATOLPOS))
             throw new Error("Работа с кассами " + getSelectedPOSData()[2] + " не поддерживается в данной версии"); // касса Атол
         if (typeOfRepChoiceBox.getSelectionModel().isSelected(0)) {
@@ -179,6 +178,9 @@ public class MainController implements Initializable {
     public void repRequestButtonAction(ActionEvent event) {
 
         try {
+
+            //удаление старого отчета, если он есть
+            fileDelete(getSelectedPOSData()[1] + "\\" + getSelectedPOSData()[3]);
             if (timerClock < Sync1C.REPWAITTIME) throw new Error("Дождитесь окончания предидущего запроса!");
             //проверка на корректность перед запросом
             repRequestControl();
@@ -263,10 +265,10 @@ public class MainController implements Initializable {
     }
 
     // удаление заданного файла
-    public void fileDelete(String flagName) {
+    public void fileDelete(String fileName) {
         //формирование имени файла
-        System.out.println("Удаление файла " + flagName);
-        File f = new File(flagName);
+        System.out.println("Удаление файла " + fileName);
+        File f = new File(fileName);
         if (f.exists() && !f.isDirectory()) {
             f.delete();
         }

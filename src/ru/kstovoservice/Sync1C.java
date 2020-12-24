@@ -1,5 +1,17 @@
 package ru.kstovoservice;
 
+
+/*
+Порядок формирования лицензии на программу
+1. Узнать SN компа командой wmic diskdrive get serialnumber
+2. Скопировать номер в строку public static final String licSerialNumber = "сюда";
+3. Установить требуемую дату лицензии
+4. Скомпилировать проект (он скомпилируется в папк test)
+5. шелкнуть по C:\test\exe_builder.exe4j
+6. нажать в открывшемся по кнопку finish
+7. положить exe шник с xml в папку на комп клиенту
+
+ */
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -15,8 +27,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Sync1C extends Application {
-    public static final String licSerialNumber = "S2BENWAJ717128K";
-    public static final String LIC_DATE = "2021-04-01";
+    public static final String licSerialNumber = "S2Y4J9EDA05429"; //мой 56242F970E7B3589 или S2BENWAJ717128K // клиента 2H0820074970
+    public static final String LIC_DATE = "2021-06-01";
     public static Lic lic;
     static {
         try {
@@ -76,7 +88,7 @@ public class Sync1C extends Application {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Информационное сообщение");
             alert.setHeaderText("Отсутствует лицензия на программный продукт!");
-            alert.setContentText("Обратитесь к разработчику! \nООО Кстовоторгсервис тел.\n+7(902)306-47-96 ");
+            alert.setContentText("Обратитесь к разработчику! \nВалов Андрей Викторович тел.\n+7(902)306-47-96 ");
             alert.showAndWait();
         }
 
