@@ -4,6 +4,7 @@ package ru.kstovoservice;
 /*
 Порядок формирования лицензии на программу
 1. Узнать SN компа командой wmic diskdrive get serialnumber
+C:\Users\Пользователь>
 2. Скопировать номер в строку public static final String licSerialNumber = "сюда";
 3. Установить требуемую дату лицензии
 4. Скомпилировать проект (он скомпилируется в папк test)
@@ -11,6 +12,7 @@ package ru.kstovoservice;
 6. нажать в открывшемся по кнопку finish
 7. положить exe шник с xml в папку на комп клиенту
 
+C:\Users\Пользователь>
  */
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -27,8 +29,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Sync1C extends Application {
-    public static final String licSerialNumber = "S2Y4J9EDA05429"; //мой 56242F970E7B3589 или S2BENWAJ717128K // клиента 2H0820074970
-    public static final String LIC_DATE = "2021-06-01";
+    /*
+    0000_0000_0100_0000_4CE0_0018_DD8C_9084. - ЭОЛ Дубрава
+     */
+    public static final String licSerialNumber = "0000_0000_0100_0000_4CE0_0018_DD8C_9084."; //мой 56242F970E7B3589 или S2BENWAJ717128K // клиента 2H0820074970
+    public static final String LIC_DATE = "2022-05-20";
     public static Lic lic;
     static {
         try {
@@ -56,7 +61,7 @@ public class Sync1C extends Application {
     public static final String SKU_MOD = "9";
     public static final String IP_PRINTGROUP_CODE = "1";
     public static final String OOO_PRINTGROUP_CODE = "2";
-    public static final int REPWAITTIME = 30; // время ожидания отчета в секундах
+    public static final int REPWAITTIME = 120; // время ожидания отчета в секундах
     public static final String PREFFILENAME = "company.xml";
     public static final String POSNAME = "Касса №";
     public static final String SHTRIHPOS = "Штрих";
