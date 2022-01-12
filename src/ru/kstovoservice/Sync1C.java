@@ -31,8 +31,13 @@ import java.util.Date;
 public class Sync1C extends Application {
     /*
     0000_0000_0100_0000_4CE0_0018_DD8C_9084. - ЭОЛ Дубрава
+    WD-WCC6Y4XHT631 - - ЭОЛ Чернуха Авокадо
+    2H0820074970 - Мечта Шолокша
+    S2Y4J9EDA05429 - Содружество Алла
+    S4BFNJ0N505098X - Миронова
+    202667801131 - Ю Сервер
      */
-    public static final String licSerialNumber = "0000_0000_0100_0000_4CE0_0018_DD8C_9084."; //мой 56242F970E7B3589 или S2BENWAJ717128K // клиента 2H0820074970
+    public static final String licSerialNumber = "202667801131"; //мой 56242F970E7B3589 или S2BENWAJ717128K // клиента 2H0820074970
     public static final String LIC_DATE = "2022-05-20";
     public static Lic lic;
     static {
